@@ -1,0 +1,562 @@
+[
+  {
+    "case": "external-joblib-0",
+    "package": "joblib",
+    "version": "1.1.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-6hrg-qmvc-2xh8&ecosystem=pip&type=reviewed&affects=joblib%401.1.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.206950+00:00",
+      "raw_sha256": "bcb4dfb1c78b1a430a0411e2b55a130ac7aacebe079917cd778e3ccb2f22267b"
+    },
+    "returned_ids": [
+      "GHSA-6hrg-qmvc-2xh8"
+    ]
+  },
+  {
+    "case": "external-joblib-1",
+    "package": "joblib",
+    "version": "1.1.1",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-6hrg-qmvc-2xh8&ecosystem=pip&type=reviewed&affects=joblib%401.1.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.885433+00:00",
+      "raw_sha256": "bcb4dfb1c78b1a430a0411e2b55a130ac7aacebe079917cd778e3ccb2f22267b"
+    },
+    "returned_ids": [
+      "GHSA-6hrg-qmvc-2xh8"
+    ]
+  },
+  {
+    "case": "external-joblib-2",
+    "package": "joblib",
+    "version": "1.2.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-6hrg-qmvc-2xh8&ecosystem=pip&type=reviewed&affects=joblib%401.2.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.349915+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-joblib-3",
+    "package": "joblib",
+    "version": "1.3.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-6hrg-qmvc-2xh8&ecosystem=pip&type=reviewed&affects=joblib%401.3.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.827397+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-scikit-learn-0",
+    "package": "scikit-learn",
+    "version": "0.24.2",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jxfp-4rvq-9h9m&ecosystem=pip&type=reviewed&affects=scikit-learn%400.24.2&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.355980+00:00",
+      "raw_sha256": "462638a9c2933375efe093a6db61d44dad951c5d3430ef4eecbed572733fa7c5"
+    },
+    "returned_ids": [
+      "GHSA-jxfp-4rvq-9h9m"
+    ]
+  },
+  {
+    "case": "external-scikit-learn-1",
+    "package": "scikit-learn",
+    "version": "1.0",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jxfp-4rvq-9h9m&ecosystem=pip&type=reviewed&affects=scikit-learn%401.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.009592+00:00",
+      "raw_sha256": "462638a9c2933375efe093a6db61d44dad951c5d3430ef4eecbed572733fa7c5"
+    },
+    "returned_ids": [
+      "GHSA-jxfp-4rvq-9h9m"
+    ]
+  },
+  {
+    "case": "external-scikit-learn-2",
+    "package": "scikit-learn",
+    "version": "1.0.1",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jxfp-4rvq-9h9m&ecosystem=pip&type=reviewed&affects=scikit-learn%401.0.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.549680+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-scikit-learn-3",
+    "package": "scikit-learn",
+    "version": "1.0.2",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jxfp-4rvq-9h9m&ecosystem=pip&type=reviewed&affects=scikit-learn%401.0.2&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:23.065865+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-scipy-0",
+    "package": "scipy",
+    "version": "0.11.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-xp76-357g-9wqq&ecosystem=pip&type=reviewed&affects=scipy%400.11.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.404404+00:00",
+      "raw_sha256": "59b3d19fb744de5f9bfe3076637bacf9cc8385e858a79d1b2dd34660b0f55ddf"
+    },
+    "returned_ids": [
+      "GHSA-xp76-357g-9wqq"
+    ]
+  },
+  {
+    "case": "external-scipy-1",
+    "package": "scipy",
+    "version": "0.12.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-xp76-357g-9wqq&ecosystem=pip&type=reviewed&affects=scipy%400.12.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.082704+00:00",
+      "raw_sha256": "59b3d19fb744de5f9bfe3076637bacf9cc8385e858a79d1b2dd34660b0f55ddf"
+    },
+    "returned_ids": [
+      "GHSA-xp76-357g-9wqq"
+    ]
+  },
+  {
+    "case": "external-scipy-2",
+    "package": "scipy",
+    "version": "0.12.1",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-xp76-357g-9wqq&ecosystem=pip&type=reviewed&affects=scipy%400.12.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.581501+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-scipy-3",
+    "package": "scipy",
+    "version": "0.13.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-xp76-357g-9wqq&ecosystem=pip&type=reviewed&affects=scipy%400.13.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:23.078578+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-torch-0",
+    "package": "torch",
+    "version": "1.12.1",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-47fc-vmwq-366v&ecosystem=pip&type=reviewed&affects=torch%401.12.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.204896+00:00",
+      "raw_sha256": "cc944413430996aa1e8fa821c8656865d3615174d1cd75179fcdd69f248a7fe5"
+    },
+    "returned_ids": [
+      "GHSA-47fc-vmwq-366v"
+    ]
+  },
+  {
+    "case": "external-torch-1",
+    "package": "torch",
+    "version": "1.13.0",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-47fc-vmwq-366v&ecosystem=pip&type=reviewed&affects=torch%401.13.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:21.835862+00:00",
+      "raw_sha256": "cc944413430996aa1e8fa821c8656865d3615174d1cd75179fcdd69f248a7fe5"
+    },
+    "returned_ids": [
+      "GHSA-47fc-vmwq-366v"
+    ]
+  },
+  {
+    "case": "external-torch-2",
+    "package": "torch",
+    "version": "1.13.1",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-47fc-vmwq-366v&ecosystem=pip&type=reviewed&affects=torch%401.13.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.307856+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-torch-3",
+    "package": "torch",
+    "version": "2.0.0",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-47fc-vmwq-366v&ecosystem=pip&type=reviewed&affects=torch%402.0.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:22.789358+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-transformers-0",
+    "package": "transformers",
+    "version": "4.29.1",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-282v-666c-3fvg&ecosystem=pip&type=reviewed&affects=transformers%404.29.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:24.502481+00:00",
+      "raw_sha256": "bc1f4522810d8400ddd26152f9d940f28e70b075006b1ae7520c80e5acedfd30"
+    },
+    "returned_ids": [
+      "GHSA-282v-666c-3fvg"
+    ]
+  },
+  {
+    "case": "external-transformers-1",
+    "package": "transformers",
+    "version": "4.29.2",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-282v-666c-3fvg&ecosystem=pip&type=reviewed&affects=transformers%404.29.2&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.180887+00:00",
+      "raw_sha256": "bc1f4522810d8400ddd26152f9d940f28e70b075006b1ae7520c80e5acedfd30"
+    },
+    "returned_ids": [
+      "GHSA-282v-666c-3fvg"
+    ]
+  },
+  {
+    "case": "external-transformers-2",
+    "package": "transformers",
+    "version": "4.30.0",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-282v-666c-3fvg&ecosystem=pip&type=reviewed&affects=transformers%404.30.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.726518+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-transformers-3",
+    "package": "transformers",
+    "version": "4.30.1",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-282v-666c-3fvg&ecosystem=pip&type=reviewed&affects=transformers%404.30.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.217087+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-tensorflow-0",
+    "package": "tensorflow",
+    "version": "1.5.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jfq2-rj7f-9gvf&ecosystem=pip&type=reviewed&affects=tensorflow%401.5.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.043896+00:00",
+      "raw_sha256": "2a3146a01ac3b9015acba9da62f432f71925f6365bf00f2cba2c4d10f71804d1"
+    },
+    "returned_ids": [
+      "GHSA-jfq2-rj7f-9gvf"
+    ]
+  },
+  {
+    "case": "external-tensorflow-1",
+    "package": "tensorflow",
+    "version": "1.5.1",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jfq2-rj7f-9gvf&ecosystem=pip&type=reviewed&affects=tensorflow%401.5.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.669789+00:00",
+      "raw_sha256": "2a3146a01ac3b9015acba9da62f432f71925f6365bf00f2cba2c4d10f71804d1"
+    },
+    "returned_ids": [
+      "GHSA-jfq2-rj7f-9gvf"
+    ]
+  },
+  {
+    "case": "external-tensorflow-2",
+    "package": "tensorflow",
+    "version": "1.6.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jfq2-rj7f-9gvf&ecosystem=pip&type=reviewed&affects=tensorflow%401.6.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.165602+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-tensorflow-3",
+    "package": "tensorflow",
+    "version": "1.7.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-jfq2-rj7f-9gvf&ecosystem=pip&type=reviewed&affects=tensorflow%401.7.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.666738+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-onnx-0",
+    "package": "onnx",
+    "version": "1.11.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-ffxj-547x-5j7c&ecosystem=pip&type=reviewed&affects=onnx%401.11.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:24.813363+00:00",
+      "raw_sha256": "5e3d601fb4f9bd4562823ecf909d0f042016a28d4fab88f8fb194b27dcf816fb"
+    },
+    "returned_ids": [
+      "GHSA-ffxj-547x-5j7c"
+    ]
+  },
+  {
+    "case": "external-onnx-1",
+    "package": "onnx",
+    "version": "1.12.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-ffxj-547x-5j7c&ecosystem=pip&type=reviewed&affects=onnx%401.12.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.414182+00:00",
+      "raw_sha256": "5e3d601fb4f9bd4562823ecf909d0f042016a28d4fab88f8fb194b27dcf816fb"
+    },
+    "returned_ids": [
+      "GHSA-ffxj-547x-5j7c"
+    ]
+  },
+  {
+    "case": "external-onnx-2",
+    "package": "onnx",
+    "version": "1.13.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-ffxj-547x-5j7c&ecosystem=pip&type=reviewed&affects=onnx%401.13.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.894752+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-onnx-3",
+    "package": "onnx",
+    "version": "1.13.1",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-ffxj-547x-5j7c&ecosystem=pip&type=reviewed&affects=onnx%401.13.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.359790+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-mlflow-0",
+    "package": "mlflow",
+    "version": "1.22.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-vqj2-4v8m-8vrq&ecosystem=pip&type=reviewed&affects=mlflow%401.22.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:24.884624+00:00",
+      "raw_sha256": "10d855c9a2872fb1d7bb844d13d3a65f06320184609ae62f6399ccd7a234f6ff"
+    },
+    "returned_ids": [
+      "GHSA-vqj2-4v8m-8vrq"
+    ]
+  },
+  {
+    "case": "external-mlflow-1",
+    "package": "mlflow",
+    "version": "1.23.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-vqj2-4v8m-8vrq&ecosystem=pip&type=reviewed&affects=mlflow%401.23.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:25.504516+00:00",
+      "raw_sha256": "10d855c9a2872fb1d7bb844d13d3a65f06320184609ae62f6399ccd7a234f6ff"
+    },
+    "returned_ids": [
+      "GHSA-vqj2-4v8m-8vrq"
+    ]
+  },
+  {
+    "case": "external-mlflow-2",
+    "package": "mlflow",
+    "version": "1.23.1",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-vqj2-4v8m-8vrq&ecosystem=pip&type=reviewed&affects=mlflow%401.23.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.048335+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-mlflow-3",
+    "package": "mlflow",
+    "version": "1.24.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-vqj2-4v8m-8vrq&ecosystem=pip&type=reviewed&affects=mlflow%401.24.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:26.536199+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-gradio-0",
+    "package": "gradio",
+    "version": "2.4.5",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-rhq2-3vr9-6mcr&ecosystem=pip&type=reviewed&affects=gradio%402.4.5&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:27.969535+00:00",
+      "raw_sha256": "a744786a9d599cfc59875afc703a42591b401eba6cde979b87c9d043e8d8f9e0"
+    },
+    "returned_ids": [
+      "GHSA-rhq2-3vr9-6mcr"
+    ]
+  },
+  {
+    "case": "external-gradio-1",
+    "package": "gradio",
+    "version": "2.4.6",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-rhq2-3vr9-6mcr&ecosystem=pip&type=reviewed&affects=gradio%402.4.6&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:28.611643+00:00",
+      "raw_sha256": "a744786a9d599cfc59875afc703a42591b401eba6cde979b87c9d043e8d8f9e0"
+    },
+    "returned_ids": [
+      "GHSA-rhq2-3vr9-6mcr"
+    ]
+  },
+  {
+    "case": "external-gradio-2",
+    "package": "gradio",
+    "version": "2.5.0",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-rhq2-3vr9-6mcr&ecosystem=pip&type=reviewed&affects=gradio%402.5.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:29.122764+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-gradio-3",
+    "package": "gradio",
+    "version": "2.5.1",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-rhq2-3vr9-6mcr&ecosystem=pip&type=reviewed&affects=gradio%402.5.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:29.639833+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-fastapi-0",
+    "package": "fastapi",
+    "version": "0.65.0",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-8h2j-cgx8-6xv7&ecosystem=pip&type=reviewed&affects=fastapi%400.65.0&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:28.115670+00:00",
+      "raw_sha256": "16e59ae9faeaebb9a8752bdb981cab513c61bd56cf06a7ab3795e2091b0887e5"
+    },
+    "returned_ids": [
+      "GHSA-8h2j-cgx8-6xv7"
+    ]
+  },
+  {
+    "case": "external-fastapi-1",
+    "package": "fastapi",
+    "version": "0.65.1",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "affected",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-8h2j-cgx8-6xv7&ecosystem=pip&type=reviewed&affects=fastapi%400.65.1&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:28.769343+00:00",
+      "raw_sha256": "16e59ae9faeaebb9a8752bdb981cab513c61bd56cf06a7ab3795e2091b0887e5"
+    },
+    "returned_ids": [
+      "GHSA-8h2j-cgx8-6xv7"
+    ]
+  },
+  {
+    "case": "external-fastapi-2",
+    "package": "fastapi",
+    "version": "0.65.2",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-8h2j-cgx8-6xv7&ecosystem=pip&type=reviewed&affects=fastapi%400.65.2&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:29.287197+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  },
+  {
+    "case": "external-fastapi-3",
+    "package": "fastapi",
+    "version": "0.65.3",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "outside_this_advisory",
+    "source": {
+      "url": "https://api.github.com/advisories?ghsa_id=GHSA-8h2j-cgx8-6xv7&ecosystem=pip&type=reviewed&affects=fastapi%400.65.3&per_page=100",
+      "retrieved_at": "2026-09-29T07:55:29.827175+00:00",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "returned_ids": []
+  }
+]

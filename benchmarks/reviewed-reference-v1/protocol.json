@@ -1,0 +1,37 @@
+{
+  "application_commit": "29f15ec795e92e4ed1da827d03a801d568e9a28b",
+  "packages": [
+    "joblib",
+    "scikit-learn",
+    "scipy",
+    "torch",
+    "transformers",
+    "tensorflow",
+    "onnx",
+    "mlflow",
+    "gradio",
+    "fastapi"
+  ],
+  "prior_advisory_ids_excluded": [
+    "CVE-2019-6446",
+    "CVE-2020-1747",
+    "CVE-2021-35042",
+    "CVE-2022-24303",
+    "CVE-2023-25577",
+    "CVE-2023-32681",
+    "CVE-2023-43804",
+    "CVE-2025-27516",
+    "CVE-2025-68463",
+    "GHSA-6757-jp84-gxfx",
+    "GHSA-9fq2-x9r6-wfmf",
+    "GHSA-9j59-75qj-795w",
+    "GHSA-cpwx-vrp4-4pq7",
+    "GHSA-j8r2-6x86-q33q",
+    "GHSA-v845-jxx5-vc9f",
+    "GHSA-x3vf-39hj-gxr4",
+    "GHSA-xg9f-g7g7-2323",
+    "GHSA-xpfp-f569-q3p2"
+  ],
+  "created_at": "2026-09-29T07:55:29.832791+00:00",
+  "label_type": "external_reviewed_service_reference_not_new_human_review"
+}
