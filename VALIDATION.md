@@ -4,7 +4,7 @@
 - Built the 0.4.1 wheel. Package, API and UI version metadata are synchronized; the previously stale Python `__version__` was corrected.
 - Targeted real-model ablation: **32 runs / 59 calls / 84,555 reported tokens**. All final audits passed. No-repair completion: single 5/8→8/8, multi 3/8→7/8. Context-evidence verifier events: 9→0. One revised-contract triage required review-priority repair.
 - All original run manifests verified. Public export aggregate checks reconcile per-run trace counts, tokens and audit decisions. See [methods, failures and raw data](docs/CITATION_ABLATION.md).
-- The previous 0.4 panel is preserved below. This is a new controlled development ablation, not an independent accuracy benchmark. Cross-platform 0.4.1 CI is recorded after publication.
+- The previous 0.4 panel is preserved below. This is a new controlled development ablation, not an independent accuracy benchmark. Implementation commit `74f6e4d8df0828959c0e9da5255663738a7e3598` passed all four Windows/Ubuntu x Python 3.11/3.12 jobs: [0.4.1 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36537137487). Subsequent documentation-only updates do not alter the tested code. The local web server was restarted with all four existing records preserved and a healthy worker; UI metadata reports 0.4.1.
 
 ## Historical validation — 0.4
 
