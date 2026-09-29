@@ -1,0 +1,62 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:00000000-0000-4000-8000-000000000001",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "bom-ref": "bioimage:rnaseq-demo",
+      "type": "container",
+      "name": "synthetic-rnaseq-demo",
+      "version": "2026.06",
+      "purl": "pkg:docker/example/synthetic-rnaseq-demo@2026.06"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:conda/fastqc@0.12.1",
+      "type": "application",
+      "name": "fastqc",
+      "version": "0.12.1",
+      "purl": "pkg:conda/fastqc@0.12.1"
+    },
+    {
+      "bom-ref": "pkg:deb/debian/openssl@3.0.13",
+      "type": "library",
+      "name": "openssl",
+      "version": "3.0.13",
+      "purl": "pkg:deb/debian/openssl@3.0.13",
+      "cpe": "cpe:2.3:a:openssl:openssl:3.0.13:*:*:*:*:*:*:*"
+    },
+    {
+      "bom-ref": "pkg:conda/zlib@1.3.1",
+      "type": "library",
+      "name": "zlib",
+      "version": "1.3.1",
+      "purl": "pkg:conda/zlib@1.3.1"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "bioimage:rnaseq-demo",
+      "dependsOn": [
+        "pkg:conda/fastqc@0.12.1",
+        "pkg:deb/debian/openssl@3.0.13"
+      ]
+    },
+    {
+      "ref": "pkg:conda/fastqc@0.12.1",
+      "dependsOn": [
+        "pkg:conda/zlib@1.3.1"
+      ]
+    },
+    {
+      "ref": "pkg:deb/debian/openssl@3.0.13",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:conda/zlib@1.3.1",
+      "dependsOn": []
+    }
+  ]
+}

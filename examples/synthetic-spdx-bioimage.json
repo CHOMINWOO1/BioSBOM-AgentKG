@@ -1,0 +1,94 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "synthetic-rnaseq-demo-spdx",
+  "documentNamespace": "https://example.org/spdx/synthetic-rnaseq-demo-202606",
+  "creationInfo": {
+    "created": "2026-06-04T00:00:00Z",
+    "creators": [
+      "Tool: BioSBOM-AgentKG synthetic fixture"
+    ]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-root",
+      "name": "synthetic-rnaseq-demo",
+      "versionInfo": "2026.06",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:docker/example/synthetic-rnaseq-demo@2026.06"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-fastqc",
+      "name": "fastqc",
+      "versionInfo": "0.12.1",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:conda/fastqc@0.12.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-openssl",
+      "name": "openssl",
+      "versionInfo": "3.0.13",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/openssl@3.0.13"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:openssl:openssl:3.0.13:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-zlib",
+      "name": "zlib",
+      "versionInfo": "1.3.1",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:conda/zlib@1.3.1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-root"
+    },
+    {
+      "spdxElementId": "SPDXRef-root",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-fastqc"
+    },
+    {
+      "spdxElementId": "SPDXRef-root",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-openssl"
+    },
+    {
+      "spdxElementId": "SPDXRef-fastqc",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-zlib"
+    }
+  ]
+}

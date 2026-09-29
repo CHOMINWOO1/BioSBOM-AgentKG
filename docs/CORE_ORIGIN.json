@@ -1,0 +1,8 @@
+{
+  "description": "Selected core modules retained from the original BioSBOM-AgentKG prototype; administrative paper pipelines excluded.",
+  "sha256": {
+    "schemas.py": "fe39436eaec6a7753835ee82c31963dd1e6a703782cd4f319cffaca19f8c317b",
+    "sbom.py": "53a2470faae01b8b1531161be30825dc7ed63936839ab1fd1573ef7811fd4a2d",
+    "risk.py": "d1a995179818f5aa99e86d4b357f4289d2f823d5b14e4a416866f8914a1f301a"
+  }
+}

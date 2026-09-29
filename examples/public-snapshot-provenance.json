@@ -1,0 +1,16 @@
+[
+  {
+    "id": "PYSEC-2023-74",
+    "source_url": "https://api.osv.dev/v1/vulns/PYSEC-2023-74",
+    "retrieved_at": "2026-09-29T05:49:29.682146+00:00",
+    "raw_response_sha256": "a8cf62be7bef83ee3f45b601756932152c5f8f050c3ad74a07a8b275a97a5913",
+    "projection": "id, aliases, modified, affected(package, versions, ranges)"
+  },
+  {
+    "id": "PYSEC-2023-58",
+    "source_url": "https://api.osv.dev/v1/vulns/PYSEC-2023-58",
+    "retrieved_at": "2026-09-29T05:49:30.045442+00:00",
+    "raw_response_sha256": "295f8c26bb8565b07f899fdd193bb7e91df15b5a43d763a3b80a617ec20c041f",
+    "projection": "id, aliases, modified, affected(package, versions, ranges)"
+  }
+]

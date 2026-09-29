@@ -1,0 +1,49 @@
+{
+  "title": "BioSBOM-AgentKG | Controlled recovery experiment",
+  "subtitle": "570 scripted runs; 57 conditions \u00d7 10 seeds. No live LLM inference in these results.",
+  "panels": [
+    {
+      "title": "Transient fault cases \u00b7 repaired and accepted",
+      "labels": [
+        "Single pass",
+        "Single + repair",
+        "Multi-agent + repair"
+      ],
+      "values": [
+        0,
+        90,
+        90
+      ],
+      "value_labels": [
+        "0 / 90",
+        "90 / 90",
+        "90 / 90"
+      ],
+      "xlabel": "Cases",
+      "xlim": [
+        0,
+        120
+      ]
+    },
+    {
+      "title": "Mean calls per transient fault case",
+      "labels": [
+        "Single pass",
+        "Single + repair",
+        "Multi-agent + repair"
+      ],
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "xlabel": "Provider attempts",
+      "xlim": [
+        0,
+        4.3
+      ]
+    }
+  ],
+  "boundary": "A scripted provider returns corrected output after feedback. These are control-flow tests, not model accuracy.\nRepair-enabled single-agent and multi-agent systems both recovered; multi-agent used more calls.",
+  "source": "docs/experiments/fault-injection/raw-results.json"
+}
