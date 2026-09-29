@@ -5,7 +5,7 @@
 - Real browser: visible CVSS-missing explanation, record-specific review target, default hold decision, model-connection recovery guidance. Review dialog fits a requested 390px viewport (375px content width, 341px dialog) without horizontal overflow. Screenshot uses an existing synthetic deployment and does not submit a human decision.
 - Real-model triage ablation: **48 runs / 75 calls / 118,108 reported tokens**. All final audits passed; revised single/multi each 12/12 without repair. Original multi had three review-required corrections. Single-token and multi-latency regressions are reported rather than hidden.
 - All 48 saved run manifests and public trace totals verified. The 0.4.2 wheel was built with UI/example assets. Local original inputs and prior experiment exports are retained.
-- Cross-platform release CI is recorded after publication. Prior experiments below retain their original interpretation; no cross-panel accuracy pooling.
+- Implementation `ea333d7252f7f098ff4bd1a914b259bf0c9a00e1` passed all four Ubuntu/Windows x Python 3.11/3.12 jobs, including Python and Node tests, lint and CLI run/verification/evaluation: [0.4.2 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36538469659). Later documentation-only commits do not change this tested implementation. The local server restarted healthy with all four records preserved, and the updated browser loaded the preserved public/synthetic case without console errors. Prior experiments below retain their original interpretation; no cross-panel accuracy pooling.
 
 ## Historical validation — 0.4.1
 
@@ -38,3 +38,5 @@ python benchmarks/run_public_corpus.py --output runs/public-validation --repeats
 The historical 0.3 implementation passed four Ubuntu/Windows × Python 3.11/3.12 jobs: [0.3 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). The 0.4 implementation at `dea7ed0bfe3754777ff51170ace3484de3ef90f6` passed all four Ubuntu/Windows x Python 3.11/3.12 jobs, including tests, lint, JavaScript syntax and CLI run/verify/evaluation: [0.4 CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36536134316). Later documentation-only changes do not alter this tested implementation. The staged publication also passed Gitleaks 8.30.1 and a private-path/credential/internal-address check. Published records were cross-checked against all 48 call traces and token totals.
 
 See [methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench](docs/WORKBENCH.md), and [remaining work](docs/STATUS.md). No independent expert-label accuracy or multi-user deployment claim is made.
+
+CI maintenance note: this successful run also reports Node 20 action-runtime deprecation warnings for checkout@v4/setup-python@v5 and an upcoming ubuntu-latest image migration. These are maintenance items, not failed checks.
