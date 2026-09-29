@@ -18,6 +18,6 @@ node --check src/biosbom_agentkg/web/static/app.js
 python benchmarks/run_public_corpus.py --output runs/public-validation --repeats 30
 ```
 
-The historical 0.3 implementation passed four Ubuntu/Windows × Python 3.11/3.12 jobs: [0.3 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). The 0.4 publication CI record is added after the remote run completes; the old run is not evidence for the new implementation.
+The historical 0.3 implementation passed four Ubuntu/Windows × Python 3.11/3.12 jobs: [0.3 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). The 0.4 implementation at `dea7ed0bfe3754777ff51170ace3484de3ef90f6` passed all four Ubuntu/Windows x Python 3.11/3.12 jobs, including tests, lint, JavaScript syntax and CLI run/verify/evaluation: [0.4 CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36536134316). Later documentation-only changes do not alter this tested implementation. The staged publication also passed Gitleaks 8.30.1 and a private-path/credential/internal-address check. Published records were cross-checked against all 48 call traces and token totals.
 
 See [methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench](docs/WORKBENCH.md), and [remaining work](docs/STATUS.md). No independent expert-label accuracy or multi-user deployment claim is made.
