@@ -47,7 +47,9 @@ def test_preview_does_not_queue_or_call_provider(client, case):
 def test_preview_enforces_same_workload_and_csrf_limits(client, case):
     body = case.model_dump(mode="json")
     body["sbom"]["components"] *= 1000
-    assert client.post("/api/preview", json=body).status_code == 422
+    response = client.post("/api/preview", json=body)
+    assert response.status_code == 422
+    assert response.json()["reason"] == "workload_limit"
     client.headers.pop("x-biosbom-csrf")
     assert client.post("/api/preview", json=case.model_dump(mode="json")).status_code == 403
 
@@ -129,7 +131,9 @@ def test_cookie_and_content_security(client):
 def test_bounded_workload_and_malformed_nested_values(client, case):
     oversized = case.model_copy(deep=True)
     oversized.sbom["components"] *= 1000
-    assert client.post("/api/jobs", json=submission(oversized)).status_code == 422
+    response = client.post("/api/jobs", json=submission(oversized))
+    assert response.status_code == 422
+    assert response.json()["reason"] == "workload_limit"
     malformed = case.model_copy(deep=True)
     malformed.sbom["components"][0]["externalReferences"] = [None]
     # Unsupported fields may be ignored; malformed recognized identity cannot be accepted.

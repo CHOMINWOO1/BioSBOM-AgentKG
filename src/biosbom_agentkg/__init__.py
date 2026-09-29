@@ -3,5 +3,5 @@
 from .risk import calculate_risk_score
 from .schemas import AssetContext, Component, VEXStatus, Vulnerability
 
-__version__ = "0.4.1"
+__version__ = "0.4.2"
 __all__ = ["AssetContext", "Component", "VEXStatus", "Vulnerability", "calculate_risk_score"]

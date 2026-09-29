@@ -1,4 +1,13 @@
-# Validation record — 0.4.1
+# Validation record — 0.4.2
+
+- Local Python 3.12: **146 tests passed**, plus **5 Node UI state tests**; Ruff and JavaScript syntax pass. Policy cases cover missing/zero CVSS, uncertain versions and severity/exposure boundaries. The original comparison payload is checked against published 0.4.1 digests.
+- UI state tests cover out-of-order record/evidence responses, hidden stale controls after a failed load, immutable review target selection and safe non-JSON errors. They are targeted unit tests, not browser substitutes.
+- Real browser: visible CVSS-missing explanation, record-specific review target, default hold decision, model-connection recovery guidance. Review dialog fits a requested 390px viewport (375px content width, 341px dialog) without horizontal overflow. Screenshot uses an existing synthetic deployment and does not submit a human decision.
+- Real-model triage ablation: **48 runs / 75 calls / 118,108 reported tokens**. All final audits passed; revised single/multi each 12/12 without repair. Original multi had three review-required corrections. Single-token and multi-latency regressions are reported rather than hidden.
+- All 48 saved run manifests and public trace totals verified. The 0.4.2 wheel was built with UI/example assets. Local original inputs and prior experiment exports are retained.
+- Cross-platform release CI is recorded after publication. Prior experiments below retain their original interpretation; no cross-panel accuracy pooling.
+
+## Historical validation — 0.4.1
 
 - Local Python 3.12: **133 tests passed**; Ruff and JavaScript syntax pass. The five additional cases verify original 0.4 payload hashes, empty-concern citation rejection, run pairing, trace attribution and pre-dispatch budget refusal.
 - Built the 0.4.1 wheel. Package, API and UI version metadata are synchronized; the previously stale Python `__version__` was corrected.

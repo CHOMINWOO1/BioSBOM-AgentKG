@@ -1,0 +1,242 @@
+[
+  {
+    "case": "triage-missing-cvss-low",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 102
+  },
+  {
+    "case": "triage-missing-cvss-critical",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 113
+  },
+  {
+    "case": "triage-missing-cvss-kev",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 68
+  },
+  {
+    "case": "triage-missing-cvss-epss",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 84
+  },
+  {
+    "case": "triage-missing-version",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 66
+  },
+  {
+    "case": "triage-unsupported-range",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 88
+  },
+  {
+    "case": "triage-zero-is-present",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 105
+  },
+  {
+    "case": "triage-below-high-boundary",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 144
+  },
+  {
+    "case": "triage-high-boundary",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 152
+  },
+  {
+    "case": "triage-urgent-exposure-below",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 78
+  },
+  {
+    "case": "triage-urgent-exposure-boundary",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 112
+  },
+  {
+    "case": "triage-sensitive-critical",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 67
+  },
+  {
+    "case": "triage-missing-cvss-low",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 104
+  },
+  {
+    "case": "triage-missing-cvss-critical",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 144
+  },
+  {
+    "case": "triage-missing-cvss-kev",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1701
+  },
+  {
+    "case": "triage-missing-cvss-epss",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 8
+  },
+  {
+    "case": "triage-missing-version",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1623
+  },
+  {
+    "case": "triage-unsupported-range",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1631
+  },
+  {
+    "case": "triage-zero-is-present",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 109
+  },
+  {
+    "case": "triage-below-high-boundary",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 151
+  },
+  {
+    "case": "triage-high-boundary",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 127
+  },
+  {
+    "case": "triage-urgent-exposure-below",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 146
+  },
+  {
+    "case": "triage-urgent-exposure-boundary",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 129
+  },
+  {
+    "case": "triage-sensitive-critical",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 128
+  }
+]

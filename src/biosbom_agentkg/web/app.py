@@ -72,7 +72,7 @@ def create_app(
 
     app = FastAPI(
         title="BioSBOM Workbench",
-        version="0.4.1",
+        version="0.4.2",
         lifespan=lifespan,
         docs_url=None,
         redoc_url=None,
@@ -107,6 +107,7 @@ def create_app(
     @app.exception_handler(OSError)
     async def invalid(request, exc):
         known = {
+            "workload_limit": "workload_limit",
             "Artifact integrity check failed": "artifact_hash_mismatch",
             "Input/evidence mismatch": "evidence_mismatch",
             "Independent evidence recheck failed": "audit_mismatch",
@@ -134,7 +135,7 @@ def create_app(
         return {
             "csrf": request.scope["biosbom_csrf"],
             "llm_configured": ready,
-            "version": "0.4.1",
+            "version": "0.4.2",
             "local_only": True,
             "limits": {
                 "request_bytes": 2000000,

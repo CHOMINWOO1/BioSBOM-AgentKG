@@ -6,6 +6,7 @@ const state = {
   selected: null,
   job: null,
   events: [],
+  reviewJob: null,
   tab: 'findings',
   limit: 50,
   busy: false
@@ -41,10 +42,23 @@ const errors = {
   invalid_request: '입력 형식과 설정 범위를 확인하세요.',
   invalid_input_or_artifact: '입력 구조 또는 저장 파일의 무결성을 확인할 수 없습니다.',
   queue_full: '실행 대기열이 가득 찼습니다.',
+  request_too_large: '입력 전체가 2 MB 제한을 넘었습니다. 파일을 나누어 분석하세요.',
+  workload_limit: '구성요소나 advisory 조합이 너무 많거나 목록 형식이 잘못됐습니다. 입력 구조를 확인하고 분석 범위를 나누세요.',
   review_already_recorded: '이미 최종 검토가 기록된 분석입니다.',
   run_already_finished: '분석이 이미 종료되었습니다.',
   llm_consent_required: '모델 전송과 호출 비용 확인이 필요합니다.',
   idempotency_key_reused: '요청 키가 다른 입력에 사용되었습니다. 창을 다시 열어주세요.'
+};
+const auditHelp = {
+  review_required: '버전이 불확실하거나 CVSS가 없으면 수동 확인이 필요합니다. 근거를 보완하거나 보류하세요.',
+  context_evidence: '자산 맥락의 근거 인용이 누락되거나 일치하지 않습니다. 모델 재시도에도 실패하면 규칙 기반 결과와 비교하세요.',
+  evidence_mismatch: '원문 근거와 모델 인용이 일치하지 않습니다. 근거 원문을 확인하세요.',
+  context_mismatch: '맥락 판정이 입력 기준과 다릅니다. 자산 설정을 확인하세요.',
+  budget_exhausted: '호출 또는 토큰 예약 예산에 도달했습니다. 기록을 확인한 뒤 필요한 경우 새 실행의 예산을 조정하세요.',
+  connection_failed: '모델 연결에 실패했습니다. 서버의 모델 주소와 네트워크 연결을 확인하세요.',
+  incomplete_response: '모델 응답이 완료되지 않았습니다. 호출별 토큰 한도와 모델 설정을 확인하세요.',
+  http_401: '모델 인증에 실패했습니다. 서버의 API 키 설정을 확인하세요.',
+  http_429: '모델 사용량 또는 요청 제한에 도달했습니다. 공급자 상태를 확인한 뒤 재시도하세요.'
 };
 
 function node(tag, text, className) {
@@ -90,8 +104,10 @@ async function api(path, body) {
   } catch {
     throw new Error('서버에 연결할 수 없습니다. 실행 상태를 확인하세요.');
   }
-  const data = await response.json();
-  if (!response.ok) throw new Error(errors[data.error] || ('요청을 처리할 수 없습니다: ' + (data.error || response.status)));
+  let data;
+  try { data = await response.json(); }
+  catch { throw new Error('서버 응답을 해석할 수 없습니다. 연결 상태를 확인한 뒤 다시 시도하세요.'); }
+  if (!response.ok) throw new Error(errors[data.reason] || errors[data.error] || ('요청을 처리할 수 없습니다: ' + (data.error || response.status)));
   return data;
 }
 
@@ -179,17 +195,26 @@ async function refreshList() {
   renderList();
 }
 async function selectJob(id) {
+  $('review-dialog').close();
+  $('evidence-dialog').close();
+  state.reviewJob = null;
   state.selected = id;
   state.job = null;
   state.events = [];
   state.tab = 'findings';
   renderList();
   $('welcome').hidden = true;
-  $('workspace').hidden = false;
+  // Hide previous record controls until the newly selected record is loaded.
+  $('workspace').hidden = true;
+  notice('분석 기록을 불러오는 중입니다…');
   try {
     await refreshJob();
+    if (state.selected === id) {
+      $('workspace').hidden = false;
+      notice('');
+    }
   } catch (e) {
-    notice(e.message);
+    if (state.selected === id) notice(e.message);
   }
 }
 async function refreshJob() {
@@ -200,6 +225,7 @@ async function refreshJob() {
   const changed = !state.job || JSON.stringify(job) !== JSON.stringify(state.job);
   state.job = job;
   state.events = events;
+  $('workspace').hidden = false;
   if (changed) renderJob();
   renderPipeline();
 }
@@ -353,6 +379,7 @@ function renderResult() {
     target.append(table(['우선순위', '컴포넌트 / 버전', 'Advisory', '일치 근거', '원문'], findings.map(f => {
       const comp = node('div', f.component_name);
       comp.append(node('small', f.component_version || '버전 없음'));
+      comp.append(node('small', f.cvss == null ? 'CVSS 없음 · 수동 확인 필요' : 'CVSS ' + f.cvss));
       return [pill(assessments.get(f.finding_id)?.priority || '미검증'), comp, f.advisory_id, pill(f.match), button('근거 ' + f.evidence_ids.length + '건 →', () => showEvidence(f), 'text-button')];
     })));
     if (!findings.length) target.append(node('p', '이 스냅샷에서 후보가 발견되지 않았습니다. 전체 안전성은 보장하지 않습니다.', 'empty'));
@@ -363,7 +390,7 @@ function renderResult() {
     renderGraph(target, c);
   } else {
     target.append(pill(r.audit.passed ? 'success' : 'blocked'), node('p', r.audit.passed ? '근거·전체 항목 포함·영향 판정·정책 하한 검증 통과' : '검증 미통과', 'section-note'));
-    if (r.audit.issues.length) target.append(table(['코드', '대상', '설명'], r.audit.issues.map(i => [i.code, i.target, i.message])));
+    if (r.audit.issues.length) target.append(table(['코드', '대상', '설명 · 다음 조치'], r.audit.issues.map(i => [i.code, i.target, auditHelp[i.code] || i.message])));
     target.append(node('h3', '입력과 실행 설정'), node('p', 'SHA-256 · ' + r.input_sha256, 'hash'), node('pre', JSON.stringify({
       config: r.config,
       models: r.models,
@@ -440,6 +467,8 @@ function renderGraph(target, c) {
   if (edges.length) target.append(table(['상위 컴포넌트', '의존 대상'], edges));
 }
 async function showEvidence(f) {
+  const jobId = state.selected;
+  let request = 0;
   const target = $('evidence-content');
   target.replaceChildren(node('p', f.component_name + ' · ' + f.advisory_id), node('p', f.reason, 'help'));
   const buttons = node('div', undefined, 'evidence-list'),
@@ -448,12 +477,14 @@ async function showEvidence(f) {
   target.append(buttons, body);
   $('evidence-dialog').showModal();
   async function load(id) {
+    const currentRequest = ++request;
     body.replaceChildren(node('p', '불러오는 중…', 'help'));
     try {
-      const data = await api('jobs/' + state.selected + '/evidence/' + encodeURIComponent(id));
+      const data = await api('jobs/' + jobId + '/evidence/' + encodeURIComponent(id));
+      if (currentRequest !== request) return;
       body.replaceChildren(node('p', data.record.pointer, 'help'), node('p', 'SHA-256 · ' + data.record.sha256, 'hash'), node('pre', JSON.stringify(data.source, null, 2)));
     } catch (e) {
-      body.replaceChildren(node('p', e.message, 'form-error'));
+      if (currentRequest === request) body.replaceChildren(node('p', e.message, 'form-error'));
     }
   }
   await load(f.evidence_ids.find(x => x.startsWith('advisory:')) || f.evidence_ids[0]);
@@ -471,9 +502,11 @@ function renderReview() {
     info = node('div');
   info.append(node('h2', '사람의 검토로 마무리합니다'), node('p', '근거 원문과 판정을 확인한 뒤 최종 결정을 기록하세요. 패치·배포는 실행하지 않습니다.'));
   const b = button('최종 검토하기 →', () => {
+    state.reviewJob = j;
+    $('review-target').textContent = '검토 대상: ' + j.name + ' · ' + j.id.slice(0, 8);
     $('review-error').textContent = '';
     $('decision').options[0].disabled = j.state === 'blocked';
-    $('decision').value = j.state === 'blocked' ? 'hold' : 'approve';
+    $('decision').value = 'hold';
     $('review-dialog').showModal();
   }, 'primary');
   b.disabled = !j.result;
@@ -577,9 +610,14 @@ $('retry-form').addEventListener('submit', async e => {
 $('review-form').addEventListener('submit', async e => {
   e.preventDefault();
   const b = e.submitter;
+  const reviewed = state.reviewJob;
+  if (!reviewed) {
+    $('review-error').textContent = '검토 대상을 다시 열어주세요.';
+    return;
+  }
   b.disabled = true;
   try {
-    await api('jobs/' + state.selected + '/review', {
+    await api('jobs/' + reviewed.id + '/review', {
       decision: $('decision').value,
       reviewer: $('reviewer').value.trim(),
       reason: $('reason').value.trim()

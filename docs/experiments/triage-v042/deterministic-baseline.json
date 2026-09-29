@@ -1,0 +1,62 @@
+[
+  {
+    "case": "triage-missing-cvss-low",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-missing-cvss-critical",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-missing-cvss-kev",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-missing-cvss-epss",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-missing-version",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-unsupported-range",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-zero-is-present",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-below-high-boundary",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-high-boundary",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-urgent-exposure-below",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-urgent-exposure-boundary",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "triage-sensitive-critical",
+    "verified": true,
+    "calls": 0
+  }
+]

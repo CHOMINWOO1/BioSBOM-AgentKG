@@ -1,0 +1,59 @@
+{
+  "runs": 48,
+  "calls": 75,
+  "verified": 48,
+  "reported_tokens": 118108,
+  "all_usage_known": true,
+  "groups": [
+    {
+      "architecture": "single_agent",
+      "contract": "v041_original",
+      "runs": 12,
+      "verified": 12,
+      "no_repair_completion": 12,
+      "review_required_events": 0,
+      "calls": 12,
+      "reported_tokens": 24315,
+      "median_seconds": 3.0600045
+    },
+    {
+      "architecture": "single_agent",
+      "contract": "explicit_triage",
+      "runs": 12,
+      "verified": 12,
+      "no_repair_completion": 12,
+      "review_required_events": 0,
+      "calls": 12,
+      "reported_tokens": 25494,
+      "median_seconds": 2.8508044999999997
+    },
+    {
+      "architecture": "multi_agent",
+      "contract": "v041_original",
+      "runs": 12,
+      "verified": 12,
+      "no_repair_completion": 9,
+      "review_required_events": 3,
+      "calls": 27,
+      "reported_tokens": 36104,
+      "median_seconds": 5.318522
+    },
+    {
+      "architecture": "multi_agent",
+      "contract": "explicit_triage",
+      "runs": 12,
+      "verified": 12,
+      "no_repair_completion": 12,
+      "review_required_events": 0,
+      "calls": 24,
+      "reported_tokens": 32195,
+      "median_seconds": 5.550996
+    }
+  ],
+  "limits": [
+    "Targeted development panel, not independent labels",
+    "One repeat per cell",
+    "Requested model alias, no fixed backend revision",
+    "No monetary cost estimate"
+  ]
+}
