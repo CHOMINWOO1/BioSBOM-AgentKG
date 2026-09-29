@@ -137,6 +137,18 @@ def specialist_payload(role, case, collection, context=None, feedback=None):
         "evidence": [e.model_dump() for e in collection.evidence],
         "feedback": [i.model_dump() for i in (feedback or [])],
     }
+    if role in {"context", "single"}:
+        payload["context_citations"] = {
+            "required_evidence_ids": [
+                e.evidence_id for e in collection.evidence if e.kind == "context"
+            ],
+            "rule": (
+                "The context packet evidence_ids must contain exactly these IDs, once each, "
+                "even when concerns is empty or there are no findings. They identify the "
+                "snapshot that supports both presence and absence of threshold concerns. "
+                "Do not substitute SBOM or advisory evidence IDs."
+            ),
+        }
     if role == "context":
         payload["policy"] = {
             "concern_threshold": 7,
