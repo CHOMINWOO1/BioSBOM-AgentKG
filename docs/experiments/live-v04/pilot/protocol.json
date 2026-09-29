@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-09-29T07:03:30.502147+00:00",
+  "models": {
+    "context": "gpt-5.6-luna",
+    "triage": "gpt-5.6-luna",
+    "single": "gpt-5.6-luna"
+  },
+  "api_style": "responses",
+  "tokens_per_call": 2000,
+  "max_revisions": 2,
+  "case_hashes": [
+    "bb1978555f2508b908ea5c920eefec7944a10612e4a2fb2760baee23283d320a",
+    "9aded118a129736de8fdcc1891ebbbd5b325308dd87bf35efe5f494a32360ea5"
+  ],
+  "repeats": 1,
+  "schedule": [
+    [
+      1,
+      0,
+      "single_agent"
+    ],
+    [
+      0,
+      0,
+      "multi_agent"
+    ],
+    [
+      1,
+      0,
+      "multi_agent"
+    ],
+    [
+      0,
+      0,
+      "single_agent"
+    ]
+  ],
+  "shuffle_seed": 42,
+  "max_total_calls": 24,
+  "worst_case_calls": 24,
+  "measurement": "Verified completion, repairs, reported tokens and elapsed time; not scientific accuracy"
+}

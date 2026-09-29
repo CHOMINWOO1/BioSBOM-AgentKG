@@ -124,6 +124,11 @@ def run_case(
                         total += reply.total_tokens
                     candidate = schema.model_validate(reply.payload)
                 except (ProviderError, ValidationError) as exc:
+                    if isinstance(exc, ProviderError):
+                        if exc.total_tokens is None:
+                            usage_complete = False
+                        else:
+                            total += exc.total_tokens
                     code = str(exc) if isinstance(exc, ProviderError) else "schema_invalid"
                     # ProviderError codes originate from the transport; never log response bodies.
                     code = (

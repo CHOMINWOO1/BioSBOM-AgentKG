@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "biosbom-agentkg"
-version = "0.3.0"
+version = "0.4.0"
 description = "Evidence-checked multi-agent triage for bioinformatics software supply chains"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2.7,<3"]
+dependencies = ["pydantic>=2.7,<3", "packaging>=24,<27", "semver>=3,<4"]
 
 [project.optional-dependencies]
 web = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1"]

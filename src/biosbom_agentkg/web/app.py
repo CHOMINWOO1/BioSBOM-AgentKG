@@ -52,7 +52,7 @@ def validate_workload(case):
     ):
         raise ValueError("workload_limit")
     try:
-        CollectorAgent().run(case)
+        return CollectorAgent().run(case)
     except (TypeError, AttributeError, KeyError) as exc:
         raise ValueError("invalid_nested_input") from exc
 
@@ -72,7 +72,7 @@ def create_app(
 
     app = FastAPI(
         title="BioSBOM Workbench",
-        version="0.3.0",
+        version="0.4.0",
         lifespan=lifespan,
         docs_url=None,
         redoc_url=None,
@@ -134,7 +134,7 @@ def create_app(
         return {
             "csrf": request.scope["biosbom_csrf"],
             "llm_configured": ready,
-            "version": "0.3.0",
+            "version": "0.4.0",
             "local_only": True,
             "limits": {
                 "request_bytes": 2000000,
@@ -166,6 +166,21 @@ def create_app(
                 raise Conflict("llm_consent_required")
             provider_factory()  # fail before queuing if configuration is incomplete
         return service.submit(body.case, body.config, body.request_key)
+
+    @app.post("/api/preview")
+    def preview(case: Case):
+        """Read-only offline preflight: no jobs, artifacts, model or network calls."""
+        collection = validate_workload(case)
+        return {
+            "components": len(collection.sbom.components),
+            "advisories": len(case.advisories),
+            "findings": len(collection.findings),
+            "dispositions": [row.model_dump() for row in collection.dispositions],
+            "matches": [row.match for row in collection.findings],
+            "warnings": collection.warnings,
+            "source_format": collection.sbom.source_format,
+            "synthetic": case.synthetic,
+        }
 
     @app.get("/api/jobs/{job_id}")
     def job(job_id: str):

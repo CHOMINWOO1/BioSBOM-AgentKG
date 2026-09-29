@@ -48,7 +48,7 @@ class FaultProvider:
                 {
                     "finding_id": f["finding_id"],
                     "status": "affected"
-                    if f["match"] == "exact_version"
+                    if f["match"] in {"exact_version", "range_version"}
                     else "under_investigation",
                     "priority": payload["policy"]["minimum_priorities"][f["finding_id"]],
                     "evidence_ids": list(f["evidence_ids"]),

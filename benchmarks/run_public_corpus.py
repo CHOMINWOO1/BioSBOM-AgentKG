@@ -40,7 +40,21 @@ def fixture(record, variant):
         comp["purl"] = f"pkg:pypi/{package}"
         expected = "version_missing"
     elif variant == "fixed_boundary":
-        expected = "ambiguous"  # Range evaluation remains explicitly unsupported.
+        expected = "no_candidate"  # Fixed boundary is excluded by release ranges.
+    elif variant == "range_only":
+        for row in advisory["affected"]:
+            row["versions"] = []  # Remove enumeration to exercise release ranges.
+        expected = "range_version"
+    elif variant in {"invalid_version", "local_build"}:
+        version = "not-a-release" if variant == "invalid_version" else version + "+localpatch"
+        comp["version"] = version
+        comp["purl"] = f"pkg:pypi/{package}@{version}"
+        expected = "ambiguous"
+    elif variant == "git_only":
+        for row in advisory["affected"]:
+            row["versions"] = []
+            row["ranges"] = [r for r in row.get("ranges", []) if r["type"] == "GIT"]
+        expected = "ambiguous"
     elif variant == "other_ecosystem":
         comp["purl"] = f"pkg:npm/{package}@{version}"
         expected = "no_candidate"
@@ -76,6 +90,10 @@ def run(output, repeats=30):
         "missing_version",
         "other_ecosystem",
         "withdrawn",
+        "range_only",
+        "invalid_version",
+        "local_build",
+        "git_only",
     ]
     rows, cases = [], []
     for record in records:
@@ -172,7 +190,7 @@ def run(output, repeats=30):
         "latency_all_passed": all(r["passed"] for r in latencies),
         "limitations": [
             "Source-derived labels, not an independent clinical or exploitability benchmark",
-            "Fixed versions deliberately stay ambiguous: range handling is not implemented",
+            "Release ranges support PyPI PEP 440 and strict SemVer; other schemes remain review candidates",
             "Latency excludes HTTP, SQLite, artifact writing and LLM calls",
             "Eight PyPI advisories; not representative of all bioinformatics environments",
         ],

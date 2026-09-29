@@ -128,7 +128,7 @@ def verify_run(target: Path) -> tuple[Case, RunResult]:
             raise ValueError("Artifact integrity check failed")
     case = Case.model_validate_json((target / "input.json").read_text(encoding="utf-8"))
     result = RunResult.model_validate_json((target / "result.json").read_text(encoding="utf-8"))
-    if digest(case) != result.input_sha256 or digest(CollectorAgent().run(case)) != digest(
+    if digest(case) != result.input_sha256 or digest(CollectorAgent(legacy=result.schema_version == "2.0").run(case)) != digest(
         result.collection
     ):
         raise ValueError("Input/evidence mismatch")

@@ -1,0 +1,44 @@
+[
+  {
+    "case": "synthetic-rnaseq-triage",
+    "case_sha256": "bb1978555f2508b908ea5c920eefec7944a10612e4a2fb2760baee23283d320a",
+    "verified": true,
+    "calls": 0,
+    "findings": 3
+  },
+  {
+    "case": "public-osv-snapshot-synthetic-deployment",
+    "case_sha256": "9aded118a129736de8fdcc1891ebbbd5b325308dd87bf35efe5f494a32360ea5",
+    "verified": true,
+    "calls": 0,
+    "findings": 3
+  },
+  {
+    "case": "biopython-range_only",
+    "case_sha256": "dda81c26a16bd378c3a200c97e9c49e90900f1f7f4097708eded31797e1797cb",
+    "verified": true,
+    "calls": 0,
+    "findings": 1
+  },
+  {
+    "case": "biopython-missing_version",
+    "case_sha256": "3c024c71d942a370e7b073e8e0da43eb2df9d8cbaf7e7f2949fe67cf7a75ba6e",
+    "verified": true,
+    "calls": 0,
+    "findings": 1
+  },
+  {
+    "case": "biopython-git_only",
+    "case_sha256": "54a01f1f7c73b0ad9e79e6dfffdc1760a47aa28884cb5869b29a572f16ada21b",
+    "verified": true,
+    "calls": 0,
+    "findings": 1
+  },
+  {
+    "case": "synthetic-empty-advisory-snapshot",
+    "case_sha256": "5acb024d2546db31855ab4280481921a6f7f08936bb8c95c07fa72e210bfa60a",
+    "verified": true,
+    "calls": 0,
+    "findings": 0
+  }
+]

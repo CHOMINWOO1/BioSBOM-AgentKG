@@ -1,0 +1,69 @@
+{
+  "asset_id": "synthetic-public-snapshot-demo",
+  "source_format": "cyclonedx-json",
+  "bom_serial_number": null,
+  "root_component_ref": null,
+  "components": [
+    {
+      "name": "requests",
+      "version": "2.30.0",
+      "purl": "pkg:pypi/requests@2.30.0",
+      "cpe": null,
+      "bom_ref": "requests-affected",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    },
+    {
+      "name": "requests",
+      "version": "2.31.0",
+      "purl": "pkg:pypi/requests@2.31.0",
+      "cpe": null,
+      "bom_ref": "requests-newer",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    },
+    {
+      "name": "requests",
+      "version": null,
+      "purl": "pkg:pypi/requests",
+      "cpe": null,
+      "bom_ref": "requests-unknown",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    },
+    {
+      "name": "werkzeug",
+      "version": "2.2.2",
+      "purl": "pkg:pypi/werkzeug@2.2.2",
+      "cpe": null,
+      "bom_ref": "werkzeug-affected",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    },
+    {
+      "name": "werkzeug",
+      "version": "2.2.3",
+      "purl": "pkg:pypi/werkzeug@2.2.3",
+      "cpe": null,
+      "bom_ref": "werkzeug-newer",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    },
+    {
+      "name": "unrelated-example",
+      "version": "1.0",
+      "purl": "pkg:pypi/unrelated-example@1.0",
+      "cpe": null,
+      "bom_ref": "unrelated",
+      "component_type": null,
+      "ecosystem": "pypi",
+      "dependency_depth": 0
+    }
+  ],
+  "dependencies": {}
+}

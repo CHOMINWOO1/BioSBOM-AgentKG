@@ -23,6 +23,7 @@ const labels = {
   normal: '일반',
   review: '확인 필요',
   exact_version: '명시 버전 일치',
+  range_version: '영향 범위 일치',
   ambiguous: '범위 확인 필요',
   version_missing: '버전 누락',
   matched: '후보 발견',
@@ -115,9 +116,38 @@ function saveJSON(value, name) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function syncInputFields() {
+  const kind = $('example').value;
+  $('upload-fields').hidden = kind !== 'upload';
+  $('sbom-fields').hidden = kind !== 'sbom';
+  $('sbom-fields').disabled = kind !== 'sbom';
+  $('input-preview').hidden = true;
+}
+async function readFileJSON(id, label) {
+  const file = $(id).files[0];
+  if (!file) throw new Error(label + ' 파일을 선택하세요.');
+  if (file.size > 2000000) throw new Error('각 파일은 2 MB 이하여야 합니다.');
+  try { return JSON.parse(await file.text()); }
+  catch { throw new Error(label + ' 파일이 올바른 JSON이 아닙니다.'); }
+}
+async function readInput() {
+  const kind = $('example').value;
+  if (kind === 'upload') return readFileJSON('upload', 'Case JSON');
+  if (kind !== 'sbom') return api('examples/' + kind);
+  const sbom = await readFileJSON('sbom-file', 'SBOM');
+  const source = await readFileJSON('advisory-file', 'OSV');
+  if (!source || typeof source !== 'object') throw new Error('OSV는 advisory 배열 또는 단일 JSON 객체여야 합니다.');
+  if (!$('case-name').value.trim() || !$('asset-id').value.trim()) throw new Error('분석 이름과 자산 이름을 입력하세요.');
+  return {name: $('case-name').value.trim(), synthetic: $('synthetic-input').checked, sbom,
+    advisories: Array.isArray(source) ? source : [source], intelligence: [],
+    context: {asset_id: $('asset-id').value.trim(), criticality: Number($('ctx-criticality').value),
+      data_sensitivity: Number($('ctx-sensitivity').value), exposure: Number($('ctx-exposure').value),
+      security_control_score: Number($('ctx-controls').value)}};
+}
+
 function showNew(example = 'rnaseq-case') {
   $('example').value = example;
-  $('upload-fields').hidden = example !== 'upload';
+  syncInputFields();
   $('form-error').textContent = '';
   $('new-form').dataset.key = crypto.randomUUID();
   $('new-dialog').showModal();
@@ -194,22 +224,14 @@ function renderJob() {
     b.disabled = !!j.cancel_requested;
     a.append(b);
   }
-  if (['blocked', 'failed', 'interrupted', 'cancelled'].includes(j.state)) a.append(button('새 실행으로 재시도', async () => {
-    let ack = false;
-    if (j.mode === 'llm') {
-      ack = window.confirm('새 모델 호출과 데이터 전송이 발생합니다. 재실행할까요?');
-      if (!ack) return;
-    }
-    try {
-      const n = await api('jobs/' + j.id + '/retry', {
-        request_key: crypto.randomUUID(),
-        llm_acknowledged: ack
-      });
-      await refreshList();
-      await selectJob(n.id);
-    } catch (e) {
-      notice(e.message);
-    }
+  if (['blocked', 'failed', 'interrupted', 'cancelled'].includes(j.state)) a.append(button('새 실행으로 재시도', () => {
+    state.retryJob = j;
+    $('retry-form').dataset.key = crypto.randomUUID();
+    $('retry-consent').checked = false;
+    $('retry-consent').required = j.mode === 'llm';
+    $('retry-consent-label').hidden = j.mode !== 'llm';
+    $('retry-error').textContent = '';
+    $('retry-dialog').showModal();
   }));
   if (r) {
     for (const [kind, text] of [
@@ -241,7 +263,7 @@ function renderJob() {
   const urgent = assessments.filter(x => ['urgent', 'high'].includes(x.priority)).length;
   const stats = [
     ['컴포넌트', r ? r.collection.sbom.components.length : '—', '정규화된 입력 구성요소'],
-    ['검토 항목', r ? findings.length : '—', '명시 일치와 불확실 후보'],
+    ['검토 항목', r ? findings.length : '—', '명시·범위 일치와 불확실 후보'],
     ['긴급 · 높음', r ? urgent : '—', '검증을 통과한 우선순위'],
     ['모델 호출', r ? r.calls : '—', r ? `${r.duration_seconds.toFixed(3)}초 · ${r.reported_total_tokens} 보고 토큰${r.usage_complete?'':' (일부 누락)'}` : '호출별 예산 적용']
   ];
@@ -319,7 +341,7 @@ function renderResult() {
   }
   const c = r.collection;
   if (state.tab === 'findings') {
-    target.append(node('p', '명시 버전 일치는 취약점 악용 가능성의 증명이 아닙니다. 불확실한 버전 범위와 누락된 버전은 별도 검토합니다.', 'section-note'));
+    target.append(node('p', '버전·범위 일치는 취약점 악용 가능성의 증명이 아닙니다. 불확실한 버전 범위와 누락된 버전은 별도 검토합니다.', 'section-note'));
     const assessments = new Map((r.decisions?.assessments || []).map(a => [a.finding_id, a]));
     const rank = {
       urgent: 0,
@@ -472,7 +494,24 @@ $('more').addEventListener('click', async () => {
   }
 });
 $('example').addEventListener('change', () => {
-  $('upload-fields').hidden = $('example').value !== 'upload';
+  syncInputFields();
+});
+$('new-form').addEventListener('input', () => { $('input-preview').hidden = true; });
+$('preview-input').addEventListener('click', async () => {
+  const b = $('preview-input'); b.disabled = true;
+  $('form-error').textContent = '';
+  try {
+    const result = await api('preview', await readInput());
+    const counts = {};
+    for (const d of result.dispositions) counts[d.status] = (counts[d.status] || 0) + 1;
+    const content = $('input-preview');
+    content.replaceChildren(node('strong', `${result.source_format} · 컴포넌트 ${result.components}개 · advisory ${result.advisories}개 · 검토 후보 ${result.findings}개`),
+      node('p', Object.entries(counts).map(([key, value]) => `${labels[key] || key} ${value}개`).join(' / ')),
+      node('p', '미일치는 이 스냅샷에서 근거를 찾지 못한 상태이며 안전 보증이 아닙니다. 미리보기는 저장하거나 모델을 호출하지 않습니다.'));
+    if (result.warnings.length) content.append(node('p', '확인 사항: ' + result.warnings.join(', ')));
+    content.hidden = false;
+  } catch (e) { $('form-error').textContent = e.message; }
+  finally { b.disabled = false; }
 });
 $('mode').addEventListener('change', () => {
   $('consent-label').hidden = $('mode').value !== 'llm';
@@ -494,17 +533,7 @@ $('new-form').addEventListener('submit', async e => {
   submit.disabled = true;
   $('form-error').textContent = '';
   try {
-    let input;
-    if ($('example').value === 'upload') {
-      const file = $('upload').files[0];
-      if (!file) throw new Error('Case JSON 파일을 선택하세요.');
-      if (file.size > 2000000) throw new Error('파일은 2 MB 이하여야 합니다.');
-      try {
-        input = JSON.parse(await file.text());
-      } catch {
-        throw new Error('올바른 JSON 파일이 아닙니다.');
-      }
-    } else input = await api('examples/' + $('example').value);
+    const input = await readInput();
     if ($('mode').value === 'llm' && !$('llm-consent').checked) throw new Error(errors.llm_consent_required);
     const result = await api('jobs', {
       case: input,
@@ -529,6 +558,21 @@ $('new-form').addEventListener('submit', async e => {
   } finally {
     submit.disabled = false;
   }
+});
+$('retry-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const b = e.submitter, j = state.retryJob;
+  if (!j || (j.mode === 'llm' && !$('retry-consent').checked)) return;
+  b.disabled = true;
+  try {
+    const n = await api('jobs/' + j.id + '/retry', {
+      request_key: $('retry-form').dataset.key,
+      llm_acknowledged: $('retry-consent').checked
+    });
+    $('retry-dialog').close();
+    await refreshList(); await selectJob(n.id);
+  } catch (e) { $('retry-error').textContent = e.message; }
+  finally { b.disabled = false; }
 });
 $('review-form').addEventListener('submit', async e => {
   e.preventDefault();

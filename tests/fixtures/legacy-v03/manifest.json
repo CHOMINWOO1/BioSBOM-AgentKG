@@ -1,0 +1,15 @@
+{
+  "schema_version": "1",
+  "files": {
+    "audit.json": "48b25abe45b0822c3b85bd51f396ca9014a7e5dd8f416fb8842710c963b35354",
+    "events.jsonl": "0412065557e1be45ad294b76d40f9129ab1ee2327f66eb7bb03e023d8903c55d",
+    "evidence.json": "77e587a0a9d42a7c262fb2056dae5541673b399c7a715cfb5070416b1c386ca3",
+    "graph.json": "0742869f9c9aa7ffe67c54ad30892cab5375a9452fdf06d0e646a5a52d8e67ae",
+    "input.json": "f6704b4dc8c6f4a0ed23b074850200528817fe15ab68b1aa07551976d104f99c",
+    "normalized-sbom.json": "904c5b4a45738d3e860597ae1dfd52e76321ca40d69d25d621ce29230dc6b1cb",
+    "package-dispositions.csv": "125ff76f66e6c3d4f36b7237408b58737c500157e250fbde079fe944d557778b",
+    "report.html": "5abbccbff9261a29027a2c259060f1bf17ed86fc79ed976d6b291a4b2f3d62ce",
+    "report.md": "4c7b2a26293c5b981443f0fbdab138369bf2a774303b35de63664d2a23993be7",
+    "result.json": "8c15da7c67e06bb67e00567fa77f6af6409d8364423a8e4ba673dacf2c30ee67"
+  }
+}

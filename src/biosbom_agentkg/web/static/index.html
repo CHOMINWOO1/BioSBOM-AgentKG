@@ -7,7 +7,7 @@
   <div class="side-heading">분석 기록 <span id="run-count">0</span></div>
   <label class="sr-only" for="search">분석 기록 검색</label><input id="search" placeholder="이름으로 검색…" type="search">
   <nav id="run-list" aria-label="분석 기록"></nav><button class="ghost" id="more" hidden>기록 더 보기</button>
-  <div class="side-footer"><span class="live-dot"></span> LOCAL WORKSPACE<br><small>개인 검토 공간 · v0.3.0<br>입력과 실행 기록은 이 컴퓨터에 저장됩니다.</small></div>
+  <div class="side-footer"><span class="live-dot"></span> LOCAL WORKSPACE<br><small>개인 검토 공간 · v0.4.0<br>입력과 실행 기록은 이 컴퓨터에 저장됩니다.</small></div>
 </aside>
 <main>
   <header class="topbar"><span>Workspace <span class="slash">/</span> Supply chain review</span><span class="pill neutral" id="connection">연결 중</span></header>
@@ -31,8 +31,20 @@
   <footer class="main-footer">BioSBOM AgentKG <span>Evidence before action.</span></footer>
 </main>
 <dialog id="new-dialog"><form id="new-form"><div class="dialog-heading"><div><p class="eyebrow">NEW ANALYSIS</p><h2>분석 구성</h2></div><button type="button" class="icon-button close" aria-label="닫기">×</button></div>
-  <label for="example">입력 사례</label><select id="example"><option value="rnaseq-case">합성 RNA-seq 파이프라인</option><option value="public-snapshot-case">공개 OSV 스냅샷 · 합성 배포 환경</option><option value="upload">내 Case JSON 업로드</option></select>
+  <label for="example">입력 사례</label><select id="example"><option value="rnaseq-case">합성 RNA-seq 파이프라인</option><option value="public-snapshot-case">공개 OSV 스냅샷 · 합성 배포 환경</option><option value="upload">내 Case JSON 업로드</option><option value="sbom">SBOM + OSV 파일로 구성</option></select>
   <div id="upload-fields" hidden><label for="upload">Case JSON 파일 · 최대 2 MB</label><input id="upload" type="file" accept=".json,application/json"><p class="help">sbom, advisories, context를 포함한 Case 형식입니다. 아래에서 예제 형식을 내려받을 수 있습니다.</p></div>
+  <fieldset id="sbom-fields" hidden disabled>
+    <legend>내 소프트웨어 환경</legend>
+    <label for="sbom-file">SBOM JSON · CycloneDX 또는 SPDX</label><input id="sbom-file" type="file" accept=".json,application/json" required>
+    <label for="advisory-file">OSV 스냅샷 JSON · advisory 배열 또는 단일 기록</label><input id="advisory-file" type="file" accept=".json,application/json" required>
+    <p class="help">공개 또는 직접 준비한 스냅샷만 사용합니다. 네트워크로 패키지를 조회하지 않습니다. 빈 배열 []은 취약점 확인 자료가 없다는 뜻입니다.</p>
+    <label for="case-name">분석 이름</label><input id="case-name" maxlength="100" placeholder="예: RNA-seq 환경 정기 검토" required>
+    <label for="asset-id">자산 이름</label><input id="asset-id" maxlength="100" placeholder="예: 연구 분석 환경" required>
+    <label class="checkbox"><input id="synthetic-input" type="checkbox">합성 또는 데모 배포 환경입니다</label>
+    <div class="form-grid"><div><label for="ctx-criticality">중요도 (0–10)</label><input id="ctx-criticality" type="number" min="0" max="10" value="5" required></div><div><label for="ctx-sensitivity">데이터 민감도 (0–10)</label><input id="ctx-sensitivity" type="number" min="0" max="10" value="5" required></div><div><label for="ctx-exposure">외부 노출도 (0–10)</label><input id="ctx-exposure" type="number" min="0" max="10" value="5" required></div><div><label for="ctx-controls">보안 통제 수준 (0–10)</label><input id="ctx-controls" type="number" min="0" max="10" value="5" required></div></div>
+    <p class="help">기본값 5는 측정치가 아닙니다. 실제 환경에 맞게 입력하세요. 통제 수준은 높을수록 강한 통제입니다. CVSS·EPSS는 자동 추정하지 않습니다.</p>
+  </fieldset>
+  <button type="button" class="secondary" id="preview-input">입력 미리보기</button><div id="input-preview" class="help" role="status" hidden></div>
   <button type="button" class="text-button" id="download-example">Case 형식 예제 다운로드 ↓</button>
   <label for="mode">분석 모드</label><select id="mode"><option value="deterministic">규칙 기반 · 외부 전송 없음</option><option value="llm">LLM 전문가 · 서버의 모델 설정 사용</option></select>
   <p class="help" id="provider-note"></p><label class="checkbox" id="consent-label" hidden><input type="checkbox" id="llm-consent">컴포넌트·advisory ID·자산 맥락이 설정된 모델에 전달되며 호출 비용이 발생할 수 있음을 확인했습니다.</label>
@@ -41,4 +53,5 @@
 </form></dialog>
 <dialog id="evidence-dialog" class="wide-dialog"><div class="dialog-heading"><div><p class="eyebrow">SOURCE EVIDENCE</p><h2>근거 원문</h2></div><button class="icon-button close" aria-label="근거 닫기">×</button></div><div id="evidence-content"></div></dialog>
 <dialog id="review-dialog"><form id="review-form"><div class="dialog-heading"><div><p class="eyebrow">HUMAN REVIEW</p><h2>최종 검토 기록</h2></div><button type="button" class="icon-button close" aria-label="검토 닫기">×</button></div><p class="help">기록 후 수정할 수 없습니다. 승인해도 패치나 배포가 자동 실행되지 않습니다. 검토자 이름은 로컬 기록이며 인증된 신원이 아닙니다.</p><label for="decision">결정</label><select id="decision"><option value="approve">승인</option><option value="hold">보류</option><option value="reject">반려</option></select><label for="reviewer">검토자</label><input id="reviewer" required maxlength="100" autocomplete="off"><label for="reason">판단 근거</label><textarea id="reason" required maxlength="2000" rows="4" placeholder="확인한 근거와 후속 조치를 기록하세요."></textarea><p class="form-error" id="review-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary">검토 기록 확정</button></div></form></dialog>
+<dialog id="retry-dialog"><form id="retry-form"><div class="dialog-heading"><h2>새 실행으로 재시도</h2><button type="button" class="icon-button close" aria-label="재시도 닫기">×</button></div><p>기존 기록을 보존하고 같은 입력·설정으로 새 분석을 시작합니다.</p><label class="checkbox" id="retry-consent-label"><input type="checkbox" id="retry-consent">새 모델 호출·데이터 전송과 비용 발생을 확인했습니다.</label><p class="form-error" id="retry-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary">재시도 시작</button></div></form></dialog>
 </body></html>

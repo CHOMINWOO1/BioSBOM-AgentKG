@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>BioSBOM · public-osv-snapshot-synthetic-deployment</title><style>
+:root{color-scheme:light;--ink:#142d44;--muted:#526578;--line:#d9e3eb}
+*{box-sizing:border-box}body{margin:0;background:#f1f5f8;color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:1180px;margin:40px auto;padding:0 24px}header{border-top:5px solid #087f8c;padding:26px 0}
+.eyebrow{letter-spacing:.15em;font-size:12px;font-weight:700;color:#087f8c}h1{font-size:36px;line-height:1.2;margin:10px 0}
+h2{font-size:20px;margin:0 0 16px}p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card,section{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:24px}
+.card b{display:block;font-size:26px}.card span{font-size:13px;color:var(--muted)}.scroll{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}td,th{padding:12px;border-bottom:1px solid var(--line)}
+th{background:#f5f8fa}.hash{font:11px monospace;word-break:break-all}.badge{display:inline-block;background:#e2f3f1;padding:4px 12px;border-radius:20px}
+ol{padding-left:24px}li{padding:8px}li span{margin-left:20px;color:var(--muted)}footer{font-size:13px;color:var(--muted)}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}h1{font-size:27px}main{padding:0 12px}}
+</style></head><body><main><header><div class="eyebrow">BIOSBOM / EVIDENCE REVIEW</div>
+<h1>public-osv-snapshot-synthetic-deployment</h1><span class="badge">awaiting_human</span>
+<p>Mode: deterministic · Synthetic inputs: True · No remediation has been executed.</p></header>
+<div class="cards"><div class="card"><b>6</b><span>Components retained</span></div>
+<div class="card"><b>5</b><span>Advisory candidates</span></div>
+<div class="card"><b>0</b><span>Model calls</span></div>
+<div class="card"><b>PASS</b><span>Evidence verification</span></div></div>
+<section><h2>Triage queue</h2><p>Exact affected-version matches do not prove exploitation. Unmatched packages are not certified safe.</p>
+<div class="scroll"><table><thead><tr><th>Component</th><th>Version</th><th>Advisory</th><th>Match</th><th>Priority</th><th>CVSS</th></tr></thead><tbody><tr><td>requests</td><td>2.30.0</td><td>PYSEC-2023-74</td><td>exact_version</td><td>review</td><td>None</td></tr><tr><td>requests</td><td>2.31.0</td><td>PYSEC-2023-74</td><td>ambiguous</td><td>review</td><td>None</td></tr><tr><td>requests</td><td>unknown</td><td>PYSEC-2023-74</td><td>version_missing</td><td>review</td><td>None</td></tr><tr><td>werkzeug</td><td>2.2.2</td><td>PYSEC-2023-58</td><td>exact_version</td><td>review</td><td>None</td></tr><tr><td>werkzeug</td><td>2.2.3</td><td>PYSEC-2023-58</td><td>ambiguous</td><td>review</td><td>None</td></tr></tbody></table></div></section>
+<section><h2>Audit and human review</h2><ul><li>Structured decisions passed the configured evidence and priority checks.</li></ul>
+<p>Review the source snapshots and remaining uncertainty before recording a decision with the review command.</p></section>
+<section><h2>Agent transitions</h2><ol><li><strong>collector</strong><span>completed · attempt 0</span></li><li><strong>context</strong><span>proposed · attempt 0</span></li><li><strong>verifier</strong><span>passed · attempt 0</span></li><li><strong>triage</strong><span>proposed · attempt 0</span></li><li><strong>verifier</strong><span>passed · attempt 0</span></li><li><strong>reporter</strong><span>ready · attempt 0</span></li><li><strong>human_gate</strong><span>awaiting_human · attempt 0</span></li></ol></section>
+<section><h2>Evidence snapshots</h2><div class="scroll"><table><tr><th>Type</th><th>Input pointer</th><th>SHA-256</th></tr><tr><td>sbom</td><td>/sbom</td><td class='hash'>089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069</td></tr><tr><td>context</td><td>/context</td><td class='hash'>0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa</td></tr><tr><td>advisory</td><td>/advisories/0</td><td class='hash'>719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e</td></tr><tr><td>advisory</td><td>/advisories/1</td><td class='hash'>7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797</td></tr></table></div></section>
+<footer>BioSBOM-AgentKG 0.2 · Input fingerprint: 9aded118a129736de8fdcc1891ebbbd5b325308dd87bf35efe5f494a32360ea5<br>
+Calls: 0 · Completion reservation: 0 · Reported total tokens: 0
+ · Usage complete: True · Duration: 0.000853s</footer></main></body></html>

@@ -16,9 +16,11 @@ def load_script(name):
 
 def test_public_source_fixture_contracts(tmp_path):
     result = load_script("run_public_corpus").run(tmp_path / "public", repeats=1)
-    assert result["cases"] == 40
-    assert result["passed"] == 40
-    assert result["observed"]["ambiguous"] == 8
+    assert result["cases"] == 72
+    assert result["passed"] == 72
+    assert result["observed"]["no_candidate"] == 24
+    assert result["observed"]["range_version"] == 8
+    assert result["observed"]["ambiguous"] == 24
     assert result["latency_all_passed"]
 
 

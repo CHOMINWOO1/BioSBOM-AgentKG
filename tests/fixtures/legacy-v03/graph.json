@@ -1,0 +1,157 @@
+{
+  "nodes": [
+    {
+      "id": "asset:222a6adaf2f69372ddf8",
+      "type": "asset",
+      "name": "synthetic-public-snapshot-demo"
+    },
+    {
+      "id": "component:2cb1596e7806a90dedc0",
+      "type": "component",
+      "name": "requests",
+      "version": "2.30.0"
+    },
+    {
+      "id": "component:935feacd4b45aaca29f6",
+      "type": "component",
+      "name": "requests",
+      "version": "2.31.0"
+    },
+    {
+      "id": "component:21df2f65a52f5485bf9e",
+      "type": "component",
+      "name": "requests",
+      "version": null
+    },
+    {
+      "id": "component:5d0009e33cdc54db8cc6",
+      "type": "component",
+      "name": "werkzeug",
+      "version": "2.2.2"
+    },
+    {
+      "id": "component:42c94006e0dc23beb7ce",
+      "type": "component",
+      "name": "werkzeug",
+      "version": "2.2.3"
+    },
+    {
+      "id": "component:34dd830a7088d2242b63",
+      "type": "component",
+      "name": "unrelated-example",
+      "version": "1.0"
+    },
+    {
+      "id": "finding:c935bc0b4cadd62dda286f57",
+      "type": "finding",
+      "advisory": "PYSEC-2023-74",
+      "match": "exact_version",
+      "evidence_ids": [
+        "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+        "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+      ]
+    },
+    {
+      "id": "finding:d9ff3e17d2b1e4528218beb1",
+      "type": "finding",
+      "advisory": "PYSEC-2023-74",
+      "match": "ambiguous",
+      "evidence_ids": [
+        "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+        "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+      ]
+    },
+    {
+      "id": "finding:a7dd839666f7bc21bb863409",
+      "type": "finding",
+      "advisory": "PYSEC-2023-74",
+      "match": "version_missing",
+      "evidence_ids": [
+        "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+        "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+      ]
+    },
+    {
+      "id": "finding:dc46f8aa65d14ba94242bbf6",
+      "type": "finding",
+      "advisory": "PYSEC-2023-58",
+      "match": "exact_version",
+      "evidence_ids": [
+        "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+        "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+      ]
+    },
+    {
+      "id": "finding:30b0c132c780e45e549a40a7",
+      "type": "finding",
+      "advisory": "PYSEC-2023-58",
+      "match": "ambiguous",
+      "evidence_ids": [
+        "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+        "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:2cb1596e7806a90dedc0"
+    },
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:935feacd4b45aaca29f6"
+    },
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:21df2f65a52f5485bf9e"
+    },
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:5d0009e33cdc54db8cc6"
+    },
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:42c94006e0dc23beb7ce"
+    },
+    {
+      "source": "asset:222a6adaf2f69372ddf8",
+      "relation": "CONTAINS",
+      "target": "component:34dd830a7088d2242b63"
+    },
+    {
+      "source": "component:2cb1596e7806a90dedc0",
+      "relation": "HAS_CANDIDATE",
+      "target": "finding:c935bc0b4cadd62dda286f57"
+    },
+    {
+      "source": "component:935feacd4b45aaca29f6",
+      "relation": "HAS_CANDIDATE",
+      "target": "finding:d9ff3e17d2b1e4528218beb1"
+    },
+    {
+      "source": "component:21df2f65a52f5485bf9e",
+      "relation": "HAS_CANDIDATE",
+      "target": "finding:a7dd839666f7bc21bb863409"
+    },
+    {
+      "source": "component:5d0009e33cdc54db8cc6",
+      "relation": "HAS_CANDIDATE",
+      "target": "finding:dc46f8aa65d14ba94242bbf6"
+    },
+    {
+      "source": "component:42c94006e0dc23beb7ce",
+      "relation": "HAS_CANDIDATE",
+      "target": "finding:30b0c132c780e45e549a40a7"
+    }
+  ]
+}

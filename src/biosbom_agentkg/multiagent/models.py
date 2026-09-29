@@ -57,7 +57,7 @@ class Finding(Record):
     component_version: str | None
     advisory_id: str
     aliases: list[str]
-    match: Literal["exact_version", "ambiguous", "version_missing"]
+    match: Literal["exact_version", "range_version", "ambiguous", "version_missing"]
     reason: str
     evidence_ids: list[str]
     cvss: float | None = None
@@ -136,7 +136,7 @@ class RunConfig(Record):
 
 
 class RunResult(Record):
-    schema_version: str = "2.0"
+    schema_version: Literal["2.0", "2.1"] = "2.1"
     case_name: str
     input_sha256: str
     synthetic: bool

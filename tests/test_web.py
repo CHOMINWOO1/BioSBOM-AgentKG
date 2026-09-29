@@ -30,6 +30,28 @@ def submission(case, **kwargs):
     return {"case": case.model_dump(mode="json"), "request_key": str(uuid.uuid4()), **kwargs}
 
 
+def test_preview_does_not_queue_or_call_provider(client, case):
+    before = client.get("/api/jobs").json()["total"]
+    result = client.post("/api/preview", json=case.model_dump(mode="json"))
+    assert result.status_code == 200
+    assert result.json()["components"] == 5
+    assert result.json()["findings"] == 3
+    assert len(result.json()["dispositions"]) == 5
+    assert client.get("/api/jobs").json()["total"] == before
+    case.advisories = []
+    empty = client.post("/api/preview", json=case.model_dump(mode="json")).json()
+    assert empty["findings"] == 0
+    assert "empty_advisory_snapshot" in empty["warnings"]
+
+
+def test_preview_enforces_same_workload_and_csrf_limits(client, case):
+    body = case.model_dump(mode="json")
+    body["sbom"]["components"] *= 1000
+    assert client.post("/api/preview", json=body).status_code == 422
+    client.headers.pop("x-biosbom-csrf")
+    assert client.post("/api/preview", json=case.model_dump(mode="json")).status_code == 403
+
+
 def finished(client, job_id):
     deadline = time.monotonic() + 8
     while time.monotonic() < deadline:
@@ -149,7 +171,7 @@ def test_public_fixture_and_unknown_job(client):
     case = client.get("/api/examples/public-snapshot-case").json()
     job = client.post("/api/jobs", json={"case": case, "request_key": str(uuid.uuid4())}).json()
     result = finished(client, job["id"])["result"]
-    assert len(result["collection"]["findings"]) == 5
+    assert len(result["collection"]["findings"]) == 3
     assert client.get("/api/jobs/not-real").status_code == 404
     assert client.get("/api/examples/private").status_code == 422
 

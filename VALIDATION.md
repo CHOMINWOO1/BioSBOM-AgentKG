@@ -1,13 +1,14 @@
-# Validation record — 0.3
+# Validation record — 0.4
 
-- Local Python 3.12: **93 tests passed**. Existing evidence/orchestration/provider/storage tests plus durable queue, cross-origin/CSRF, body limits, safe errors, duplicate submissions, restart recovery, directory ownership, cancellation, immutable review, tamper rejection and research budget guards.
-- Ruff checks pass; JavaScript syntax checked with `node --check`.
-- Built the 0.3 wheel and confirmed all three UI assets and both example fixtures are included.
-- Browser: synthetic RNA-seq submit → three findings → advisory evidence → dependency graph → demo review. Restarted server and verified the preserved review. Tested a 390px responsive viewport; document width remained inside the viewport. Screenshots are synthetic demo records, not a real reviewer decision.
-- Public-source corpus: **40/40 expected outcomes**, with eight intentionally unresolved fixed-version boundary cases disclosed. Core timing: **90 measured runs**, 30 per size; all retained eight expected findings and passed verification.
-- Existing scripted fault injection: **570 runs**. It is not a live-model quality evaluation.
-- Live comparison runner: same-model and worst-case total-call constraints tested with mock transport. **No live-provider experiment has been run.**
-- One third-party deprecation warning: Starlette's current TestClient supports but deprecates the httpx transport in favor of httpx2. This does not fail these tests; transport migration remains a maintenance task.
+- Local Python 3.12: **128 tests passed**. Includes version boundaries, frozen 0.3 artifact verification, preview behavior, Responses strict-schema handling, usage accounting, evidence/orchestration/storage, web boundaries and durable queue behavior.
+- Built the 0.4 wheel: all three UI assets, both example fixtures and the version matcher are included.
+- Ruff passes; JavaScript syntax checked with `node --check`.
+- Public-source corpus: **72/72 expected contracts**. Eight fixed-version boundaries now produce no candidate instead of an ambiguous candidate; unsupported versions remain reviewable.
+- Core timing: **90 runs**, 30 per size; all retained eight expected findings and passed verification. HTTP, storage and LLM excluded.
+- Real provider main panel: **24 runs / 48 calls / 72,052 reported tokens**. Single+repair 12/12 and multi+repair 11/12 final acceptance; one failed context-evidence contract blocked. All reported usage known. Pilot 4 runs is recorded separately.
+- Scripted fault injection: historical **570 runs**, not a live-model experiment.
+- Browser: direct SBOM+OSV upload, preview without a new persisted job, execution, evidence viewing and bundle download. Existing 0.3 browser checks cover review, restart persistence and a 390px viewport. New model retry uses an in-page dialog and preserves the original record. A synthetic web retry completed with two real model calls and 4,135 reported tokens, reaching human-review pending in 10.326 seconds; this manual run is excluded from the research panel.
+- One third-party warning: Starlette TestClient deprecates its current httpx transport in favor of httpx2; tests still pass. Transport migration remains maintenance work.
 
 ```bash
 python -m pip install -e ".[web,dev]"
@@ -17,6 +18,6 @@ node --check src/biosbom_agentkg/web/static/app.js
 python benchmarks/run_public_corpus.py --output runs/public-validation --repeats 30
 ```
 
-The 0.3 implementation at commit `78fe4fe7c804f4dd81fac7d9bb81bc897c82a4fc` passed all four GitHub matrix jobs: Ubuntu and Windows on Python 3.11 and 3.12. Each job includes the 93 tests, lint, JavaScript syntax and CLI run/verification/evaluation: [recorded CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). Later documentation-only updates do not change the tested implementation.
+The historical 0.3 implementation passed four Ubuntu/Windows × Python 3.11/3.12 jobs: [0.3 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). The 0.4 publication CI record is added after the remote run completes; the old run is not evidence for the new implementation.
 
-See [research methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench behavior](docs/WORKBENCH.md), and [remaining acceptance criteria](docs/STATUS.md).
+See [methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench](docs/WORKBENCH.md), and [remaining work](docs/STATUS.md). No independent expert-label accuracy or multi-user deployment claim is made.

@@ -26,7 +26,7 @@ class ContextAgent:
 
 
 def minimum_priority(finding, context):
-    if finding.match != "exact_version" or finding.cvss is None:
+    if finding.match not in {"exact_version", "range_version"} or finding.cvss is None:
         return "review"
     if finding.kev is True or (finding.cvss >= 9 and context.exposure >= 7):
         return "urgent"
@@ -47,7 +47,7 @@ class TriageAgent:
             assessments=[
                 Assessment(
                     finding_id=f.finding_id,
-                    status="affected" if f.match == "exact_version" else "under_investigation",
+                    status="affected" if f.match in {"exact_version", "range_version"} else "under_investigation",
                     priority=minimum_priority(f, case.context),
                     evidence_ids=f.evidence_ids,
                 )
@@ -106,7 +106,7 @@ class VerificationAgent:
                 issues.append(Issue(code=code, target=target, message=message))
 
             expected_status = (
-                "affected" if finding.match == "exact_version" else "under_investigation"
+                "affected" if finding.match in {"exact_version", "range_version"} else "under_investigation"
             )
             if row.status != expected_status:
                 add(
@@ -150,7 +150,7 @@ def specialist_payload(role, case, collection, context=None, feedback=None):
             "minimum_priorities": {
                 f.finding_id: minimum_priority(f, case.context) for f in collection.findings
             },
-            "affected": "exact_version only; not proof of exploitation",
+            "affected": "exact_version or range_version; not proof of exploitation",
             "uncertainty": "retain review priority; never invent not_affected",
             "coverage": "every finding exactly once with all its evidence IDs",
             "escalation": "urgent > high > normal; cannot downgrade",

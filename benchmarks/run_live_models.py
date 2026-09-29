@@ -6,12 +6,13 @@ import argparse
 import csv
 import json
 import random
+from datetime import datetime, timezone
 from pathlib import Path
 
 from biosbom_agentkg.multiagent.engine import run_case
 from biosbom_agentkg.multiagent.evidence import digest
 from biosbom_agentkg.multiagent.models import Case, RunConfig
-from biosbom_agentkg.multiagent.provider import ChatProvider
+from biosbom_agentkg.multiagent.provider import ChatProvider, ProviderError
 from biosbom_agentkg.multiagent.storage import save_run, write_json
 
 
@@ -26,6 +27,24 @@ def evaluate_live(cases, output, provider, *, repeats=1, max_total_calls=48, see
     if len(set(provider.models.values())) != 1:
         raise ValueError("Paired comparison requires the same model for every role")
     output.mkdir(parents=True, exist_ok=False)
+    calls = []
+
+    class AuditedProvider:
+        models = provider.models
+
+        def complete(self, role, payload, schema, **kwargs):
+            record = {"role": role, "request_sha256": digest([role, payload, schema, kwargs])}
+            try:
+                reply = provider.complete(role, payload, schema, **kwargs)
+                record.update(output=reply.payload, total_tokens=reply.total_tokens)
+                return reply
+            except ProviderError as error:
+                record.update(error=str(error), total_tokens=error.total_tokens)
+                raise
+            finally:
+                calls.append(record)
+                write_json(output / "calls.json", calls)
+
     schedule = [
         (i, r, architecture)
         for i in range(len(cases))
@@ -36,7 +55,11 @@ def evaluate_live(cases, output, provider, *, repeats=1, max_total_calls=48, see
     write_json(
         output / "protocol.json",
         {
+            "created_at": datetime.now(timezone.utc).isoformat(),
             "models": provider.models,
+            "api_style": getattr(provider, "api_style", "test-adapter"),
+            "tokens_per_call": 2000,
+            "max_revisions": 2,
             "case_hashes": [digest(c) for c in cases],
             "repeats": repeats,
             "schedule": schedule,
@@ -57,7 +80,7 @@ def evaluate_live(cases, output, provider, *, repeats=1, max_total_calls=48, see
             max_revisions=2,
         )
         case = cases[case_index]
-        result = run_case(case, config, provider)
+        result = run_case(case, config, AuditedProvider())
         save_run(case, result, output / f"run-{index:04d}")
         rows.append(
             {

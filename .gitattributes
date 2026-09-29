@@ -2,3 +2,6 @@
 *.png binary
 *.jpg binary
 *.pdf binary
+
+# Frozen compatibility fixtures retain the exact bytes covered by their manifest.
+tests/fixtures/legacy-v03/* -text

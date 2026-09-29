@@ -1,0 +1,54 @@
+[
+  {
+    "run": 0,
+    "case_index": 1,
+    "repeat": 0,
+    "architecture": "single_agent",
+    "verified": true,
+    "status": "awaiting_human",
+    "calls": 1,
+    "seconds": 8.109778,
+    "reported_tokens": 2915,
+    "usage_complete": true,
+    "repairs": 0
+  },
+  {
+    "run": 1,
+    "case_index": 0,
+    "repeat": 0,
+    "architecture": "multi_agent",
+    "verified": true,
+    "status": "awaiting_human",
+    "calls": 2,
+    "seconds": 9.621005,
+    "reported_tokens": 4144,
+    "usage_complete": true,
+    "repairs": 0
+  },
+  {
+    "run": 2,
+    "case_index": 1,
+    "repeat": 0,
+    "architecture": "multi_agent",
+    "verified": true,
+    "status": "awaiting_human",
+    "calls": 3,
+    "seconds": 17.299916,
+    "reported_tokens": 5989,
+    "usage_complete": true,
+    "repairs": 1
+  },
+  {
+    "run": 3,
+    "case_index": 0,
+    "repeat": 0,
+    "architecture": "single_agent",
+    "verified": true,
+    "status": "awaiting_human",
+    "calls": 1,
+    "seconds": 5.106368,
+    "reported_tokens": 3177,
+    "usage_complete": true,
+    "repairs": 0
+  }
+]

@@ -1,0 +1,402 @@
+{
+  "schema_version": "2.0",
+  "case_name": "public-osv-snapshot-synthetic-deployment",
+  "input_sha256": "9aded118a129736de8fdcc1891ebbbd5b325308dd87bf35efe5f494a32360ea5",
+  "synthetic": true,
+  "mode": "deterministic",
+  "status": "awaiting_human",
+  "collection": {
+    "sbom": {
+      "asset_id": "synthetic-public-snapshot-demo",
+      "source_format": "cyclonedx-json",
+      "bom_serial_number": null,
+      "root_component_ref": null,
+      "components": [
+        {
+          "name": "requests",
+          "version": "2.30.0",
+          "purl": "pkg:pypi/requests@2.30.0",
+          "cpe": null,
+          "bom_ref": "requests-affected",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        },
+        {
+          "name": "requests",
+          "version": "2.31.0",
+          "purl": "pkg:pypi/requests@2.31.0",
+          "cpe": null,
+          "bom_ref": "requests-newer",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        },
+        {
+          "name": "requests",
+          "version": null,
+          "purl": "pkg:pypi/requests",
+          "cpe": null,
+          "bom_ref": "requests-unknown",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        },
+        {
+          "name": "werkzeug",
+          "version": "2.2.2",
+          "purl": "pkg:pypi/werkzeug@2.2.2",
+          "cpe": null,
+          "bom_ref": "werkzeug-affected",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        },
+        {
+          "name": "werkzeug",
+          "version": "2.2.3",
+          "purl": "pkg:pypi/werkzeug@2.2.3",
+          "cpe": null,
+          "bom_ref": "werkzeug-newer",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        },
+        {
+          "name": "unrelated-example",
+          "version": "1.0",
+          "purl": "pkg:pypi/unrelated-example@1.0",
+          "cpe": null,
+          "bom_ref": "unrelated",
+          "component_type": null,
+          "ecosystem": "pypi",
+          "dependency_depth": 0
+        }
+      ],
+      "dependencies": {}
+    },
+    "evidence": [
+      {
+        "evidence_id": "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "kind": "sbom",
+        "sha256": "089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+        "pointer": "/sbom"
+      },
+      {
+        "evidence_id": "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa",
+        "kind": "context",
+        "sha256": "0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa",
+        "pointer": "/context"
+      },
+      {
+        "evidence_id": "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+        "kind": "advisory",
+        "sha256": "719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+        "pointer": "/advisories/0"
+      },
+      {
+        "evidence_id": "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+        "kind": "advisory",
+        "sha256": "7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+        "pointer": "/advisories/1"
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "finding:c935bc0b4cadd62dda286f57",
+        "component_ref": "requests-affected",
+        "component_name": "requests",
+        "component_version": "2.30.0",
+        "advisory_id": "PYSEC-2023-74",
+        "aliases": [
+          "CVE-2023-32681",
+          "GHSA-j8r2-6x86-q33q"
+        ],
+        "match": "exact_version",
+        "reason": "Installed version explicitly listed as affected",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ],
+        "cvss": null,
+        "epss": null,
+        "kev": null
+      },
+      {
+        "finding_id": "finding:d9ff3e17d2b1e4528218beb1",
+        "component_ref": "requests-newer",
+        "component_name": "requests",
+        "component_version": "2.31.0",
+        "advisory_id": "PYSEC-2023-74",
+        "aliases": [
+          "CVE-2023-32681",
+          "GHSA-j8r2-6x86-q33q"
+        ],
+        "match": "ambiguous",
+        "reason": "Range or incomplete version evidence requires review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ],
+        "cvss": null,
+        "epss": null,
+        "kev": null
+      },
+      {
+        "finding_id": "finding:a7dd839666f7bc21bb863409",
+        "component_ref": "requests-unknown",
+        "component_name": "requests",
+        "component_version": null,
+        "advisory_id": "PYSEC-2023-74",
+        "aliases": [
+          "CVE-2023-32681",
+          "GHSA-j8r2-6x86-q33q"
+        ],
+        "match": "version_missing",
+        "reason": "Installed version is unknown",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ],
+        "cvss": null,
+        "epss": null,
+        "kev": null
+      },
+      {
+        "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+        "component_ref": "werkzeug-affected",
+        "component_name": "werkzeug",
+        "component_version": "2.2.2",
+        "advisory_id": "PYSEC-2023-58",
+        "aliases": [
+          "CVE-2023-25577",
+          "GHSA-xg9f-g7g7-2323"
+        ],
+        "match": "exact_version",
+        "reason": "Installed version explicitly listed as affected",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ],
+        "cvss": null,
+        "epss": null,
+        "kev": null
+      },
+      {
+        "finding_id": "finding:30b0c132c780e45e549a40a7",
+        "component_ref": "werkzeug-newer",
+        "component_name": "werkzeug",
+        "component_version": "2.2.3",
+        "advisory_id": "PYSEC-2023-58",
+        "aliases": [
+          "CVE-2023-25577",
+          "GHSA-xg9f-g7g7-2323"
+        ],
+        "match": "ambiguous",
+        "reason": "Range or incomplete version evidence requires review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ],
+        "cvss": null,
+        "epss": null,
+        "kev": null
+      }
+    ],
+    "dispositions": [
+      {
+        "component_ref": "requests-affected",
+        "status": "matched",
+        "finding_ids": [
+          "finding:c935bc0b4cadd62dda286f57"
+        ]
+      },
+      {
+        "component_ref": "requests-newer",
+        "status": "ambiguous",
+        "finding_ids": [
+          "finding:d9ff3e17d2b1e4528218beb1"
+        ]
+      },
+      {
+        "component_ref": "requests-unknown",
+        "status": "version_missing",
+        "finding_ids": [
+          "finding:a7dd839666f7bc21bb863409"
+        ]
+      },
+      {
+        "component_ref": "werkzeug-affected",
+        "status": "matched",
+        "finding_ids": [
+          "finding:dc46f8aa65d14ba94242bbf6"
+        ]
+      },
+      {
+        "component_ref": "werkzeug-newer",
+        "status": "ambiguous",
+        "finding_ids": [
+          "finding:30b0c132c780e45e549a40a7"
+        ]
+      },
+      {
+        "component_ref": "unrelated",
+        "status": "unmatched",
+        "finding_ids": []
+      }
+    ],
+    "warnings": []
+  },
+  "context_packet": {
+    "concerns": [
+      "sensitive_data",
+      "critical_asset"
+    ],
+    "evidence_ids": [
+      "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+    ]
+  },
+  "decisions": {
+    "assessments": [
+      {
+        "finding_id": "finding:c935bc0b4cadd62dda286f57",
+        "status": "affected",
+        "priority": "review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ]
+      },
+      {
+        "finding_id": "finding:d9ff3e17d2b1e4528218beb1",
+        "status": "under_investigation",
+        "priority": "review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ]
+      },
+      {
+        "finding_id": "finding:a7dd839666f7bc21bb863409",
+        "status": "under_investigation",
+        "priority": "review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ]
+      },
+      {
+        "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+        "status": "affected",
+        "priority": "review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ]
+      },
+      {
+        "finding_id": "finding:30b0c132c780e45e549a40a7",
+        "status": "under_investigation",
+        "priority": "review",
+        "evidence_ids": [
+          "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+          "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+          "context:0a1b6a82b7ba670df6e7d462b5b85b367e5f074428c05f6bdf713ef9942d5cfa"
+        ]
+      }
+    ]
+  },
+  "audit": {
+    "passed": true,
+    "issues": []
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "role": "collector",
+      "attempt": 0,
+      "outcome": "completed",
+      "input_sha256": "9aded118a129736de8fdcc1891ebbbd5b325308dd87bf35efe5f494a32360ea5",
+      "output_sha256": "b8c7c8eca451a0238c679a79cb4650c1d135ade0eba68b91e9831dc27c232fe1",
+      "issue_codes": []
+    },
+    {
+      "sequence": 2,
+      "role": "context",
+      "attempt": 0,
+      "outcome": "proposed",
+      "input_sha256": "7b80bff31f6dd1f7247db22e73a8e411303d3a54b781ebd115ea8409a1e960ae",
+      "output_sha256": "30d7cdabcb86d4c059b643506caee1abd88f42c4b6e9fa13f71a6faeb55f0f22",
+      "issue_codes": []
+    },
+    {
+      "sequence": 3,
+      "role": "verifier",
+      "attempt": 0,
+      "outcome": "passed",
+      "input_sha256": "30d7cdabcb86d4c059b643506caee1abd88f42c4b6e9fa13f71a6faeb55f0f22",
+      "output_sha256": "b0044f8e7959a8125f430317f060b0d8fc93f137885829c565a73f7da96d0f43",
+      "issue_codes": []
+    },
+    {
+      "sequence": 4,
+      "role": "triage",
+      "attempt": 0,
+      "outcome": "proposed",
+      "input_sha256": "0e98a4f8e42f95fa574ac77b7be9490b90a1ae5c9cbe1777e70976f2b1cd6270",
+      "output_sha256": "32be639dc23572eb0ed8014c97bd3916325dc7c972b6b87c80175fbf5261cf05",
+      "issue_codes": []
+    },
+    {
+      "sequence": 5,
+      "role": "verifier",
+      "attempt": 0,
+      "outcome": "passed",
+      "input_sha256": "32be639dc23572eb0ed8014c97bd3916325dc7c972b6b87c80175fbf5261cf05",
+      "output_sha256": "b0044f8e7959a8125f430317f060b0d8fc93f137885829c565a73f7da96d0f43",
+      "issue_codes": []
+    },
+    {
+      "sequence": 6,
+      "role": "reporter",
+      "attempt": 0,
+      "outcome": "ready",
+      "input_sha256": "32be639dc23572eb0ed8014c97bd3916325dc7c972b6b87c80175fbf5261cf05",
+      "output_sha256": null,
+      "issue_codes": []
+    },
+    {
+      "sequence": 7,
+      "role": "human_gate",
+      "attempt": 0,
+      "outcome": "awaiting_human",
+      "input_sha256": "32be639dc23572eb0ed8014c97bd3916325dc7c972b6b87c80175fbf5261cf05",
+      "output_sha256": null,
+      "issue_codes": []
+    }
+  ],
+  "config": {
+    "mode": "deterministic",
+    "architecture": "multi_agent",
+    "max_revisions": 2,
+    "max_calls": 8,
+    "max_completion_tokens": 16000,
+    "tokens_per_call": 2000,
+    "timeout_seconds": 30.0
+  },
+  "calls": 0,
+  "completion_tokens_reserved": 0,
+  "reported_total_tokens": 0,
+  "usage_complete": true,
+  "duration_seconds": 0.000853,
+  "models": {}
+}

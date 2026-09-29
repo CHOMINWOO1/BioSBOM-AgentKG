@@ -1,3 +1,5 @@
+> Historical pre-0.4 snapshot record. Current PyPI fixed-boundary behavior is documented in [VERSION_MATCHING](../VERSION_MATCHING.md); the original observations below are preserved.
+
 # Public advisory snapshot smoke experiment
 
 ## Inputs and provenance

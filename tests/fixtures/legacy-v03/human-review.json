@@ -1,0 +1,7 @@
+{
+  "decision": "hold",
+  "reviewer": "Synthetic compatibility fixture",
+  "reason": "Historical 0.3 record for regression testing, not an operational decision",
+  "reviewed_result_sha256": "d722900d63a6b55d9bcfe4e8f3614737ebc03a37bc9d64102209b334595e375e",
+  "created_at": "2026-09-29T06:53:51.424300+00:00"
+}

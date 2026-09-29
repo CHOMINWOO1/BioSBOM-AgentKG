@@ -1,0 +1,51 @@
+{
+  "runs": 24,
+  "verified": 23,
+  "calls": 48,
+  "reported_tokens": 72052,
+  "all_usage_known": true,
+  "groups": [
+    {
+      "architecture": "single_agent",
+      "n": 12,
+      "verified": 12,
+      "calls": 16,
+      "mean_calls": 1.3333333333333333,
+      "median_seconds": 4.7227635,
+      "reported_tokens": 33088,
+      "repairs": 4
+    },
+    {
+      "architecture": "multi_agent",
+      "n": 12,
+      "verified": 11,
+      "calls": 32,
+      "mean_calls": 2.6666666666666665,
+      "median_seconds": 8.6374815,
+      "reported_tokens": 38964,
+      "repairs": 9
+    }
+  ],
+  "issues": {
+    "context_evidence": 12,
+    "review_required": 4
+  },
+  "blocked": [
+    {
+      "run": 14,
+      "case": "biopython-range_only",
+      "architecture": "multi_agent",
+      "codes": [
+        "context_evidence"
+      ]
+    }
+  ],
+  "limits": [
+    "Six development cases, two repeats, one requested model alias; not independent accuracy",
+    "Final verifier acceptance after bounded repair, not first-pass quality",
+    "No scientific reasoning or exploitability ground truth measured",
+    "The deterministic baseline verifies all six cases with zero model calls",
+    "Aliases may change; no immutable backend model revision recorded",
+    "Output reservation limits do not cap input tokens or monetary charges"
+  ]
+}

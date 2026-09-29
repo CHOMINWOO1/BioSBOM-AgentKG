@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 
@@ -8,6 +9,18 @@ from biosbom_agentkg.multiagent.evaluation import FaultProvider, evaluate
 from biosbom_agentkg.multiagent.models import RunConfig
 from biosbom_agentkg.multiagent.reporting import render_html
 from biosbom_agentkg.multiagent.storage import record_review, save_run, verify_run
+
+
+def test_frozen_v03_artifacts_keep_original_matching_and_review_hash():
+    from biosbom_agentkg.multiagent.evidence import digest
+
+    target = Path(__file__).parent / "fixtures/legacy-v03"
+    case, result = verify_run(target)
+    assert result.schema_version == "2.0"
+    assert len(result.collection.findings) == 5
+    assert len(run_case(case).collection.findings) == 3
+    review = json.loads((target / "human-review.json").read_text())
+    assert review["reviewed_result_sha256"] == digest(result)
 
 
 def test_saved_run_verifies_and_review_is_immutable(case, tmp_path):

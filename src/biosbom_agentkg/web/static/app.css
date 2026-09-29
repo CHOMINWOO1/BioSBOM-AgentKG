@@ -996,3 +996,7 @@ pre {
     grid-template-columns: 1fr 1fr
   }
 }
+
+#sbom-fields {border:1px solid #dce6e2;border-radius:12px;padding:18px;margin:18px 0}
+#sbom-fields legend {font-weight:700;padding:0 6px}
+#input-preview {background:#eaf4ef;border-radius:10px;padding:14px;margin-top:12px}

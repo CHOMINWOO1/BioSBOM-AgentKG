@@ -110,3 +110,73 @@ def test_unsafe_endpoint_configuration_is_rejected(url):
 def test_blank_model_requires_explicit_selection():
     with pytest.raises(ValueError):
         ChatProvider("http://localhost:11434/v1", "")
+
+
+def test_responses_transport_strict_schema_and_nonstored_request(endpoint):
+    url, state = endpoint
+    state["body"] = {
+        "status": "completed",
+        "output": [
+            {"type": "reasoning"},
+            {"type": "message", "content": [{"type": "output_text", "text": '{"ok":true}'}]},
+        ],
+        "usage": {"total_tokens": 51},
+    }
+    reply = ChatProvider(url, "fixture", api_style="responses").complete(
+        "context", {}, {"type": "object"}, max_tokens=300, timeout=2
+    )
+    assert reply.payload == {"ok": True} and reply.total_tokens == 51
+    assert state["path"] == "/v1/responses"
+    assert state["request"]["max_output_tokens"] == 300
+    assert state["request"]["store"] is False
+    assert state["request"]["text"]["format"]["strict"] is True
+    assert "temperature" not in state["request"]
+
+
+@pytest.mark.parametrize(
+    "body,code",
+    [
+        ({"status": "incomplete", "output": []}, "incomplete_response"),
+        (
+            {
+                "status": "completed",
+                "output": [
+                    {"type": "message", "content": [{"type": "refusal", "refusal": "PRIVATE"}]}
+                ],
+            },
+            "invalid_response",
+        ),
+        ({"status": "completed", "output": []}, "invalid_response"),
+    ],
+)
+def test_responses_failed_output_preserves_known_usage(endpoint, body, code):
+    url, state = endpoint
+    body["usage"] = {"total_tokens": 123}
+    state["body"] = body
+    with pytest.raises(ProviderError) as error:
+        ChatProvider(url, "fixture", api_style="responses").complete(
+            "context", {}, {}, max_tokens=300, timeout=2
+        )
+    assert str(error.value) == code and error.value.total_tokens == 123
+
+
+def test_failed_call_usage_is_not_reported_as_zero_or_complete(case):
+    from biosbom_agentkg.multiagent.engine import run_case
+    from biosbom_agentkg.multiagent.models import RunConfig
+
+    class Failed:
+        models = {"context": "fake-test"}
+
+        def complete(self, *args, **kwargs):
+            raise ProviderError("incomplete_response", 77)
+
+    result = run_case(case, RunConfig(mode="llm", max_revisions=0), Failed())
+    assert result.calls == 1 and result.reported_total_tokens == 77
+    assert result.usage_complete and result.status == "blocked"
+
+    class Unknown(Failed):
+        def complete(self, *args, **kwargs):
+            raise ProviderError("connection_failed")
+
+    result = run_case(case, RunConfig(mode="llm", max_revisions=0), Unknown())
+    assert not result.usage_complete

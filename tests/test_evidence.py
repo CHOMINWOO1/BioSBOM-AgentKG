@@ -44,10 +44,10 @@ def test_purl_identity(purl, identity, version):
     assert purl_parts(purl) == (identity, version)
 
 
-def test_ranges_are_ambiguous_not_assumed_affected(case):
+def test_supported_ranges_are_matched(case):
     case.sbom["components"][-1]["version"] = "1.0"
     result = CollectorAgent().run(case)
-    assert result.findings[-1].match == "ambiguous"
+    assert result.findings[-1].match == "range_version"
 
 
 def test_exact_version_absent_is_unmatched(case):
@@ -115,9 +115,9 @@ def test_public_snapshot_preserves_uncertain_versions(case):
     result = CollectorAgent().run(public_case)
     assert {d.component_ref: d.status for d in result.dispositions} == {
         "requests-affected": "matched",
-        "requests-newer": "ambiguous",
+        "requests-newer": "unmatched",
         "requests-unknown": "version_missing",
         "werkzeug-affected": "matched",
-        "werkzeug-newer": "ambiguous",
+        "werkzeug-newer": "unmatched",
         "unrelated": "unmatched",
     }

@@ -1,0 +1,7 @@
+component_ref,status,finding_ids
+requests-affected,matched,finding:c935bc0b4cadd62dda286f57
+requests-newer,ambiguous,finding:d9ff3e17d2b1e4528218beb1
+requests-unknown,version_missing,finding:a7dd839666f7bc21bb863409
+werkzeug-affected,matched,finding:dc46f8aa65d14ba94242bbf6
+werkzeug-newer,ambiguous,finding:30b0c132c780e45e549a40a7
+unrelated,unmatched,

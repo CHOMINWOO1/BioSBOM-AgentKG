@@ -1,6 +1,6 @@
 # Architecture and contracts
 
-The 0.2 runtime builds on the original SBOM normalizer and typed component schema. It is a curated development edition; manuscript administration and legacy reporting pipelines are not included. `CORE_ORIGIN.json` records the original source-file hashes, before formatting.
+The 0.4 runtime builds on the original SBOM normalizer and typed component schema. It is a curated development edition; manuscript administration and legacy reporting pipelines are not included. `CORE_ORIGIN.json` records the original source-file hashes, before formatting.
 
 ```mermaid
 flowchart TD
@@ -28,7 +28,7 @@ flowchart TD
 | Reporter | Verified decisions and audit | Markdown, HTML, graph and evidence index | Template rendering, no unsupported free-text claims |
 | Human gate | Immutable run artifacts | Approve / hold / reject record | No software remediation is executed |
 
-`run_case()` is the orchestration API. Agents exchange Pydantic-validated records. A failed context stage cannot feed the triage stage. A failed triage stage cannot publish verified decisions. Events bind each input and output using SHA-256; raw provider messages and transport error bodies are not recorded.
+`run_case()` is the orchestration API. Agents exchange Pydantic-validated records. A failed context stage cannot feed the triage stage. A failed triage stage cannot publish verified decisions. Events bind each input and output using SHA-256; transport error bodies are not recorded. The explicit live-evaluation runner additionally retains structured model candidates and known usage in calls.json, without credentials or endpoint URLs.
 
 ## Matching and uncertainty
 
@@ -41,11 +41,11 @@ flowchart TD
 - Withdrawn records are excluded with a recorded warning.
 - Malformed, nested or duplicate identities fail explicitly instead of silently losing components.
 
-The first release deliberately leaves ecosystem/Git range resolution for subsequent work. For example, a version at a documented fixed boundary can remain `ambiguous` if the only remaining evidence requires interpreting an unsupported range. That conservative false-positive burden is visible in the public snapshot experiment.
+Version 0.4 evaluates PyPI PEP 440 and strict SEMVER release ranges, producing `range_version` findings. GIT-only and unsupported release schemes remain unresolved. See [version semantics and legacy verification](VERSION_MATCHING.md).
 
 ## Policy
 
-Context concerns use sensitivity/exposure/criticality thresholds of 7, and weak controls at or below 3. An exact match with KEV=true, or CVSS>=9 and exposure>=7, requires urgent priority. CVSS>=7, EPSS>=0.5, or a sensitive and critical asset requires high priority. Other known-severity exact matches have a normal floor. Uncertain matches or missing CVSS require manual review. These are inspectable **heuristic policy rules**, not a learned or calibrated risk model.
+Context concerns use sensitivity/exposure/criticality thresholds of 7, and weak controls at or below 3. An exact or supported range match with KEV=true, or CVSS>=9 and exposure>=7, requires urgent priority. CVSS>=7, EPSS>=0.5, or a sensitive and critical asset requires high priority. Other known-severity version matches have a normal floor. Uncertain matches or missing CVSS require manual review. These are inspectable **heuristic policy rules**, not a learned or calibrated risk model.
 
 The original weighted `risk.py` remains available for comparison; the new runtime uses the conservative policy above and does not confuse the two scoring schemes.
 
@@ -53,7 +53,7 @@ The original weighted `risk.py` remains available for comparison; the new runtim
 
 `max_revisions` is per specialist stage. Every attempted call consumes one reservation, including failed HTTP calls. `max_calls` and `max_completion_tokens` are checked before dispatch. The completion budget limits requested completion tokens; it does not cap prompt tokens or total monetary cost. Backend token usage is recorded when available, otherwise explicitly incomplete.
 
-Transport supports an OpenAI-compatible `/chat/completions` endpoint with JSON-object responses. Separate context, triage and single-agent model names can be configured. [Ollama's documented compatibility interface](https://docs.ollama.com/api/openai-compatibility) is a supported target interface; the checked-in test results use a local HTTP fixture, not a real Ollama model.
+Transport supports an OpenAI-compatible `/chat/completions` endpoint with JSON-object responses and an optional `/responses` adapter with strict JSON Schema and `store: false`. Failed or incomplete output retains provider-reported usage when available; missing usage is marked incomplete. Separate context, triage and single-agent model names can be configured. [Ollama's documented compatibility interface](https://docs.ollama.com/api/openai-compatibility) is a supported target interface; the checked-in test results use a local HTTP fixture, not a real Ollama model.
 
 ## Storage and review
 

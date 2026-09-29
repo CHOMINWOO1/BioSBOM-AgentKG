@@ -9,6 +9,7 @@ from urllib.parse import unquote
 from biosbom_agentkg.sbom import normalize_sbom_document
 
 from .models import Case, Collection, Disposition, Evidence, Finding
+from .versions import affected_match
 
 
 def digest(value) -> str:
@@ -122,6 +123,9 @@ def _raw_validation(case: Case):
 class CollectorAgent:
     role = "collector"
 
+    def __init__(self, *, legacy=False):
+        self.legacy = legacy
+
     def run(self, case: Case) -> Collection:
         _raw_validation(case)
         normalized = normalize_sbom_document(case.sbom, asset_id=case.context.asset_id)
@@ -174,6 +178,20 @@ class CollectorAgent:
                     continue
                 if not component.version:
                     match, reason = "version_missing", "Installed version is unknown"
+                elif not self.legacy:
+                    matches = [affected_match(component.version, a) for a in affected]
+                    selected = next(
+                        (
+                            pair
+                            for kind in ("exact_version", "range_version", "ambiguous")
+                            for pair in matches
+                            if pair[0] == kind
+                        ),
+                        None,
+                    )
+                    if selected is None:
+                        continue
+                    match, reason = selected
                 elif any(
                     component.version in a.get("versions", [])
                     or (purl_parts(a["package"].get("purl")) or (None, None))[1]

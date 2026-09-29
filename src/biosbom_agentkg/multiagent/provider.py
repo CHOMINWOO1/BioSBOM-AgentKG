@@ -14,6 +14,10 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 class ProviderError(RuntimeError):
     """Safe error code: raw network errors may contain credentials or private URLs."""
 
+    def __init__(self, code: str, total_tokens: int | None = None):
+        super().__init__(code)
+        self.total_tokens = total_tokens
+
 
 @dataclass
 class Reply:
@@ -41,6 +45,7 @@ class ChatProvider:
         model: str,
         api_key: str = "",
         role_models: dict[str, str] | None = None,
+        api_style: str = "chat",
     ):
         parsed = urlsplit(base_url)
         if parsed.username or parsed.password or parsed.query or parsed.fragment:
@@ -51,7 +56,12 @@ class ChatProvider:
             raise ValueError("Remote endpoints must use HTTPS")
         if not model.strip():
             raise ValueError("Set BIOSBOM_MODEL to a locally available or remote model")
-        self.url = base_url.rstrip("/") + "/chat/completions"
+        if api_style not in {"chat", "responses"}:
+            raise ValueError("API style must be chat or responses")
+        self.api_style = api_style
+        self.url = base_url.rstrip("/") + (
+            "/responses" if api_style == "responses" else "/chat/completions"
+        )
         self.api_key = api_key
         self.models = {
             role: (role_models or {}).get(role) or model for role in ("context", "triage", "single")
@@ -67,6 +77,7 @@ class ChatProvider:
                 r: os.environ.get(f"BIOSBOM_{r.upper()}_MODEL", "")
                 for r in ("context", "triage", "single")
             },
+            api_style=os.environ.get("BIOSBOM_API_STYLE", "chat"),
         )
 
     def complete(self, role, payload, schema, *, max_tokens, timeout):
@@ -89,12 +100,28 @@ class ChatProvider:
                 {"role": "user", "content": json.dumps(payload)},
             ],
         }
+        if self.api_style == "responses":
+            body = {
+                "model": self.models[role],
+                "input": body["messages"],
+                "max_output_tokens": max_tokens,
+                "store": False,
+                "text": {
+                    "format": {
+                        "type": "json_schema",
+                        "name": "biosbom_" + role,
+                        "strict": True,
+                        "schema": schema,
+                    }
+                },
+            }
         data = json.dumps(body).encode()
         if len(data) > 512000:
             raise ProviderError("request_too_large")
         headers = {"Content-Type": "application/json"}
         if self.api_key:
             headers["Authorization"] = "Bearer " + self.api_key
+        total = None
         try:
             request = Request(self.url, data=data, headers=headers, method="POST")
             with build_opener(NoRedirect()).open(request, timeout=timeout) as response:
@@ -102,16 +129,31 @@ class ChatProvider:
             if len(raw) > 2_000_000:
                 raise ProviderError("response_too_large")
             result = json.loads(raw)
-            choice = result["choices"][0]
-            if choice.get("finish_reason") != "stop":
-                raise ProviderError("incomplete_response")
-            payload = json.loads(choice["message"]["content"])
-            if not isinstance(payload, dict):
-                raise ProviderError("invalid_response")
             usage = result.get("usage") or {}
             total = usage.get("total_tokens")
             if total is not None and (type(total) is not int or total < 0):
                 raise ProviderError("invalid_usage")
+            if self.api_style == "responses":
+                if result.get("status") != "completed":
+                    raise ProviderError("incomplete_response", total)
+                chunks = [
+                    part
+                    for item in result["output"]
+                    if item.get("type") == "message"
+                    for part in item.get("content", [])
+                ]
+                if any(part.get("type") == "refusal" for part in chunks):
+                    raise ProviderError("invalid_response", total)
+                payload = json.loads(
+                    "".join(part["text"] for part in chunks if part.get("type") == "output_text")
+                )
+            else:
+                choice = result["choices"][0]
+                if choice.get("finish_reason") != "stop":
+                    raise ProviderError("incomplete_response", total)
+                payload = json.loads(choice["message"]["content"])
+            if not isinstance(payload, dict):
+                raise ProviderError("invalid_response", total)
             return Reply(payload, total)
         except ProviderError:
             raise
@@ -120,4 +162,4 @@ class ChatProvider:
         except (URLError, TimeoutError, OSError):
             raise ProviderError("connection_failed") from None
         except (ValueError, TypeError, KeyError, IndexError, AttributeError):
-            raise ProviderError("invalid_response") from None
+            raise ProviderError("invalid_response", total) from None
