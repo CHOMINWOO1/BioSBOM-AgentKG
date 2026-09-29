@@ -17,6 +17,6 @@ node --check src/biosbom_agentkg/web/static/app.js
 python benchmarks/run_public_corpus.py --output runs/public-validation --repeats 30
 ```
 
-The GitHub workflow tests Ubuntu and Windows on Python 3.11 and 3.12. The preceding 0.2 implementation passed all four matrix jobs: [recorded CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36529146656). The 0.3 push has a separate current check; do not use that prior run as proof of newer commits.
+The 0.3 implementation at commit `78fe4fe7c804f4dd81fac7d9bb81bc897c82a4fc` passed all four GitHub matrix jobs: Ubuntu and Windows on Python 3.11 and 3.12. Each job includes the 93 tests, lint, JavaScript syntax and CLI run/verification/evaluation: [recorded CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36531563702). Later documentation-only updates do not change the tested implementation.
 
 See [research methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench behavior](docs/WORKBENCH.md), and [remaining acceptance criteria](docs/STATUS.md).
