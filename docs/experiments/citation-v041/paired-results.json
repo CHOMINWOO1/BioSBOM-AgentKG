@@ -1,0 +1,162 @@
+[
+  {
+    "case": "citation-range-no-concerns",
+    "architecture": "single_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1703
+  },
+  {
+    "case": "citation-range-threshold-concerns",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 340
+  },
+  {
+    "case": "citation-missing-no-concerns",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 61
+  },
+  {
+    "case": "citation-git-only-weak-controls",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 43
+  },
+  {
+    "case": "citation-empty-no-concerns",
+    "architecture": "single_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1046
+  },
+  {
+    "case": "citation-empty-all-concerns",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 98
+  },
+  {
+    "case": "citation-public-boundary-below",
+    "architecture": "single_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -2541
+  },
+  {
+    "case": "citation-rnaseq-sensitive-only",
+    "architecture": "single_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 92
+  },
+  {
+    "case": "citation-range-no-concerns",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -2,
+    "tokens_delta": -1542
+  },
+  {
+    "case": "citation-range-threshold-concerns",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": false,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": -1
+  },
+  {
+    "case": "citation-missing-no-concerns",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -2,
+    "tokens_delta": -1585
+  },
+  {
+    "case": "citation-git-only-weak-controls",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 52
+  },
+  {
+    "case": "citation-empty-no-concerns",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -592
+  },
+  {
+    "case": "citation-empty-all-concerns",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 51
+  },
+  {
+    "case": "citation-public-boundary-below",
+    "architecture": "multi_agent",
+    "before_no_repair": false,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": -1,
+    "tokens_delta": -1028
+  },
+  {
+    "case": "citation-rnaseq-sensitive-only",
+    "architecture": "multi_agent",
+    "before_no_repair": true,
+    "after_no_repair": true,
+    "before_verified": true,
+    "after_verified": true,
+    "calls_delta": 0,
+    "tokens_delta": 44
+  }
+]

@@ -1,0 +1,1344 @@
+[
+  {
+    "run": 0,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "b7462542b52dc18d17ce7bc7b9551b7a4d9a0e2b30552d99686ba90d8545e626",
+    "output": {
+      "concerns": [
+        "sensitive_data",
+        "external_exposure",
+        "critical_asset",
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+      ]
+    },
+    "total_tokens": 912
+  },
+  {
+    "run": 0,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "9fd9c58bf53b0baad00cc49f2f873b59ed8b80c1aa2ba8d479b9f2daa5848aeb",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "high",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1516
+  },
+  {
+    "run": 0,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "ec13d3c8c29c7d906fa2ca0cb6a8099116397c54da859ea070c48156cb6733af",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1449
+  },
+  {
+    "run": 1,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "3fb30e7da66924c58180c67d46d9cf40adea42e06b304138b35790d069b580dc",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data"
+        ],
+        "evidence_ids": [
+          "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:14bbdf17c16e0d07b4739a09",
+            "status": "affected",
+            "priority": "normal",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:7eae59468b165089ff3d34a87cc3dea3bb0e936e174c9519860a7e0527192a08",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+              "intelligence:6754fc9f5f12122fc1e61fd3b9a1923e979bc4f1c07225a275ed75d863ba475e"
+            ]
+          },
+          {
+            "finding_id": "finding:9a0b26af50164dfcfeb69cd6",
+            "status": "affected",
+            "priority": "urgent",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:0fb8427777c61b9b3c99f7788d0e860c46ca170fbeaaa93f76295ea5cbf00818",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+              "intelligence:88bd5753ba72e6fdb48f02ab529a9fc2a3b3abc5fb486d3f97bc3eaba494da4e"
+            ]
+          },
+          {
+            "finding_id": "finding:7c4d8abc1f6ff683f8f679c9",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:0bc6a4bb5938225faf5b09c02b4755813c0bf9b3961c901d0a7fd502422c5a72",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 3249
+  },
+  {
+    "run": 2,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "972a7e6a4966c8f5aba2813e44b7cfe837a6f0c399bae05631c2a3af09c4d600",
+    "output": {
+      "concerns": [
+        "sensitive_data",
+        "external_exposure",
+        "critical_asset",
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:4f55c2d07e474e20fa1edc59c8b41d16e6f1979812d09c3bbb519393a9ed7e2e"
+      ]
+    },
+    "total_tokens": 739
+  },
+  {
+    "run": 2,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "76101f1b84e0a5db1afe9d7a0b14db3f7b22bed1822a7a12278b4d2fbe8996ae",
+    "output": {
+      "assessments": []
+    },
+    "total_tokens": 836
+  },
+  {
+    "run": 3,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "e13cd285f47c55169a0c623c25c53734ace645f5a7f5c9e3eb0b3f1b6cf2d46f",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": []
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:c935bc0b4cadd62dda286f57",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:a7dd839666f7bc21bb863409",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 2626
+  },
+  {
+    "run": 3,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "210ce87028371086180507526b90003ad5c4fdf977bbe837c7ea059a085a1b7f",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:c935bc0b4cadd62dda286f57",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:a7dd839666f7bc21bb863409",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 2677
+  },
+  {
+    "run": 4,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "26db6e6a95a69670b345e427f731318b03318859ef46b9e1e72632f769306c56",
+    "output": {
+      "context": {
+        "concerns": [
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:41a8e220da017266c290dcad0f01723e3857e72283a1eae82ca564e772811d1b",
+              "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1996
+  },
+  {
+    "run": 5,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "75bc9a20ad5165f39415e800e301f0ae3756139cc31847029696eb5189d57e3d",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:19c2a201cb1e047b494007f5ab74aebe1da055fd10e88fb2202e124cd6d5a4f7"
+      ]
+    },
+    "total_tokens": 773
+  },
+  {
+    "run": 5,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "8b9b63e16dc2e26fe7e2b8055406615f2ac1c409b744e65b0c76a8e5f35f7267",
+    "output": {
+      "assessments": []
+    },
+    "total_tokens": 806
+  },
+  {
+    "run": 6,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "0a34dad12d16fe32a9a8970fbbb288844d103d6b37f09e01aa783cf891b2ad8d",
+    "output": {
+      "concerns": [
+        "sensitive_data"
+      ],
+      "evidence_ids": [
+        "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+      ]
+    },
+    "total_tokens": 1243
+  },
+  {
+    "run": 6,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "b4748db1472000b050347653559f675c8c53de4717b901215a1ddb6f0a149933",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:14bbdf17c16e0d07b4739a09",
+          "status": "affected",
+          "priority": "normal",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:7eae59468b165089ff3d34a87cc3dea3bb0e936e174c9519860a7e0527192a08",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+            "intelligence:6754fc9f5f12122fc1e61fd3b9a1923e979bc4f1c07225a275ed75d863ba475e"
+          ]
+        },
+        {
+          "finding_id": "finding:9a0b26af50164dfcfeb69cd6",
+          "status": "affected",
+          "priority": "urgent",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:0fb8427777c61b9b3c99f7788d0e860c46ca170fbeaaa93f76295ea5cbf00818",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+            "intelligence:88bd5753ba72e6fdb48f02ab529a9fc2a3b3abc5fb486d3f97bc3eaba494da4e"
+          ]
+        },
+        {
+          "finding_id": "finding:7c4d8abc1f6ff683f8f679c9",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:0bc6a4bb5938225faf5b09c02b4755813c0bf9b3961c901d0a7fd502422c5a72",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 2808
+  },
+  {
+    "run": 7,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "d38791380d1ea3f0e3ea770a5844d8a938bbf178458658850bc07aee9925f33d",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+              "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1843
+  },
+  {
+    "run": 8,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "2d6a82436539996e96b59b37cbddde1be70173180d2ea0d1233643589f493865",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 763
+  },
+  {
+    "run": 8,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "632f678fd8dce4665a97af318e323088d45375c52b5c7cfba698ef2e52a02ef6",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 769
+  },
+  {
+    "run": 8,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "632f678fd8dce4665a97af318e323088d45375c52b5c7cfba698ef2e52a02ef6",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+      ]
+    },
+    "total_tokens": 937
+  },
+  {
+    "run": 8,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "cef12c898129cb5e3f41221879de54267f3cda4eb025cfd7bbca269fdcb7a95a",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:ae75509da407da44c21bc976a9d723a970d68d9c6f64080bd1c8bafd96c5b33b",
+            "advisory:78ee7d0b75fae11a6ebbb23fec55f33f4ade60966c4d4b72cc3a7ffed23d110f",
+            "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1367
+  },
+  {
+    "run": 9,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "4e8739ce8470bb0921b99d70ff1ceb8b19f63a31578178911ead6923f004c301",
+    "output": {
+      "context": {
+        "concerns": [
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:41a8e220da017266c290dcad0f01723e3857e72283a1eae82ca564e772811d1b",
+              "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1953
+  },
+  {
+    "run": 10,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "75e5b4f5b7ee7a5d2c1e2ca5444b61cbb7b9a2e374ed1bdfca26d27de7bc3076",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data",
+          "external_exposure",
+          "critical_asset",
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+              "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 2144
+  },
+  {
+    "run": 11,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "ab4f42eb8e96fac0d074f0e0ead96b03268bc6a3b5b8dc36861b62c1a2b03064",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data",
+          "external_exposure",
+          "critical_asset",
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:4f55c2d07e474e20fa1edc59c8b41d16e6f1979812d09c3bbb519393a9ed7e2e"
+        ]
+      },
+      "triage": {
+        "assessments": []
+      }
+    },
+    "total_tokens": 1163
+  },
+  {
+    "run": 12,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "35ac27ae6c2510c24a6751d31fce31bec1523ee292d891915fce842ccc26e499",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": []
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+              "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1750
+  },
+  {
+    "run": 12,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "ea47d16c36eec45031a40e728785ac617228e8a8c690e0922827837c13a8f43c",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+              "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1796
+  },
+  {
+    "run": 13,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "d8c9e200fb0c28c9794f0e6c22a07c609efc3e0b314eb2f2f617f86d8e2efc63",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:c935bc0b4cadd62dda286f57",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:a7dd839666f7bc21bb863409",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          },
+          {
+            "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+              "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+              "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 2762
+  },
+  {
+    "run": 14,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "159995517662276596b0751495b9ebb5b9763441a289dcf594a9eb35052b8bc9",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data",
+          "external_exposure",
+          "critical_asset",
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:4f55c2d07e474e20fa1edc59c8b41d16e6f1979812d09c3bbb519393a9ed7e2e"
+        ]
+      },
+      "triage": {
+        "assessments": []
+      }
+    },
+    "total_tokens": 1261
+  },
+  {
+    "run": 15,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "e56e4804098dac8a3e6cf5e331216205d52381de75b71154033a8f72ea7d7e7e",
+    "output": {
+      "concerns": [
+        "sensitive_data"
+      ],
+      "evidence_ids": [
+        "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+      ]
+    },
+    "total_tokens": 1305
+  },
+  {
+    "run": 15,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "b4748db1472000b050347653559f675c8c53de4717b901215a1ddb6f0a149933",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:14bbdf17c16e0d07b4739a09",
+          "status": "affected",
+          "priority": "normal",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:7eae59468b165089ff3d34a87cc3dea3bb0e936e174c9519860a7e0527192a08",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+            "intelligence:6754fc9f5f12122fc1e61fd3b9a1923e979bc4f1c07225a275ed75d863ba475e"
+          ]
+        },
+        {
+          "finding_id": "finding:9a0b26af50164dfcfeb69cd6",
+          "status": "affected",
+          "priority": "urgent",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:0fb8427777c61b9b3c99f7788d0e860c46ca170fbeaaa93f76295ea5cbf00818",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+            "intelligence:88bd5753ba72e6fdb48f02ab529a9fc2a3b3abc5fb486d3f97bc3eaba494da4e"
+          ]
+        },
+        {
+          "finding_id": "finding:7c4d8abc1f6ff683f8f679c9",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+            "advisory:0bc6a4bb5938225faf5b09c02b4755813c0bf9b3961c901d0a7fd502422c5a72",
+            "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 2790
+  },
+  {
+    "run": 16,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "03191d0b8a73003cd59b345d7a060b6b25da9f8f5cf9044aa9fa522195866bbe",
+    "output": {
+      "concerns": [
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+      ]
+    },
+    "total_tokens": 881
+  },
+  {
+    "run": 16,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "82b765d42acca91c0371b5c6e9c4c8ea0434435abe261a919568da69acfbcf4b",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:41a8e220da017266c290dcad0f01723e3857e72283a1eae82ca564e772811d1b",
+            "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1403
+  },
+  {
+    "run": 17,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "19887c0db2c7e98e68dde4126dd7802e61e3abd2e710d9c7fd2c14d03a6f5bdb",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:ae75509da407da44c21bc976a9d723a970d68d9c6f64080bd1c8bafd96c5b33b",
+              "advisory:78ee7d0b75fae11a6ebbb23fec55f33f4ade60966c4d4b72cc3a7ffed23d110f",
+              "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1812
+  },
+  {
+    "run": 18,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "df07b49b085d5b116b486c3d5f103cfc7a50f1815df1ceef4357fcfd2ed45453",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data"
+        ],
+        "evidence_ids": [
+          "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:14bbdf17c16e0d07b4739a09",
+            "status": "affected",
+            "priority": "normal",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:7eae59468b165089ff3d34a87cc3dea3bb0e936e174c9519860a7e0527192a08",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+              "intelligence:6754fc9f5f12122fc1e61fd3b9a1923e979bc4f1c07225a275ed75d863ba475e"
+            ]
+          },
+          {
+            "finding_id": "finding:9a0b26af50164dfcfeb69cd6",
+            "status": "affected",
+            "priority": "urgent",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:0fb8427777c61b9b3c99f7788d0e860c46ca170fbeaaa93f76295ea5cbf00818",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c",
+              "intelligence:88bd5753ba72e6fdb48f02ab529a9fc2a3b3abc5fb486d3f97bc3eaba494da4e"
+            ]
+          },
+          {
+            "finding_id": "finding:7c4d8abc1f6ff683f8f679c9",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:fbb691780431ebe95775ab4bd592b523eabd22d34032f3452a439771297d0b15",
+              "advisory:0bc6a4bb5938225faf5b09c02b4755813c0bf9b3961c901d0a7fd502422c5a72",
+              "context:0be187bd02aa04f92d358c11c750d8107b373603cf931a8fdde7d01f13ad351c"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 3157
+  },
+  {
+    "run": 19,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "341c68e4d395aa10d63c1634e0f9ce4e217c7b5ec8166d39105bb19ee0e1e712",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+      ]
+    },
+    "total_tokens": 901
+  },
+  {
+    "run": 19,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "746fb7da4221aae8d5c318dcd28c3da35cccf6770f4b5979363e9387743643ae",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1413
+  },
+  {
+    "run": 20,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "17c40d53cb6ad17214ba59a7d9399ffee7d715714d865b8952560d54cae16669",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": []
+      },
+      "triage": {
+        "assessments": []
+      }
+    },
+    "total_tokens": 1113
+  },
+  {
+    "run": 20,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "e4ff3366da0814bf1e97df2a93935c08e65c9c4a9e5ba2710def26a1a08fdadc",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:19c2a201cb1e047b494007f5ab74aebe1da055fd10e88fb2202e124cd6d5a4f7"
+        ]
+      },
+      "triage": {
+        "assessments": []
+      }
+    },
+    "total_tokens": 1154
+  },
+  {
+    "run": 21,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "0c982089ae913f83df8c4dc502a7535f73af7d3c55a549bf9d07257137cfa9fd",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 747
+  },
+  {
+    "run": 21,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "772c2e6ee1e0328cbd9f7d4828721be7776ddf4f487edbe8e34bc859d22ced6f",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 790
+  },
+  {
+    "run": 21,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "772c2e6ee1e0328cbd9f7d4828721be7776ddf4f487edbe8e34bc859d22ced6f",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+      ]
+    },
+    "total_tokens": 918
+  },
+  {
+    "run": 21,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "746fb7da4221aae8d5c318dcd28c3da35cccf6770f4b5979363e9387743643ae",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:7af0fd52d2397825c6929457ba8a9d9c1e3b9eaef6271d36d5e146d90a694e93"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1401
+  },
+  {
+    "run": 22,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "7becf9618b9a0bee444a4a44f3ee318dfa589016b733625bb48ba5f3f576d6b4",
+    "output": {
+      "concerns": [
+        "sensitive_data",
+        "external_exposure",
+        "critical_asset",
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+      ]
+    },
+    "total_tokens": 843
+  },
+  {
+    "run": 22,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "9fd9c58bf53b0baad00cc49f2f873b59ed8b80c1aa2ba8d479b9f2daa5848aeb",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "high",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1569
+  },
+  {
+    "run": 22,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "ec13d3c8c29c7d906fa2ca0cb6a8099116397c54da859ea070c48156cb6733af",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+            "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1466
+  },
+  {
+    "run": 23,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "a4a983b8f7b0048a26d454faa3875280fa99334ba0ede2079bf7a29aedcd0f56",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+      ]
+    },
+    "total_tokens": 971
+  },
+  {
+    "run": 23,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "d3d5ac356ccfffcc588e3ee315f7a77bf9275b054ff28d3a6ec3975c5616d892",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:c935bc0b4cadd62dda286f57",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        },
+        {
+          "finding_id": "finding:a7dd839666f7bc21bb863409",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        },
+        {
+          "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 2312
+  },
+  {
+    "run": 24,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "54c698a5e2d2fede6a8881c3c3eb141f4dfe495f2c56580a438a64d0eedd5aef",
+    "output": {
+      "concerns": [
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+      ]
+    },
+    "total_tokens": 950
+  },
+  {
+    "run": 24,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "82b765d42acca91c0371b5c6e9c4c8ea0434435abe261a919568da69acfbcf4b",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+            "advisory:41a8e220da017266c290dcad0f01723e3857e72283a1eae82ca564e772811d1b",
+            "context:7eb53f33531a67b02f1bfe5e46a7a2b9b67f0843385f54709129982b0f3a76fb"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1386
+  },
+  {
+    "run": 25,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "70ffdd24bc6ed570041ca2202e37b485720b62410b68251b373c8ffff9c84a29",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "under_investigation",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:ae75509da407da44c21bc976a9d723a970d68d9c6f64080bd1c8bafd96c5b33b",
+              "advisory:78ee7d0b75fae11a6ebbb23fec55f33f4ade60966c4d4b72cc3a7ffed23d110f",
+              "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1751
+  },
+  {
+    "run": 26,
+    "contract": "explicit_citations",
+    "role": "single",
+    "request_sha256": "bb5cb9feab97575f13e9efad7a5626232350749c56cee20b1ad864201bbace3d",
+    "output": {
+      "context": {
+        "concerns": [],
+        "evidence_ids": [
+          "context:19c2a201cb1e047b494007f5ab74aebe1da055fd10e88fb2202e124cd6d5a4f7"
+        ]
+      },
+      "triage": {
+        "assessments": []
+      }
+    },
+    "total_tokens": 1221
+  },
+  {
+    "run": 27,
+    "contract": "v04_original",
+    "role": "single",
+    "request_sha256": "2461b658d506d42e039f54656b8101b5c77b6fcba200bc35f5251aa2097f5ba3",
+    "output": {
+      "context": {
+        "concerns": [
+          "sensitive_data",
+          "external_exposure",
+          "critical_asset",
+          "weak_controls"
+        ],
+        "evidence_ids": [
+          "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+        ]
+      },
+      "triage": {
+        "assessments": [
+          {
+            "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+            "status": "affected",
+            "priority": "review",
+            "evidence_ids": [
+              "sbom:4d6c772c6582cdfa433b46c9f45529fb6c00f2f780521fbf2165a8723577e060",
+              "advisory:2201a3f433959308e4938c418f22f9d04f0ef19740ec4d27525a404962c0c1ba",
+              "context:d2091c6d6a2b2ffdc6845169ec18438a5c584d808bb8b48c4f25b5b6c4173b07"
+            ]
+          }
+        ]
+      }
+    },
+    "total_tokens": 1804
+  },
+  {
+    "run": 28,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "e368030c6dc2bbdf4d11f88526907c88ad7da482bb6380b9161ca0b58e8cb5be",
+    "output": {
+      "concerns": [
+        "sensitive_data",
+        "external_exposure",
+        "critical_asset",
+        "weak_controls"
+      ],
+      "evidence_ids": [
+        "context:4f55c2d07e474e20fa1edc59c8b41d16e6f1979812d09c3bbb519393a9ed7e2e"
+      ]
+    },
+    "total_tokens": 787
+  },
+  {
+    "run": 28,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "76101f1b84e0a5db1afe9d7a0b14db3f7b22bed1822a7a12278b4d2fbe8996ae",
+    "output": {
+      "assessments": []
+    },
+    "total_tokens": 839
+  },
+  {
+    "run": 29,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "c269b22c84afa194d8e92c26f947868e19c12ce98593bdadcf17452a6f6e2875",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 614
+  },
+  {
+    "run": 29,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "2876df182c7d3ec6b70b69507b5a772a1e7944671660cd241fbd1aecc3b5242d",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:19c2a201cb1e047b494007f5ab74aebe1da055fd10e88fb2202e124cd6d5a4f7"
+      ]
+    },
+    "total_tokens": 750
+  },
+  {
+    "run": 29,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "8b9b63e16dc2e26fe7e2b8055406615f2ac1c409b744e65b0c76a8e5f35f7267",
+    "output": {
+      "assessments": []
+    },
+    "total_tokens": 807
+  },
+  {
+    "run": 30,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "ae21edec1fb16c6d5322954f52252c4b7e04f534ad6dc279e2af7e6712346972",
+    "output": {
+      "concerns": [],
+      "evidence_ids": []
+    },
+    "total_tokens": 870
+  },
+  {
+    "run": 30,
+    "contract": "v04_original",
+    "role": "context",
+    "request_sha256": "995b6e680c54b788fc338a35c5dcc174a6667c6e88e5c0b9dab238053b79323b",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+      ]
+    },
+    "total_tokens": 1048
+  },
+  {
+    "run": 30,
+    "contract": "v04_original",
+    "role": "triage",
+    "request_sha256": "d3d5ac356ccfffcc588e3ee315f7a77bf9275b054ff28d3a6ec3975c5616d892",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:c935bc0b4cadd62dda286f57",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        },
+        {
+          "finding_id": "finding:a7dd839666f7bc21bb863409",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:719046ab8b25d0fd00399d2a3f51ed9937295604db88778e26eb5b4914bde95e",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        },
+        {
+          "finding_id": "finding:dc46f8aa65d14ba94242bbf6",
+          "status": "affected",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:089eb1fe4802a7b11e628866d4e166dcb3c9281163920d025c4efa46cbe45069",
+            "advisory:7b3e319b70dcd6e287221583ee36f661b9930c87e83ce3aa849ce3921e06b797",
+            "context:4e4dec00f07e3fed8360e47b29ba75bb98a71b39005ccb8634e641e07391317e"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 2393
+  },
+  {
+    "run": 31,
+    "contract": "explicit_citations",
+    "role": "context",
+    "request_sha256": "30b14b4d1f961cd32ad17afdf945dca38ca2864971b1d7a5b54badf0b744f2ef",
+    "output": {
+      "concerns": [],
+      "evidence_ids": [
+        "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+      ]
+    },
+    "total_tokens": 883
+  },
+  {
+    "run": 31,
+    "contract": "explicit_citations",
+    "role": "triage",
+    "request_sha256": "cef12c898129cb5e3f41221879de54267f3cda4eb025cfd7bbca269fdcb7a95a",
+    "output": {
+      "assessments": [
+        {
+          "finding_id": "finding:0be90f80eb543ab98cf68ac2",
+          "status": "under_investigation",
+          "priority": "review",
+          "evidence_ids": [
+            "sbom:ae75509da407da44c21bc976a9d723a970d68d9c6f64080bd1c8bafd96c5b33b",
+            "advisory:78ee7d0b75fae11a6ebbb23fec55f33f4ade60966c4d4b72cc3a7ffed23d110f",
+            "context:fdfc54b10cb28112a6427a84717f929f09f96e98b90fea615458eb50d33f25c0"
+          ]
+        }
+      ]
+    },
+    "total_tokens": 1368
+  }
+]

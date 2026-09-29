@@ -55,7 +55,7 @@ OpenAI Responses API의 요청 모델 `gpt-5.6-luna`를 모든 역할에 동일�
 - [24회 결과 CSV](experiments/live-v04/results.csv), [집계·한계](experiments/live-v04/summary.json)
 - [모델 구조화 응답·사용량·요청 digest](experiments/live-v04/calls.json), [전체 실행 판정·이벤트](experiments/live-v04/run-records.json)
 - [규칙 기반 비교군](experiments/live-v04/deterministic-baseline.json)
-- [코드 SHA-256](experiments/live-v04/code-hashes.json): 실험 코드의 CRLF를 LF로 정규화한 UTF-8 바이트 기준. 실험 후 보존용으로 기록했으며 사전등록 증거가 아니다.
+- [코드 SHA-256](experiments/live-v04/code-hashes.json): 실험 코드의 CRLF를 LF로 정규화한 UTF-8 바이트 기준. 실험 후 보존용으로 기록했으며 사전등록 증거가 아니다. 이 해시는 [0.4 소스 커밋](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/tree/dea7ed0bfe3754777ff51170ace3484de3ef90f6)의 파일에 대응하며 이후 수정된 HEAD 파일의 해시가 아니다.
 
 모델 연결 점검용 pilot 4회는 4/4 통과, 7호출, 16,225 tokens였다. [pilot 원자료](experiments/live-v04/pilot/results.json)는 본 패널과 합산하지 않았다. 웹앱의 별도 수동 실행도 본 연구 집계에서 제외한다. 공개본에는 구조화 응답과 안전한 오류 코드만 포함하며 API 키·header·개인 설정·원래 로컬 경로는 포함하지 않는다.
 

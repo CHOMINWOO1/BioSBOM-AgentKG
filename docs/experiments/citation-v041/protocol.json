@@ -1,0 +1,190 @@
+{
+  "created_at": "2026-09-29T07:26:21.822073+00:00",
+  "models": {
+    "context": "gpt-5.6-luna",
+    "triage": "gpt-5.6-luna",
+    "single": "gpt-5.6-luna"
+  },
+  "api_style": "responses",
+  "case_hashes": [
+    "fdc4af61a21f9bfd1db3a75fdd0408fe6606ccc851a5b30c7b8298d394510e2c",
+    "df2e9b8535534cd8fd503e05962f484c08777866b5cf5db1ccb2c08d8f851b44",
+    "08ad09181ae63708041080ca26fda3de4767d81d46d1735a2c8783cbeead0c5f",
+    "4d2c9940134bebca233e07314cb189acd893ece68e7c281d0858cc8c6f45350d",
+    "c22bcfbab1104b7a12e7a67cf28e322a8ba7c7c0a24f16171966186f060c0953",
+    "8beb3bcb362497d5440531c596ed90291b331148a95b8270777f9ad9221fd861",
+    "985fcd439b9b2a2fed8d7564b3d232f7ba0ede97709676395505861de443bca4",
+    "2c30199addc454d399224ee3539f3fe8c4ee840bc30d480bf0b5c8f40998ae73"
+  ],
+  "schedule": [
+    [
+      1,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      7,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      5,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      6,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      3,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      4,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      7,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      0,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      2,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      3,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      1,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      5,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      0,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      6,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      5,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      7,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      3,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      2,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      7,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      0,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      4,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      0,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      1,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      6,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      3,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      2,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      4,
+      "single_agent",
+      "explicit_citations"
+    ],
+    [
+      1,
+      "single_agent",
+      "v04_original"
+    ],
+    [
+      5,
+      "multi_agent",
+      "explicit_citations"
+    ],
+    [
+      4,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      6,
+      "multi_agent",
+      "v04_original"
+    ],
+    [
+      2,
+      "multi_agent",
+      "explicit_citations"
+    ]
+  ],
+  "shuffle_seed": 1741,
+  "repeats": 1,
+  "worst_case_calls": 192,
+  "max_total_calls": 192,
+  "tokens_per_call": 2000,
+  "max_calls_per_run": 6,
+  "max_revisions_per_stage": 2,
+  "difference": "Only context_citations is removed for v04_original; verifier unchanged",
+  "measurement": "Contract acceptance and resource use, not independent accuracy"
+}

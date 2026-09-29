@@ -72,7 +72,7 @@ def create_app(
 
     app = FastAPI(
         title="BioSBOM Workbench",
-        version="0.4.0",
+        version="0.4.1",
         lifespan=lifespan,
         docs_url=None,
         redoc_url=None,
@@ -134,7 +134,7 @@ def create_app(
         return {
             "csrf": request.scope["biosbom_csrf"],
             "llm_configured": ready,
-            "version": "0.4.0",
+            "version": "0.4.1",
             "local_only": True,
             "limits": {
                 "request_bytes": 2000000,

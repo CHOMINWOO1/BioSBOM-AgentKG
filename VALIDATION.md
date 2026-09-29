@@ -1,4 +1,12 @@
-# Validation record — 0.4
+# Validation record — 0.4.1
+
+- Local Python 3.12: **133 tests passed**; Ruff and JavaScript syntax pass. The five additional cases verify original 0.4 payload hashes, empty-concern citation rejection, run pairing, trace attribution and pre-dispatch budget refusal.
+- Built the 0.4.1 wheel. Package, API and UI version metadata are synchronized; the previously stale Python `__version__` was corrected.
+- Targeted real-model ablation: **32 runs / 59 calls / 84,555 reported tokens**. All final audits passed. No-repair completion: single 5/8→8/8, multi 3/8→7/8. Context-evidence verifier events: 9→0. One revised-contract triage required review-priority repair.
+- All original run manifests verified. Public export aggregate checks reconcile per-run trace counts, tokens and audit decisions. See [methods, failures and raw data](docs/CITATION_ABLATION.md).
+- The previous 0.4 panel is preserved below. This is a new controlled development ablation, not an independent accuracy benchmark. Cross-platform 0.4.1 CI is recorded after publication.
+
+## Historical validation — 0.4
 
 - Local Python 3.12: **128 tests passed**. Includes version boundaries, frozen 0.3 artifact verification, preview behavior, Responses strict-schema handling, usage accounting, evidence/orchestration/storage, web boundaries and durable queue behavior.
 - Built the 0.4 wheel: all three UI assets, both example fixtures and the version matcher are included.

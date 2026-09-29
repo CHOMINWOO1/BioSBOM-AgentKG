@@ -1,0 +1,10 @@
+{
+  "benchmarks/run_citation_ablation.py": "a04aa7f9e6353aa9cd63079e0363a7300de106a23b363d7a2b50524c2283b91e",
+  "benchmarks/citation-panel-v041.json": "03d55c5f924499be30c743affb282a7fa8dd05a6db57a54a08940cd44c315aae",
+  "src/biosbom_agentkg/multiagent/agents.py": "01aa44bed8b357695d8a1a269d391d9cedb530929e4ee302164bad73a799dfb0",
+  "src/biosbom_agentkg/multiagent/engine.py": "eebcfd0efa0ade6c2dd166a815b28ba70781cb70d2a93c352e2a5df4f4421d68",
+  "src/biosbom_agentkg/multiagent/provider.py": "cafe880bf89c406b3fa56cb16fc33b900d85f04ce157f0da1c58787d466468b6",
+  "src/biosbom_agentkg/multiagent/models.py": "3f8ec18d9a8a714a71d7b1d6271237048d7182ea6d8c740d64c95483d96a28cd",
+  "src/biosbom_agentkg/multiagent/evidence.py": "78fedc2a6106b9dc976710d76dc4480323f24698d4abc54f6d5ba0fecb430413",
+  "src/biosbom_agentkg/multiagent/versions.py": "41f433617a392b930d5b5300b4826e51f79665a1d9b100a72a298c7e64018015"
+}

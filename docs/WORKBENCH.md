@@ -50,3 +50,5 @@ stateDiagram-v2
 ## 판정 규칙 업그레이드
 
 0.4의 새 분석은 PyPI·SemVer 범위를 해석한다. 이전 기록은 당시 규칙으로 검증하고 원본 검토를 유지한다. [버전 판정 문서](VERSION_MATCHING.md)에서 지원·보류 조건을 확인할 수 있다.
+
+0.4.1은 모델에게 빈 concerns 목록에도 context snapshot 인용이 필요함을 명시한다. 자동 검증과 최종 사람 검토 기준은 유지한다. [비교 실험](CITATION_ABLATION.md).

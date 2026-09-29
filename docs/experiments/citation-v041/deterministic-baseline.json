@@ -1,0 +1,42 @@
+[
+  {
+    "case": "citation-range-no-concerns",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-range-threshold-concerns",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-missing-no-concerns",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-git-only-weak-controls",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-empty-no-concerns",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-empty-all-concerns",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-public-boundary-below",
+    "verified": true,
+    "calls": 0
+  },
+  {
+    "case": "citation-rnaseq-sensitive-only",
+    "verified": true,
+    "calls": 0
+  }
+]
