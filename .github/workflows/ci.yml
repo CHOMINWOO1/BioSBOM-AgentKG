@@ -19,6 +19,7 @@ jobs:
       - run: node --check src/biosbom_agentkg/web/static/app.js
       - run: node --test tests/web_state.test.cjs
       - run: python -m pytest -q
+      - run: python benchmarks/run_reviewed_reference.py --output runs/reviewed-reference-ci
       - run: biosbom-agentkg run --case examples/rnaseq-case.json --output runs/ci
       - run: biosbom-agentkg verify runs/ci
       - run: biosbom-agentkg evaluate --case examples/rnaseq-case.json --output runs/evaluation --seeds 1

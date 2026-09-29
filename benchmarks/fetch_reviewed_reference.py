@@ -17,6 +17,15 @@ from packaging.version import InvalidVersion, Version
 PACKAGES = ["joblib", "scikit-learn", "scipy", "torch", "transformers",
             "tensorflow", "onnx", "mlflow", "gradio", "fastapi"]
 ROOT = Path(__file__).resolve().parents[1]
+BASELINE = "29f15ec795e92e4ed1da827d03a801d568e9a28b"
+
+
+def application_hashes():
+    command = ["git", "-c", f"safe.directory={ROOT.as_posix()}", "-C", str(ROOT)]
+    paths = subprocess.check_output(command + ["ls-tree", "-r", "--name-only", BASELINE, "src"])
+    return {name: hashlib.sha256(subprocess.check_output(
+        command + ["show", f"{BASELINE}:{name}"]).replace(b"\r\n", b"\n")).hexdigest()
+        for name in paths.decode().splitlines() if name.endswith(".py")}
 
 
 def fetch(url, github=False):
@@ -136,14 +145,16 @@ def acquire(output):
     datasets = {"cases.json": [c for r in results for c in r.pop("cases")],
                 "reference-labels.json": [c for r in results for c in r.pop("labels")],
                 "provenance.json": results,
-                "protocol.json": {"application_commit": "29f15ec795e92e4ed1da827d03a801d568e9a28b",
+                "application-source-hashes.json": application_hashes(),
+                "protocol.json": {"application_commit": BASELINE,
                                   "packages": PACKAGES, "prior_advisory_ids_excluded": sorted(excluded),
                                   "created_at": datetime.now(timezone.utc).isoformat(),
                                   "label_type": "external_reviewed_service_reference_not_new_human_review"}}
     for name, data in datasets.items():
-        (output / name).write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        (output / name).write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8", newline="\n")
     hashes = {name: hashlib.sha256((output / name).read_bytes()).hexdigest() for name in datasets}
-    (output / "frozen-inputs.json").write_text(json.dumps(hashes, indent=2) + "\n")
+    (output / "frozen-inputs.json").write_text(json.dumps(hashes, indent=2) + "\n",
+                                                encoding="utf-8", newline="\n")
     print(json.dumps({"cases": len(datasets["cases.json"]),
                       "packages": sum(r["source"] is not None for r in results)}))
 

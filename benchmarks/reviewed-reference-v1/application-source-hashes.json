@@ -1,0 +1,21 @@
+{
+  "src/biosbom_agentkg/__init__.py": "008ef0b1fe1fde24d225b6b99c352430e502e7e4f691693740170c53e01f66ba",
+  "src/biosbom_agentkg/cli.py": "2207b7f2572e698976779893723252e57445b9500036efcebccc5e57318fa2cc",
+  "src/biosbom_agentkg/multiagent/__init__.py": "9d1bce61ccd0baf680da2632b24377faf0ec7d301ba9fae3e4d7071d1aaa1ea6",
+  "src/biosbom_agentkg/multiagent/agents.py": "6499fc5c8c13747d424563ca872cccde48e3fb18cdc337ceaa8808cbd34ae882",
+  "src/biosbom_agentkg/multiagent/engine.py": "eebcfd0efa0ade6c2dd166a815b28ba70781cb70d2a93c352e2a5df4f4421d68",
+  "src/biosbom_agentkg/multiagent/evaluation.py": "926e53912f7636de7667f66108539fdcb568acdf76cb732eabe1b4f5b5c66e5f",
+  "src/biosbom_agentkg/multiagent/evidence.py": "78fedc2a6106b9dc976710d76dc4480323f24698d4abc54f6d5ba0fecb430413",
+  "src/biosbom_agentkg/multiagent/models.py": "3f8ec18d9a8a714a71d7b1d6271237048d7182ea6d8c740d64c95483d96a28cd",
+  "src/biosbom_agentkg/multiagent/provider.py": "cafe880bf89c406b3fa56cb16fc33b900d85f04ce157f0da1c58787d466468b6",
+  "src/biosbom_agentkg/multiagent/reporting.py": "884dd2b01c4d0dff90ee336ad215154044d1c60d8c7239db102da1258a3ba426",
+  "src/biosbom_agentkg/multiagent/storage.py": "f487804d47bc30ad45a5e552a96b52232e9839e5ee3e8faa65dacedbb33b5738",
+  "src/biosbom_agentkg/multiagent/versions.py": "41f433617a392b930d5b5300b4826e51f79665a1d9b100a72a298c7e64018015",
+  "src/biosbom_agentkg/risk.py": "8a41015453aa1cc341cb1ce1da5cec457dff0468f5643f8fb5ab599fc0230ea7",
+  "src/biosbom_agentkg/sbom.py": "8d45f84cd5718737418bedbe36f4f201146601fbcd3040f66294f841fc00444c",
+  "src/biosbom_agentkg/schemas.py": "fe39436eaec6a7753835ee82c31963dd1e6a703782cd4f319cffaca19f8c317b",
+  "src/biosbom_agentkg/web/__init__.py": "cc52effa0652cdb2c39df92857fece8a8382e630b31aa530e3975599a2f055d1",
+  "src/biosbom_agentkg/web/app.py": "ec18c8157d684e2b23751ea014c36afe5efc2a0fd03c914ad985c61b2325ddb6",
+  "src/biosbom_agentkg/web/jobs.py": "24edb39e1a6d6f0a432ed07c66f1c6c0c472c9854bf05b458bc3b870c90cb6fb",
+  "src/biosbom_agentkg/web/security.py": "c2a66a77c2d65a15a193be5e1928391ac4ae7af7f77a8429a4337396da511b27"
+}

@@ -10,6 +10,8 @@ SBOM 구성요소와 공개 취약점, 실행 환경의 데이터 민감도·노
 
 ![BioSBOM 웹 작업 공간](docs/screenshots/workbench-v04.png)
 
+**외부 검토 자료 평가:** 개발 패널과 겹치지 않는 10개 패키지·40개 버전 사례에서 GitHub reviewed advisory 기준과 40/40 일치했다. 오탐·미탐·보류는 각각 0개다. 신규 인간 평가자는 0명이며 GitHub/OSV의 원천 정보가 공유되므로 독립 전문가 정확도로 해석하지 않는다. [그림·원자료·재현 방법·전문가 평가 준비](docs/EXTERNAL_REVIEW_EVALUATION.md).
+
 **0.4.2 업데이트:** CVSS 누락·불확실 버전을 별도 검토 상태로 명시했다. 새 48회 비교에서 수정 후 단일·멀티 각각 12/12가 재검토 없이 통과했다. 기록 전환과 근거 조회의 응답 순서, 검토 대상 고정, 한국어 실패 안내도 보완했다. [실험과 비용·시간의 한계](docs/TRIAGE_ABLATION.md).
 
 **0.4.1 업데이트:** 빈 위험 맥락에도 원본 근거를 인용하도록 모델 계약을 명시했다. 새 32회 비교에서 근거 참조 오류 이벤트가 9→0, 호출이 34→25로 감소했다. 검증 기준을 완화하지 않았으며 개발 패널 밖의 효과는 아직 미검증이다. [수정 전후 원자료·한계](docs/CITATION_ABLATION.md).
@@ -90,7 +92,9 @@ biosbom-agentkg run --case examples/rnaseq-case.json --output runs/llm-demo --mo
 
 ## 4. 실험 결과와 재현
 
-최신 실험은 [0.4.2 판정 계약 비교](docs/TRIAGE_ABLATION.md)다. 이전 [0.4.1 인용 계약 비교](docs/CITATION_ABLATION.md)는 별도 보존한다. 아래의 공개 corpus와 24회 모델 패널은 별도 0.4 기준 결과이며 합산하지 않는다.
+최신 검증은 [외부 검토 자료와의 40개 버전 판정 비교](docs/EXTERNAL_REVIEW_EVALUATION.md)다. 실제 모델 실험인 [0.4.2 판정 계약 비교](docs/TRIAGE_ABLATION.md)와 이전 [0.4.1 인용 계약 비교](docs/CITATION_ABLATION.md)는 별도 보존한다. 아래의 공개 corpus와 24회 모델 패널은 별도 0.4 기준 결과이며 합산하지 않는다.
+
+![외부 검토 자료와의 일치도](docs/experiments/reviewed-reference-v1.png)
 
 ![판정 계약 수정 전후](docs/experiments/triage-ablation-v042.png)
 

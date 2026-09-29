@@ -1,5 +1,23 @@
 # External reviewed-reference evaluation and independent human review
 
+## 결과 요약 — 공개 검토 자료 기준 평가 완료
+
+2026-09-29에 기존 개발 패널과 advisory ID가 겹치지 않는 10개 패키지·40개 버전 사례를 평가했다. **GitHub reviewed advisory 조회 결과와 BioSBOM 판정이 40/40 일치**했다. 영향 있음 20개, 해당 advisory 범위 밖 20개이며 오탐·미탐·판정 보류는 각각 0개였다.
+
+**실제 신규 전문가 참여자는 0명이다.** GitHub와 OSV가 원천 advisory 정보를 공유하므로 이 결과는 외부 검토 자료와의 버전 판정 일치도다. 독립 전문가 정확도, 취약점 발견 성능, 실제 배포 환경의 보안 정확도 또는 전체 멀티에이전트 성능을 입증하지 않는다. 이 실험의 모델 호출은 0회다.
+
+![External reviewed-reference results](experiments/reviewed-reference-v1.png)
+
+| 외부 기준 / 시스템 판정 | 영향 있음 | 해당 advisory 범위 밖 | 판정 보류 |
+|---|---:|---:|---:|
+| 영향 있음 | 20 | 0 | 0 |
+| 해당 advisory 범위 밖 | 0 | 20 | 0 |
+
+- 전체 일치도 40/40, 판정 커버리지 40/40, 이 표본 내 민감도 20/20·특이도 20/20.
+- 패치 경계 주변의 역사적 버전을 선택했다. 무작위 운영 표본이 아니며 같은 advisory의 네 버전은 서로 연관된다. 일반화 성능이나 독립 표본을 가정한 신뢰구간을 제시하지 않는다.
+- 각 사례의 입력·정답·조회 시각·출처 해시와 오탐/미탐 목록을 공개했다. 오류 목록이 비어 있다는 사실은 이 40개 사례에만 해당한다.
+- 실제 전문가용 양식과 두 평가자 채점 도구는 준비했으며, 인간 평가 결과는 아직 없다. 평가자 원답변·신원·연결표는 기본적으로 Git에서 제외되는 `private/`에 저장한다.
+
 ## Evaluation status and scope
 
 This study separates two tasks:
@@ -34,4 +52,65 @@ Public benchmark results are visible in this repository, so a reviewer must rece
 - [Global security advisory API](https://docs.github.com/en/rest/security-advisories/global-advisories): package/version filters provide the external reference response.
 - [OSV](https://osv.dev/): runtime advisory-format snapshot. No unsupported claim of source independence is made.
 
-Results and reviewer participation status will be appended after acquisition and evaluation.
+## Selected advisories
+
+| Package | Advisory | Versions (ordered) | Agreement |
+|---|---|---|---:|
+| joblib | [GHSA-6hrg-qmvc-2xh8](https://github.com/advisories/GHSA-6hrg-qmvc-2xh8) | 1.1.0, 1.1.1, 1.2.0, 1.3.0 | 4/4 |
+| scikit-learn | [GHSA-jxfp-4rvq-9h9m](https://github.com/advisories/GHSA-jxfp-4rvq-9h9m) | 0.24.2, 1.0, 1.0.1, 1.0.2 | 4/4 |
+| scipy | [GHSA-xp76-357g-9wqq](https://github.com/advisories/GHSA-xp76-357g-9wqq) | 0.11.0, 0.12.0, 0.12.1, 0.13.0 | 4/4 |
+| torch | [GHSA-47fc-vmwq-366v](https://github.com/advisories/GHSA-47fc-vmwq-366v) | 1.12.1, 1.13.0, 1.13.1, 2.0.0 | 4/4 |
+| transformers | [GHSA-282v-666c-3fvg](https://github.com/advisories/GHSA-282v-666c-3fvg) | 4.29.1, 4.29.2, 4.30.0, 4.30.1 | 4/4 |
+| tensorflow | [GHSA-jfq2-rj7f-9gvf](https://github.com/advisories/GHSA-jfq2-rj7f-9gvf) | 1.5.0, 1.5.1, 1.6.0, 1.7.0 | 4/4 |
+| onnx | [GHSA-ffxj-547x-5j7c](https://github.com/advisories/GHSA-ffxj-547x-5j7c) | 1.11.0, 1.12.0, 1.13.0, 1.13.1 | 4/4 |
+| mlflow | [GHSA-vqj2-4v8m-8vrq](https://github.com/advisories/GHSA-vqj2-4v8m-8vrq) | 1.22.0, 1.23.0, 1.23.1, 1.24.0 | 4/4 |
+| gradio | [GHSA-rhq2-3vr9-6mcr](https://github.com/advisories/GHSA-rhq2-3vr9-6mcr) | 2.4.5, 2.4.6, 2.5.0, 2.5.1 | 4/4 |
+| fastapi | [GHSA-8h2j-cgx8-6xv7](https://github.com/advisories/GHSA-8h2j-cgx8-6xv7) | 0.65.0, 0.65.1, 0.65.2, 0.65.3 | 4/4 |
+
+Candidate exclusions are recorded in provenance; all 10 packages yielded an eligible record.
+
+## Frozen evidence and reproduction
+
+The protocol was committed at `ba8207f` before acquisition. Cases, reference labels, acquisition provenance and protocol were committed at `40ff2f3` before the first prediction. The application source digest manifest was also recorded locally before predictions. All application Python files remain identical to the frozen 0.4.2 baseline; no matcher adjustment was made after seeing this panel.
+
+- [Frozen inputs and per-file SHA-256](../benchmarks/reviewed-reference-v1/frozen-inputs.json)
+- [Acquisition sources, timestamps and exclusions](../benchmarks/reviewed-reference-v1/provenance.json)
+- [External reference labels and exact query URLs](../benchmarks/reviewed-reference-v1/reference-labels.json)
+- [Predictions saved before joining reference labels](experiments/reviewed-reference-v1/predictions.json)
+- [All 40 rows as CSV](experiments/reviewed-reference-v1/case-results.csv), [summary JSON](experiments/reviewed-reference-v1/summary.json), [errors/abstentions](experiments/reviewed-reference-v1/errors.json)
+
+From the repository root, after installing `.[web,dev]`:
+
+```bash
+python benchmarks/run_reviewed_reference.py --output runs/reviewed-reference-reproduction
+```
+
+Use a new output directory each time. This offline command checks canonical-LF input hashes and frozen application source hashes, then computes predictions before reading the labels. No API key or model connection is required. Future application changes intentionally fail the fixed-baseline check; evaluate such changes as a separate panel rather than replacing this result.
+
+Optional source reacquisition needs GitHub API access through `gh`, public OSV and PyPI access:
+
+```bash
+python benchmarks/fetch_reviewed_reference.py --output runs/new-reference-acquisition
+```
+
+Live services may revise advisories or releases; reacquisition is a new snapshot, not a guarantee of identical labels. Do not overwrite the frozen files. To regenerate the figure, install matplotlib/numpy and run `python benchmarks/render_reviewed_reference.py`.
+
+## Actual human review: ready, not performed
+
+```bash
+python benchmarks/human_review.py prepare --output private/human-review-v1
+```
+
+Send only `private/human-review-v1/reviewer-packet.zip` separately to each reviewer. It contains randomly ordered opaque case IDs, advisory inputs and source links, a blank `review.csv`, a blank `reviewer.json`, and instructions. It contains no system predictions, query-derived reference labels or coordinator mapping. The advisory range evidence is intentionally visible: evaluating it is the task. Do not send this report or the public result links before review. The public repository remains discoverable, so exposure declarations are necessary and blinding is not guaranteed.
+
+Retain `coordinator-map.json` privately. Save completed forms in two separate private directories, then run:
+
+```bash
+python benchmarks/human_review.py score --mapping private/human-review-v1/coordinator-map.json --reviews private/reviewer-a private/reviewer-b --predictions docs/experiments/reviewed-reference-v1/predictions.json --output private/human-review-score.json
+```
+
+The scorer rejects missing/duplicate case IDs, blank answers, unsupported labels, reused reviewer IDs, absent qualifications/declarations, declared prior output exposure and mismatched prediction input hashes. Declarations do not authenticate identity or qualifications; the coordinator must verify expertise and assess conflicts before interpreting results. Raw score output includes reviewer declarations and must remain private until an appropriate de-identified release is prepared.
+
+It reports three-label inter-rater agreement and Cohen's kappa, disagreements, shared uncertainty, determinate consensus coverage, and system agreement on provisional consensus. System abstentions remain errors in the consensus denominator. Unresolved cases remain in total coverage calculations; no final expert reference standard is claimed without documented adjudication. No synthetic test response is included in the research results.
+
+The present deliverable finishes the public-reference stage requested while no human reviewers are available. Actual independent human evaluation remains pending; multi-user service work is outside the requested scope.

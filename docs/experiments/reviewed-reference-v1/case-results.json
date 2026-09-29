@@ -1,0 +1,722 @@
+[
+  {
+    "case": "external-joblib-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "11a27bec894204439fd709eec0262a3bc2973732c117c0382dc5d5e4f65bcdda",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "joblib",
+    "version": "1.1.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-6hrg-qmvc-2xh8"
+    ]
+  },
+  {
+    "case": "external-joblib-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "cd2fd843031552feeb264dc41e0d898acdf0b9dc4c364f69b598228dc1914f35",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "joblib",
+    "version": "1.1.1",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-6hrg-qmvc-2xh8"
+    ]
+  },
+  {
+    "case": "external-joblib-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "ca1f94386619fd92a368d49a6d7bdbf24826f7e365ffa0bf683864619582e84a",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "joblib",
+    "version": "1.2.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-joblib-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "79ff55912b9d0c51782e75c831907a5a6d6b2c8a48cc5a628b909e05ac71ee8c",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "joblib",
+    "version": "1.3.0",
+    "advisory": "GHSA-6hrg-qmvc-2xh8",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-scikit-learn-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "41eb27a35c99baea6446986fc1ec9468a1858f8ca4c304dff08f8fa35fdbd7a0",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "scikit-learn",
+    "version": "0.24.2",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-jxfp-4rvq-9h9m"
+    ]
+  },
+  {
+    "case": "external-scikit-learn-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "07f115e3ff31b91fc2f723d354d7f8dab0d5466b9fa2e847fd6d9d403d1e6206",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "scikit-learn",
+    "version": "1.0",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-jxfp-4rvq-9h9m"
+    ]
+  },
+  {
+    "case": "external-scikit-learn-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "63c973efe6cefaf9f054c9aeb81f1e2a82a506f68c4514085dfe22f1f49a39c6",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "scikit-learn",
+    "version": "1.0.1",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-scikit-learn-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "03ed01f951812fbaa691667902094f57a71495ddfc4bbfc702e1c4b6f792b21a",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "scikit-learn",
+    "version": "1.0.2",
+    "advisory": "GHSA-jxfp-4rvq-9h9m",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-scipy-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "872f39b890b5f5c36d3d57ec4b6e633b05c0f3053e195018b7b3e2286d2b39c5",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "scipy",
+    "version": "0.11.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-xp76-357g-9wqq"
+    ]
+  },
+  {
+    "case": "external-scipy-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "6715acdef90600ec82fa410e1771c4d457f4f173177af4a32e039538412c6eae",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "scipy",
+    "version": "0.12.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-xp76-357g-9wqq"
+    ]
+  },
+  {
+    "case": "external-scipy-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "2551f0b5c926246fce3a9402c3f7a6c3aa0927a9a0146c689a6bfef0296a84a9",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "scipy",
+    "version": "0.12.1",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-scipy-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "68bfaad6e4f0d57556067210da302d3aa31ccedb20133e706c981c6012972466",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "scipy",
+    "version": "0.13.0",
+    "advisory": "GHSA-xp76-357g-9wqq",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-torch-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "235feec726a158866de7d64d60bfb9aadf21527680e14a9bee3d611b04c96d23",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "torch",
+    "version": "1.12.1",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-47fc-vmwq-366v"
+    ]
+  },
+  {
+    "case": "external-torch-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "9e5c6975944f456f472ed4e5150902257ffd7ae9db1618d2b81c9d316f30c3f7",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "torch",
+    "version": "1.13.0",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-47fc-vmwq-366v"
+    ]
+  },
+  {
+    "case": "external-torch-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "82ae21262261a384f968576ec22aa74a6af00b94529a394d739153aa19926e45",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "torch",
+    "version": "1.13.1",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-torch-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "d60356f75d0432676371deb24e5078ef777f6ed404c3a4855b084413174b47d1",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "torch",
+    "version": "2.0.0",
+    "advisory": "GHSA-47fc-vmwq-366v",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-transformers-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "6e9ea6a0ecef5975265f6bf8d76cf2023e3372a3bb226e902d9ace145beefc85",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "transformers",
+    "version": "4.29.1",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-282v-666c-3fvg"
+    ]
+  },
+  {
+    "case": "external-transformers-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "533ad23b1da4b36302fa782f0cbcb3f9ee07808c3a0904ce3c8b4f8a2b5eae70",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "transformers",
+    "version": "4.29.2",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-282v-666c-3fvg"
+    ]
+  },
+  {
+    "case": "external-transformers-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "a575f9509dc19aa06be0f0eb0bd253e1b784adc21fb6bde516cc0c1308326740",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "transformers",
+    "version": "4.30.0",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-transformers-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "e423a2912490359dc7e6de9b6cbe1285a0671750c381ea73bdb28dcc1b3a93e1",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "transformers",
+    "version": "4.30.1",
+    "advisory": "GHSA-282v-666c-3fvg",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-tensorflow-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "b6a4938d6ad655a547f782b59666c9ea273ef54166374da4b72e48df5faa63e6",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "tensorflow",
+    "version": "1.5.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-jfq2-rj7f-9gvf"
+    ]
+  },
+  {
+    "case": "external-tensorflow-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "c1dbebd99789264156e3aa29b2e549f4bc5622e25857741801dbde42d5978d95",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "tensorflow",
+    "version": "1.5.1",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-jfq2-rj7f-9gvf"
+    ]
+  },
+  {
+    "case": "external-tensorflow-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "f795259a6af16e7b80f10301fc8a643d1da3774c9799cab770e488ae98c7d792",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "tensorflow",
+    "version": "1.6.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-tensorflow-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "cd4938a641e599cac3fe0b5e1ec23f673876a7edcf5a79f7b2d7730ffa2511cf",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "tensorflow",
+    "version": "1.7.0",
+    "advisory": "GHSA-jfq2-rj7f-9gvf",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-onnx-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "fe210ae2131f39efd487954620d2b6967ca0d1326e8f487efcbce7e2c7d303ed",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "onnx",
+    "version": "1.11.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-ffxj-547x-5j7c"
+    ]
+  },
+  {
+    "case": "external-onnx-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "3e83253669707a1c8b0b31ce52903155fc8d184adb09a8c89ff2edb43a64d5bd",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "onnx",
+    "version": "1.12.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-ffxj-547x-5j7c"
+    ]
+  },
+  {
+    "case": "external-onnx-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "13b6e4ed86a667cab1ff465e5b3e80b86d3cc716bdedb7fe7d4cef17c0c287c8",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "onnx",
+    "version": "1.13.0",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-onnx-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "00c9ddfb026d4d524fe8c1e43865c7bf79a28ec4f8dc29c37cd7d2fff857c9dc",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "onnx",
+    "version": "1.13.1",
+    "advisory": "GHSA-ffxj-547x-5j7c",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-mlflow-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "57de82baca621ce95d671906fc3caf3771c06fba54f366ef08e5d4c0b6ba0760",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "mlflow",
+    "version": "1.22.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-vqj2-4v8m-8vrq"
+    ]
+  },
+  {
+    "case": "external-mlflow-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "ede03ecc2f2bb9fa8795b0bcd7e4718de3def3c7f51a25152679207537382261",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "mlflow",
+    "version": "1.23.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-vqj2-4v8m-8vrq"
+    ]
+  },
+  {
+    "case": "external-mlflow-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "4bac7c4c9999fc953b29038b7c3884756384a6bb3ccfdb08e074b1457d73da7d",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "mlflow",
+    "version": "1.23.1",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-mlflow-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "f18da72cc34396baa7e0c3ffdc47b3ef15d8dcf3daa9f83450cf208c41273b35",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "mlflow",
+    "version": "1.24.0",
+    "advisory": "GHSA-vqj2-4v8m-8vrq",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-gradio-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "c50186236f67f5327289fabf8629e3613faa4c28ca6cf8eb4e0cf1c70db0f793",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "gradio",
+    "version": "2.4.5",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-rhq2-3vr9-6mcr"
+    ]
+  },
+  {
+    "case": "external-gradio-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "f4c9f4e4c129c8933606561fd146916672d972d95b547e88849bec6016dd7d1f",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "gradio",
+    "version": "2.4.6",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-rhq2-3vr9-6mcr"
+    ]
+  },
+  {
+    "case": "external-gradio-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "06949de817c26add0b342ab5b1f8fb66c0a459e48f117aa2c891ab97d7501c45",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "gradio",
+    "version": "2.5.0",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-gradio-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "2e07e9d8e4a51cea6ec77a55f98586cac47f621517cce0c8e74894eea01d9769",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "gradio",
+    "version": "2.5.1",
+    "advisory": "GHSA-rhq2-3vr9-6mcr",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-fastapi-0",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "8144ba1054286b582a9458a99aca19d74192d24725493a848cc1f69bec4cc69f",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "fastapi",
+    "version": "0.65.0",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-8h2j-cgx8-6xv7"
+    ]
+  },
+  {
+    "case": "external-fastapi-1",
+    "prediction": "affected",
+    "audit_passed": true,
+    "input_sha256": "f9aa58c9b36a45c76e4f0a01b84fecc53e7c58f90135692ff2cacc4232049732",
+    "calls": 0,
+    "matches": [
+      "exact_version"
+    ],
+    "reasons": [
+      "Installed version explicitly listed as affected"
+    ],
+    "warnings": [],
+    "package": "fastapi",
+    "version": "0.65.1",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "affected",
+    "returned_ids": [
+      "GHSA-8h2j-cgx8-6xv7"
+    ]
+  },
+  {
+    "case": "external-fastapi-2",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "5aea88fd1170beb2834efa990f558cfe30b457c1d00b39217e4795a7fd10587e",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "fastapi",
+    "version": "0.65.2",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  },
+  {
+    "case": "external-fastapi-3",
+    "prediction": "outside_this_advisory",
+    "audit_passed": true,
+    "input_sha256": "fd5cbfbbcbd17e9af7f2eb92ae85c5e78980d9653606ab3561be2f6753f177a3",
+    "calls": 0,
+    "matches": [],
+    "reasons": [],
+    "warnings": [],
+    "package": "fastapi",
+    "version": "0.65.3",
+    "advisory": "GHSA-8h2j-cgx8-6xv7",
+    "reference": "outside_this_advisory",
+    "returned_ids": []
+  }
+]

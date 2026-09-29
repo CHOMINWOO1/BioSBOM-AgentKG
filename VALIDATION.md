@@ -1,5 +1,13 @@
 # Validation record — 0.4.2
 
+## External reviewed-reference and human-review tooling
+
+- Local Python 3.12: **161 tests passed**, **5 Node UI state tests passed**, Ruff passed. New tests cover abstention denominators, exact label joins, packet blinding/blank forms, reviewer declarations, disagreements, uncertainty, and prediction-input identity. All reviewer responses in tool tests are explicitly synthetic and excluded from research results.
+- Offline replay reproduced all 40 frozen external-reference decisions: TP 20, TN 20, FP 0, FN 0, abstentions 0. Application hashes were checked against the unchanged 0.4.2 baseline; no model calls or new human reviews were performed. [Methods, figures and raw records](docs/EXTERNAL_REVIEW_EVALUATION.md).
+- The reviewer packet includes blank forms only; participant identities, responses and coordinator mapping stay under ignored `private/` by default. Public source snapshots and label queries are distinct from actual expert responses.
+
+## Application release validation
+
 - Local Python 3.12: **146 tests passed**, plus **5 Node UI state tests**; Ruff and JavaScript syntax pass. Policy cases cover missing/zero CVSS, uncertain versions and severity/exposure boundaries. The original comparison payload is checked against published 0.4.1 digests.
 - UI state tests cover out-of-order record/evidence responses, hidden stale controls after a failed load, immutable review target selection and safe non-JSON errors. They are targeted unit tests, not browser substitutes.
 - Real browser: visible CVSS-missing explanation, record-specific review target, default hold decision, model-connection recovery guidance. Review dialog fits a requested 390px viewport (375px content width, 341px dialog) without horizontal overflow. Screenshot uses an existing synthetic deployment and does not submit a human decision.
