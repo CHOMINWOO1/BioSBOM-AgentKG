@@ -5,6 +5,7 @@
 - Local Python 3.12: **161 tests passed**, **5 Node UI state tests passed**, Ruff passed. New tests cover abstention denominators, exact label joins, packet blinding/blank forms, reviewer declarations, disagreements, uncertainty, and prediction-input identity. All reviewer responses in tool tests are explicitly synthetic and excluded from research results.
 - Offline replay reproduced all 40 frozen external-reference decisions: TP 20, TN 20, FP 0, FN 0, abstentions 0. Application hashes were checked against the unchanged 0.4.2 baseline; no model calls or new human reviews were performed. [Methods, figures and raw records](docs/EXTERNAL_REVIEW_EVALUATION.md).
 - The reviewer packet includes blank forms only; participant identities, responses and coordinator mapping stay under ignored `private/` by default. Public source snapshots and label queries are distinct from actual expert responses.
+- Evaluation/tooling commit `76800d5e4c7db1866fc417afb6fda8ce74618cdc` passed all four Ubuntu/Windows x Python 3.11/3.12 jobs, including the offline frozen-reference replay: [cross-platform CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36540518750). Subsequent documentation corrections do not change application or evaluation code. All 173 selected publication files passed Gitleaks and a local private-path/internal-address scan; ignored reviewer materials were absent from the export.
 
 ## Application release validation
 
