@@ -8,13 +8,14 @@
 - HTTP transport tests use a real loopback HTTP server with scripted responses, including redirects, malformed JSON, truncated completions and error responses. This tests the transport contract, not any actual model.
 - Installed CLI: offline `run`, `verify` and a separate public-advisory snapshot run completed. Outputs are synthetic assets and contain no private inventory.
 - Controlled experiment: 570 scripted runs, 57 conditions, 10 seeds per condition. Full raw records and grouped CSV accompany the report.
+- [GitHub Actions run 36529146656](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36529146656) passed all four jobs: Ubuntu and Windows, each with Python 3.11 and 3.12, at implementation commit `e5ae9f0618a48569ed738e5dbf287e02164a1147`. Each job installs the package, runs lint/tests, verifies an offline run, and executes the one-seed experiment smoke.
 
 ## Not executed / not established
 
 - No real local or paid remote LLM inference; provider behavior under an actual model remains unmeasured.
 - No production asset scan, penetration test, clinical input, exploitation or automated remediation.
 - No independent ranking gold labels, calibrated risk probabilities, real inference latency or monetary cost results.
-- CI is configured for Linux/Windows and Python 3.11/3.12. Local results do not imply that remote CI already passed.
+- Passing CI establishes the tested package and offline workflows on the matrix above; it does not establish live-model compatibility or production readiness.
 
 ## Reproduce
 

@@ -6,6 +6,7 @@
 |---|---|---|
 | 역할별 실행·재검토 | 구현 및 경계 조건 테스트 | 실제 모델별 실패 유형 수집 |
 | 입력·근거·판정 검증 | 69개 테스트, 새 환경 설치 검증 | 더 큰 SBOM 및 ecosystem별 버전 범위 처리 |
+| GitHub 자동 검증 | Ubuntu·Windows × Python 3.11·3.12의 4개 작업 통과 | 실제 모델·운영 환경 검증은 별도 |
 | 오류 복구 비교 | scripted provider 570회 | 동일 모델·동일 예산의 실제 LLM 비교 |
 | 공개 advisory 처리 | OSV 2건, package 6개 조건 | 독립 corpus 및 전문가 label |
 | 사용성 | CLI와 HTML/Markdown 보고서 | 인증된 다사용자 검토 흐름 |
