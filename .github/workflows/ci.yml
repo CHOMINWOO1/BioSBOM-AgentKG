@@ -14,8 +14,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install -e ".[dev]"
-      - run: python -m ruff check src tests
+      - run: python -m pip install -e ".[web,dev]"
+      - run: python -m ruff check src tests benchmarks
+      - run: node --check src/biosbom_agentkg/web/static/app.js
       - run: python -m pytest -q
       - run: biosbom-agentkg run --case examples/rnaseq-case.json --output runs/ci
       - run: biosbom-agentkg verify runs/ci

@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-09-29T06:20:43.958159+00:00",
+  "python": "3.12.14",
+  "os": "Windows",
+  "processor_architecture": "AMD64",
+  "corpus_sha256": "44b7c5e0b3d363a38e626694a5b9d8b4666e682e745bc5c55fa0fe44c717a8d7",
+  "advisories": 8,
+  "cases": 40,
+  "passed": 40,
+  "observed": {
+    "exact_version": 8,
+    "ambiguous": 8,
+    "version_missing": 8,
+    "no_candidate": 16
+  },
+  "latency": [
+    {
+      "components": 10,
+      "n": 30,
+      "median_ms": 0.6680499063804746,
+      "p95_ms": 0.77629997394979,
+      "min_ms": 0.6113001145422459,
+      "max_ms": 0.7955001201480627
+    },
+    {
+      "components": 100,
+      "n": 30,
+      "median_ms": 1.967000076547265,
+      "p95_ms": 2.113299909979105,
+      "min_ms": 1.8597999587655067,
+      "max_ms": 2.130199922248721
+    },
+    {
+      "components": 1000,
+      "n": 30,
+      "median_ms": 14.80559993069619,
+      "p95_ms": 18.329800106585026,
+      "min_ms": 14.404399786144495,
+      "max_ms": 18.91839993186295
+    }
+  ],
+  "latency_all_passed": true,
+  "limitations": [
+    "Source-derived labels, not an independent clinical or exploitability benchmark",
+    "Fixed versions deliberately stay ambiguous: range handling is not implemented",
+    "Latency excludes HTTP, SQLite, artifact writing and LLM calls",
+    "Eight PyPI advisories; not representative of all bioinformatics environments"
+  ]
+}

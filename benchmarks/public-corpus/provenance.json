@@ -1,0 +1,186 @@
+[
+  {
+    "advisory_id": "PYSEC-2023-74",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2023-74",
+    "retrieved_at": "2026-09-29T06:19:04.698044+00:00",
+    "raw_sha256": "a8cf62be7bef83ee3f45b601756932152c5f8f050c3ad74a07a8b275a97a5913",
+    "query": {
+      "package": {
+        "name": "requests",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.28.0"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2023-192",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2023-192",
+    "retrieved_at": "2026-09-29T06:19:05.615594+00:00",
+    "raw_sha256": "e8128b05af401573568498e59e83031c3a62b312765ab640a957dab69a6aa0cd",
+    "query": {
+      "package": {
+        "name": "urllib3",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.26.5"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2026-1471",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2026-1471",
+    "retrieved_at": "2026-09-29T06:19:06.499596+00:00",
+    "raw_sha256": "07442bd6243e4593b68d5dc3a8aa62ea1c9e64bee758beca1f8049e240aabb12",
+    "query": {
+      "package": {
+        "name": "jinja2",
+        "ecosystem": "PyPI"
+      },
+      "version": "3.1.2"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2022-168",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2022-168",
+    "retrieved_at": "2026-09-29T06:19:07.706071+00:00",
+    "raw_sha256": "c9b70f5852424acd85134f71b85d9b8e455ca38f6f6aaffec62fde74bb142e93",
+    "query": {
+      "package": {
+        "name": "pillow",
+        "ecosystem": "PyPI"
+      },
+      "version": "9.0.0"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2026-1221",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2026-1221",
+    "retrieved_at": "2026-09-29T06:19:08.538407+00:00",
+    "raw_sha256": "85b9716ad5563913aa8a2b9d28a9c034c6601eca667286e0f7943997524fce2a",
+    "query": {
+      "package": {
+        "name": "biopython",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.76"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2020-96",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2020-96",
+    "retrieved_at": "2026-09-29T06:19:09.377987+00:00",
+    "raw_sha256": "a4ce7f8520c3ad6aee36d5f7aea054e5794c675657472e008f5a1c87588c3eb9",
+    "query": {
+      "package": {
+        "name": "pyyaml",
+        "ecosystem": "PyPI"
+      },
+      "version": "5.3"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2019-108",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2019-108",
+    "retrieved_at": "2026-09-29T06:19:10.218228+00:00",
+    "raw_sha256": "443e47fbdef38e13019eef2957575f93b11d059abdc14485703e1ae97af4a027",
+    "query": {
+      "package": {
+        "name": "numpy",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.16.0"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  },
+  {
+    "advisory_id": "PYSEC-2021-109",
+    "url": "https://api.osv.dev/v1/vulns/PYSEC-2021-109",
+    "retrieved_at": "2026-09-29T06:19:11.587194+00:00",
+    "raw_sha256": "47beec46b4f39be16e120016c088f46e0f594175498a56ba70de4ff6a3ec1375",
+    "query": {
+      "package": {
+        "name": "django",
+        "ecosystem": "PyPI"
+      },
+      "version": "3.2.0"
+    },
+    "selection": "First sorted eligible record with enumerated affected and fixed boundary",
+    "projection": [
+      "id",
+      "aliases",
+      "affected.package",
+      "affected.versions",
+      "affected.ranges",
+      "modified",
+      "withdrawn"
+    ]
+  }
+]

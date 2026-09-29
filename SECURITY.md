@@ -11,3 +11,13 @@
 - Saved input files can contain sensitive information if a user supplies it. Keep `runs/` local and protect the folder. Hashes are not anonymization, signatures or access control.
 
 Remaining work: authenticated reviewers, signed snapshots, OSV range interpreters with ecosystem-specific tests, larger independent labels, and live-model evaluations with measured usage. If a real credential has already been exposed, remove it from publication and rotate it; adding an ignore rule cannot undo exposure.
+
+## Local web workbench (0.3)
+
+- The CLI binds only to 127.0.0.1. Allowed Host values are the configured localhost/loopback port; cross-origin requests and cross-site fetches are refused.
+- A signed random, HttpOnly, SameSite=Strict session cookie and a per-session CSRF token protect mutations. The cookie is HTTP-only loopback and is not a remote authentication mechanism. Sessions rotate when the server restarts.
+- The UI has no third-party scripts, fonts, analytics or CDN dependencies. CSP disallows inline scripts and framing. Source documents are rendered with textContent, never HTML injection.
+- Requests are bounded to 2 MB; the queue and matching workload are bounded. Download filenames are allowlisted and artifact integrity is rechecked before viewing, export or human review.
+- The SQLite database, worker lock, inputs, events and reviews stay under the ignored runs directory. File permissions and disk encryption remain the local operator's responsibility. Unsigned manifests detect accidental edits, not a malicious owner rewriting all files.
+- The service is not hardened for shared machines, authenticated multi-user review or internet exposure. A local malicious process with the same OS access can use the service. Do not reverse-proxy it publicly as an authenticated application.
+- Cancellation is cooperative. An already dispatched provider call may continue and incur usage until it returns or times out. Queued LLM jobs are persisted; restarting the server continues queued jobs, while interrupted running jobs require an explicit retry.

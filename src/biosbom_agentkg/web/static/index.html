@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BioSBOM · Evidence Workbench</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/app.css"><script src="/static/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-icon">B</span><span>BioSBOM<small>EVIDENCE WORKBENCH</small></span></a>
+  <button class="primary new-run" id="new-run">＋ 새 분석 시작</button>
+  <div class="side-heading">분석 기록 <span id="run-count">0</span></div>
+  <label class="sr-only" for="search">분석 기록 검색</label><input id="search" placeholder="이름으로 검색…" type="search">
+  <nav id="run-list" aria-label="분석 기록"></nav><button class="ghost" id="more" hidden>기록 더 보기</button>
+  <div class="side-footer"><span class="live-dot"></span> LOCAL WORKSPACE<br><small>개인 검토 공간 · v0.3.0<br>입력과 실행 기록은 이 컴퓨터에 저장됩니다.</small></div>
+</aside>
+<main>
+  <header class="topbar"><span>Workspace <span class="slash">/</span> Supply chain review</span><span class="pill neutral" id="connection">연결 중</span></header>
+  <div id="notice" role="status" hidden></div>
+  <section id="welcome" class="welcome">
+    <p class="eyebrow">BIOINFORMATICS · SOFTWARE SUPPLY CHAIN</p>
+    <h1>판정에서 멈추지 않고,<br><em>근거까지 확인하세요.</em></h1>
+    <p class="lede">SBOM과 취약점 스냅샷을 함께 분석하고,<br>역할별 검증을 거친 결과를 직접 검토하는 작업 공간입니다.</p>
+    <div class="welcome-actions"><button class="primary" id="start-demo">합성 RNA-seq 예제 분석 →</button><button class="secondary" id="start-public">공개 OSV 사례 살펴보기</button></div>
+    <div class="intro-grid"><article><span>01 / COLLECT</span><h3>증거를 보존하고</h3><p>컴포넌트·advisory·자산 맥락을 정규화하고 해시로 연결합니다.</p></article><article><span>02 / VERIFY</span><h3>판정을 다시 검증하고</h3><p>누락된 근거, 근거 없는 영향 판정, 우선순위 하향을 차단합니다.</p></article><article><span>03 / REVIEW</span><h3>사람이 최종 검토합니다</h3><p>결과와 원문을 대조한 뒤 승인·보류·반려를 기록합니다.</p></article></div>
+    <p class="fineprint">예제의 배포 환경은 합성입니다. 공개 OSV 예제에는 실제 advisory 발췌가 포함됩니다. 미일치는 안전 판정이 아닙니다.</p>
+  </section>
+  <section id="workspace" hidden>
+    <div class="run-heading"><div><p class="eyebrow" id="run-kind"></p><h1 id="run-title"></h1><p class="muted" id="run-meta"></p></div><div class="actions" id="run-actions"></div></div>
+    <div class="status-banner" id="status-banner"></div>
+    <div class="metrics" id="metrics"></div>
+    <section class="panel"><div class="panel-heading"><h2>분석 워크플로</h2><span class="muted">역할별 실행 · 독립 검증 · 사람 검토</span></div><div id="pipeline" class="pipeline"></div><details><summary>전체 실행 이벤트</summary><ol id="timeline" class="timeline"></ol></details></section>
+    <section class="panel result-panel"><div class="tabs" role="tablist" aria-label="분석 결과"><button class="active" role="tab" aria-selected="true" data-tab="findings">검토 항목</button><button role="tab" aria-selected="false" data-tab="inventory">컴포넌트</button><button role="tab" aria-selected="false" data-tab="graph">의존 관계</button><button role="tab" aria-selected="false" data-tab="audit">검증 결과</button></div><div id="result-content"></div></section>
+    <section class="panel" id="review-panel"></section>
+  </section>
+  <footer class="main-footer">BioSBOM AgentKG <span>Evidence before action.</span></footer>
+</main>
+<dialog id="new-dialog"><form id="new-form"><div class="dialog-heading"><div><p class="eyebrow">NEW ANALYSIS</p><h2>분석 구성</h2></div><button type="button" class="icon-button close" aria-label="닫기">×</button></div>
+  <label for="example">입력 사례</label><select id="example"><option value="rnaseq-case">합성 RNA-seq 파이프라인</option><option value="public-snapshot-case">공개 OSV 스냅샷 · 합성 배포 환경</option><option value="upload">내 Case JSON 업로드</option></select>
+  <div id="upload-fields" hidden><label for="upload">Case JSON 파일 · 최대 2 MB</label><input id="upload" type="file" accept=".json,application/json"><p class="help">sbom, advisories, context를 포함한 Case 형식입니다. 아래에서 예제 형식을 내려받을 수 있습니다.</p></div>
+  <button type="button" class="text-button" id="download-example">Case 형식 예제 다운로드 ↓</button>
+  <label for="mode">분석 모드</label><select id="mode"><option value="deterministic">규칙 기반 · 외부 전송 없음</option><option value="llm">LLM 전문가 · 서버의 모델 설정 사용</option></select>
+  <p class="help" id="provider-note"></p><label class="checkbox" id="consent-label" hidden><input type="checkbox" id="llm-consent">컴포넌트·advisory ID·자산 맥락이 설정된 모델에 전달되며 호출 비용이 발생할 수 있음을 확인했습니다.</label>
+  <details class="advanced"><summary>실행 예산과 재검토 설정</summary><div class="form-grid"><div><label for="architecture">구성</label><select id="architecture"><option value="multi_agent">멀티 에이전트</option><option value="single_agent">단일 에이전트</option></select></div><div><label for="revisions">단계별 최대 재검토</label><input id="revisions" type="number" min="0" max="5" value="2" required></div><div><label for="calls">최대 모델 호출</label><input id="calls" type="number" min="0" max="30" value="8" required></div><div><label for="budget">완료 토큰 예약 예산</label><input id="budget" type="number" min="1" max="100000" value="16000" required></div><div><label for="tokens">호출별 완료 토큰</label><input id="tokens" type="number" min="128" max="8000" value="2000" required></div><div><label for="timeout">호출 제한 시간 (초)</label><input id="timeout" type="number" min="1" max="120" value="30" required></div></div><p class="help">입력 토큰과 청구 비용의 상한은 아닙니다. 실제 사용량은 공급자가 보고한 값만 표시합니다.</p></details>
+  <p id="form-error" class="form-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary" id="submit-run">분석 시작 →</button></div>
+</form></dialog>
+<dialog id="evidence-dialog" class="wide-dialog"><div class="dialog-heading"><div><p class="eyebrow">SOURCE EVIDENCE</p><h2>근거 원문</h2></div><button class="icon-button close" aria-label="근거 닫기">×</button></div><div id="evidence-content"></div></dialog>
+<dialog id="review-dialog"><form id="review-form"><div class="dialog-heading"><div><p class="eyebrow">HUMAN REVIEW</p><h2>최종 검토 기록</h2></div><button type="button" class="icon-button close" aria-label="검토 닫기">×</button></div><p class="help">기록 후 수정할 수 없습니다. 승인해도 패치나 배포가 자동 실행되지 않습니다. 검토자 이름은 로컬 기록이며 인증된 신원이 아닙니다.</p><label for="decision">결정</label><select id="decision"><option value="approve">승인</option><option value="hold">보류</option><option value="reject">반려</option></select><label for="reviewer">검토자</label><input id="reviewer" required maxlength="100" autocomplete="off"><label for="reason">판단 근거</label><textarea id="reason" required maxlength="2000" rows="4" placeholder="확인한 근거와 후속 조치를 기록하세요."></textarea><p class="form-error" id="review-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary">검토 기록 확정</button></div></form></dialog>
+</body></html>

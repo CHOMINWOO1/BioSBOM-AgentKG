@@ -1,0 +1,290 @@
+{
+  "name": "public-osv-snapshot-synthetic-deployment",
+  "synthetic": true,
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.6",
+    "version": 1,
+    "components": [
+      {
+        "bom-ref": "requests-affected",
+        "name": "requests",
+        "version": "2.30.0",
+        "purl": "pkg:pypi/requests@2.30.0"
+      },
+      {
+        "bom-ref": "requests-newer",
+        "name": "requests",
+        "version": "2.31.0",
+        "purl": "pkg:pypi/requests@2.31.0"
+      },
+      {
+        "bom-ref": "requests-unknown",
+        "name": "requests",
+        "purl": "pkg:pypi/requests"
+      },
+      {
+        "bom-ref": "werkzeug-affected",
+        "name": "werkzeug",
+        "version": "2.2.2",
+        "purl": "pkg:pypi/werkzeug@2.2.2"
+      },
+      {
+        "bom-ref": "werkzeug-newer",
+        "name": "werkzeug",
+        "version": "2.2.3",
+        "purl": "pkg:pypi/werkzeug@2.2.3"
+      },
+      {
+        "bom-ref": "unrelated",
+        "name": "unrelated-example",
+        "version": "1.0",
+        "purl": "pkg:pypi/unrelated-example@1.0"
+      }
+    ]
+  },
+  "advisories": [
+    {
+      "id": "PYSEC-2023-74",
+      "aliases": [
+        "CVE-2023-32681",
+        "GHSA-j8r2-6x86-q33q"
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "requests",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/requests"
+          },
+          "versions": [
+            "2.10.0",
+            "2.11.0",
+            "2.11.1",
+            "2.12.0",
+            "2.12.1",
+            "2.12.2",
+            "2.12.3",
+            "2.12.4",
+            "2.12.5",
+            "2.13.0",
+            "2.14.0",
+            "2.14.1",
+            "2.14.2",
+            "2.15.0",
+            "2.15.1",
+            "2.16.0",
+            "2.16.1",
+            "2.16.2",
+            "2.16.3",
+            "2.16.4",
+            "2.16.5",
+            "2.17.0",
+            "2.17.1",
+            "2.17.2",
+            "2.17.3",
+            "2.18.0",
+            "2.18.1",
+            "2.18.2",
+            "2.18.3",
+            "2.18.4",
+            "2.19.0",
+            "2.19.1",
+            "2.20.0",
+            "2.20.1",
+            "2.21.0",
+            "2.22.0",
+            "2.23.0",
+            "2.24.0",
+            "2.25.0",
+            "2.25.1",
+            "2.26.0",
+            "2.27.0",
+            "2.27.1",
+            "2.28.0",
+            "2.28.1",
+            "2.28.2",
+            "2.29.0",
+            "2.3.0",
+            "2.30.0",
+            "2.4.0",
+            "2.4.1",
+            "2.4.2",
+            "2.4.3",
+            "2.5.0",
+            "2.5.1",
+            "2.5.2",
+            "2.5.3",
+            "2.6.0",
+            "2.6.1",
+            "2.6.2",
+            "2.7.0",
+            "2.8.0",
+            "2.8.1",
+            "2.9.0",
+            "2.9.1",
+            "2.9.2"
+          ],
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/psf/requests",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5"
+                }
+              ]
+            },
+            {
+              "type": "ECOSYSTEM",
+              "events": [
+                {
+                  "introduced": "2.3.0"
+                },
+                {
+                  "fixed": "2.31.0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "modified": "2023-11-08T04:12:35.436175Z"
+    },
+    {
+      "id": "PYSEC-2023-58",
+      "aliases": [
+        "CVE-2023-25577",
+        "GHSA-xg9f-g7g7-2323"
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "werkzeug",
+            "ecosystem": "PyPI",
+            "purl": "pkg:pypi/werkzeug"
+          },
+          "versions": [
+            "0.1",
+            "0.10",
+            "0.10.1",
+            "0.10.2",
+            "0.10.3",
+            "0.10.4",
+            "0.11",
+            "0.11.1",
+            "0.11.10",
+            "0.11.11",
+            "0.11.12",
+            "0.11.13",
+            "0.11.14",
+            "0.11.15",
+            "0.11.2",
+            "0.11.3",
+            "0.11.4",
+            "0.11.5",
+            "0.11.6",
+            "0.11.7",
+            "0.11.8",
+            "0.11.9",
+            "0.12",
+            "0.12.1",
+            "0.12.2",
+            "0.13",
+            "0.14",
+            "0.14.1",
+            "0.15.0",
+            "0.15.1",
+            "0.15.2",
+            "0.15.3",
+            "0.15.4",
+            "0.15.5",
+            "0.15.6",
+            "0.16.0",
+            "0.16.1",
+            "0.2",
+            "0.3",
+            "0.3.1",
+            "0.4",
+            "0.4.1",
+            "0.5",
+            "0.5.1",
+            "0.6",
+            "0.6.1",
+            "0.6.2",
+            "0.7",
+            "0.7.1",
+            "0.7.2",
+            "0.8",
+            "0.8.1",
+            "0.8.2",
+            "0.8.3",
+            "0.9",
+            "0.9.1",
+            "0.9.2",
+            "0.9.3",
+            "0.9.4",
+            "0.9.5",
+            "0.9.6",
+            "1.0.0",
+            "1.0.0rc1",
+            "1.0.1",
+            "2.0.0",
+            "2.0.0rc1",
+            "2.0.0rc2",
+            "2.0.0rc3",
+            "2.0.0rc4",
+            "2.0.0rc5",
+            "2.0.1",
+            "2.0.2",
+            "2.0.3",
+            "2.1.0",
+            "2.1.1",
+            "2.1.2",
+            "2.2.0",
+            "2.2.0a1",
+            "2.2.1",
+            "2.2.2"
+          ],
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/pallets/werkzeug",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "517cac5a804e8c4dc4ed038bb20dacd038e7a9f1"
+                }
+              ]
+            },
+            {
+              "type": "ECOSYSTEM",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.2.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "modified": "2023-11-08T04:11:52.539843Z"
+    }
+  ],
+  "context": {
+    "asset_id": "synthetic-public-snapshot-demo",
+    "criticality": 8,
+    "data_sensitivity": 9,
+    "exposure": 3,
+    "security_control_score": 5
+  },
+  "intelligence": []
+}

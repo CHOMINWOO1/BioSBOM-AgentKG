@@ -1,31 +1,22 @@
-# Validation record · 2026-09-29
+# Validation record — 0.3
 
-## Executed locally
-
-- 69 pytest tests passed in the original development interpreter and in a newly created Python 3.12 virtual environment after `pip install -e ".[dev]"`.
-- The clean environment installed Pydantic 2.13.5, pytest 9.1.1 and Ruff 0.16.9. No hidden original research package was required.
-- Ruff checked the selected E4/E7/E9/F/B rules. Test coverage includes false citations, missing/duplicated findings, priority downgrades, unsupported status claims, provider errors, retry exhaustion, budgets, content tampering, blocked approval and immutable human decisions.
-- HTTP transport tests use a real loopback HTTP server with scripted responses, including redirects, malformed JSON, truncated completions and error responses. This tests the transport contract, not any actual model.
-- Installed CLI: offline `run`, `verify` and a separate public-advisory snapshot run completed. Outputs are synthetic assets and contain no private inventory.
-- Controlled experiment: 570 scripted runs, 57 conditions, 10 seeds per condition. Full raw records and grouped CSV accompany the report.
-- [GitHub Actions run 36529146656](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36529146656) passed all four jobs: Ubuntu and Windows, each with Python 3.11 and 3.12, at implementation commit `e5ae9f0618a48569ed738e5dbf287e02164a1147`. Each job installs the package, runs lint/tests, verifies an offline run, and executes the one-seed experiment smoke.
-
-## Not executed / not established
-
-- No real local or paid remote LLM inference; provider behavior under an actual model remains unmeasured.
-- No production asset scan, penetration test, clinical input, exploitation or automated remediation.
-- No independent ranking gold labels, calibrated risk probabilities, real inference latency or monetary cost results.
-- Passing CI establishes the tested package and offline workflows on the matrix above; it does not establish live-model compatibility or production readiness.
-
-## Reproduce
+- Local Python 3.12: **93 tests passed**. Existing evidence/orchestration/provider/storage tests plus durable queue, cross-origin/CSRF, body limits, safe errors, duplicate submissions, restart recovery, directory ownership, cancellation, immutable review, tamper rejection and research budget guards.
+- Ruff checks pass; JavaScript syntax checked with `node --check`.
+- Built the 0.3 wheel and confirmed all three UI assets and both example fixtures are included.
+- Browser: synthetic RNA-seq submit → three findings → advisory evidence → dependency graph → demo review. Restarted server and verified the preserved review. Tested a 390px responsive viewport; document width remained inside the viewport. Screenshots are synthetic demo records, not a real reviewer decision.
+- Public-source corpus: **40/40 expected outcomes**, with eight intentionally unresolved fixed-version boundary cases disclosed. Core timing: **90 measured runs**, 30 per size; all retained eight expected findings and passed verification.
+- Existing scripted fault injection: **570 runs**. It is not a live-model quality evaluation.
+- Live comparison runner: same-model and worst-case total-call constraints tested with mock transport. **No live-provider experiment has been run.**
+- One third-party deprecation warning: Starlette's current TestClient supports but deprecates the httpx transport in favor of httpx2. This does not fail these tests; transport migration remains a maintenance task.
 
 ```bash
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[web,dev]"
+python -m ruff check src tests benchmarks
 python -m pytest -q
-python -m ruff check src tests
-biosbom-agentkg run --case examples/rnaseq-case.json --output runs/validation
-biosbom-agentkg verify runs/validation
-biosbom-agentkg evaluate --case examples/rnaseq-case.json --output runs/evaluation --seeds 10
+node --check src/biosbom_agentkg/web/static/app.js
+python benchmarks/run_public_corpus.py --output runs/public-validation --repeats 30
 ```
 
-Existing output directories are rejected. Use a fresh path for each independent run. Runtime seconds will vary by environment; deterministic decisions and controlled fault counts should remain stable.
+The GitHub workflow tests Ubuntu and Windows on Python 3.11 and 3.12. The preceding 0.2 implementation passed all four matrix jobs: [recorded CI run](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36529146656). The 0.3 push has a separate current check; do not use that prior run as proof of newer commits.
+
+See [research methods and limitations](docs/RESEARCH_EVALUATION.md), [workbench behavior](docs/WORKBENCH.md), and [remaining acceptance criteria](docs/STATUS.md).

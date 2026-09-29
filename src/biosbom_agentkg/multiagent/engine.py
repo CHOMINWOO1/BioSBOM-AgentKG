@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from time import perf_counter
+from typing import Callable
 
 from pydantic import ValidationError
 
@@ -20,7 +21,23 @@ from .models import (
 from .provider import Provider, ProviderError
 
 
-def run_case(case: Case, config: RunConfig | None = None, provider: Provider | None = None):
+class RunCancelled(RuntimeError):
+    """Cooperative cancellation; an in-flight HTTP call ends at its timeout."""
+
+
+def run_case(
+    case: Case,
+    config: RunConfig | None = None,
+    provider: Provider | None = None,
+    *,
+    on_event: Callable[[Event], None] | None = None,
+    cancelled: Callable[[], bool] | None = None,
+):
+    def checkpoint():
+        if cancelled and cancelled():
+            raise RunCancelled("cancelled")
+
+    checkpoint()
     config = config or RunConfig()
     if config.mode == "llm" and provider is None:
         raise ValueError("LLM mode requires an explicit provider; there is no silent fallback")
@@ -31,6 +48,7 @@ def run_case(case: Case, config: RunConfig | None = None, provider: Provider | N
     usage_complete = True
 
     def event(role, attempt, outcome, source, output=None, codes=None):
+        checkpoint()
         events.append(
             Event(
                 sequence=len(events) + 1,
@@ -42,6 +60,8 @@ def run_case(case: Case, config: RunConfig | None = None, provider: Provider | N
                 issue_codes=codes or [],
             )
         )
+        if on_event:
+            on_event(events[-1])
 
     event("collector", 0, "completed", case, collection)
     verifier = VerificationAgent()
@@ -56,6 +76,7 @@ def run_case(case: Case, config: RunConfig | None = None, provider: Provider | N
         feedback = []
         succeeded = False
         for attempt in range(config.max_revisions + 1):
+            checkpoint()
             payload = specialist_payload(role, case, collection, context, feedback)
             if config.mode == "deterministic":
                 if role == "single":

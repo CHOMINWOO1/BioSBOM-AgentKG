@@ -43,8 +43,27 @@ def main(argv=None):
     bench.add_argument("--case", type=Path, required=True)
     bench.add_argument("--output", type=Path, required=True)
     bench.add_argument("--seeds", type=int, default=10)
+    serve = commands.add_parser("serve", help="Start the local review workbench")
+    serve.add_argument("--port", type=int, default=8876)
+    serve.add_argument("--data-dir", type=Path, default=Path("runs/workbench"))
     args = parser.parse_args(argv)
     try:
+        if args.command == "serve":
+            if not 1024 <= args.port <= 65535:
+                raise ValueError("Port must be between 1024 and 65535")
+            try:
+                import uvicorn
+                from .web.app import create_app
+            except ImportError:
+                print('Install the web extra: pip install -e ".[web]"')
+                return 1
+            uvicorn.run(
+                create_app(args.data_dir, port=args.port),
+                host="127.0.0.1",
+                port=args.port,
+                access_log=False,
+            )
+            return 0
         if args.command in {"run", "evaluate"}:
             case = Case.model_validate_json(args.case.read_text(encoding="utf-8"))
         if args.command == "run":

@@ -1,0 +1,402 @@
+[
+  {
+    "package": "requests",
+    "advisory": "PYSEC-2023-74",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "3f8ca48378591a2ccb92f2a39f51eae71f7f52e568a000f5ce21bab984a321b0",
+    "candidates": 1
+  },
+  {
+    "package": "requests",
+    "advisory": "PYSEC-2023-74",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "1daead6502366741f15ebe1da1c5da04b7f4b9264fd5bd0755b14572d75b173f",
+    "candidates": 1
+  },
+  {
+    "package": "requests",
+    "advisory": "PYSEC-2023-74",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "4bfddaa05b2f78cd12b2ee7449bff8c9f48b0e732d8e36a1c61fbeced6871d16",
+    "candidates": 1
+  },
+  {
+    "package": "requests",
+    "advisory": "PYSEC-2023-74",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "6b8133e245a1f644fd2697e364004044a1b95c1b1caa8e409df384f745f34524",
+    "candidates": 0
+  },
+  {
+    "package": "requests",
+    "advisory": "PYSEC-2023-74",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "41032eb38086689814b498f14e986501769bf7e65226f821c5e0057293613c87",
+    "candidates": 0
+  },
+  {
+    "package": "urllib3",
+    "advisory": "PYSEC-2023-192",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "f410972be99bec7869d96a84dbe12fa3107364bdc0e90e451fee6b2a8f8a42cf",
+    "candidates": 1
+  },
+  {
+    "package": "urllib3",
+    "advisory": "PYSEC-2023-192",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "26ffdd4b870eb001c1e2efb339d5eb6078b8d78f8f11b8a44818dd9b73578cf7",
+    "candidates": 1
+  },
+  {
+    "package": "urllib3",
+    "advisory": "PYSEC-2023-192",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "1d8fd3c8a1f50e560a3a77b1edf89db5b4822c635540823c2d0409ad8aff5021",
+    "candidates": 1
+  },
+  {
+    "package": "urllib3",
+    "advisory": "PYSEC-2023-192",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "4072d6b37c60cfbf6808f7e43a26ad623d626a2d7d76b7363a18db3007ef325f",
+    "candidates": 0
+  },
+  {
+    "package": "urllib3",
+    "advisory": "PYSEC-2023-192",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "2f70813947855575819bea9196779ec295a1e75d1c0bc45a69f065eb0c948165",
+    "candidates": 0
+  },
+  {
+    "package": "jinja2",
+    "advisory": "PYSEC-2026-1471",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "545aed06415236d065a42d2a7b369fcd52ac2a450db268aab4d3c0ed3a56718e",
+    "candidates": 1
+  },
+  {
+    "package": "jinja2",
+    "advisory": "PYSEC-2026-1471",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "882a4232225cc3151bba1473c5df19573b671cabf49a797f9fd756d4963e8cc1",
+    "candidates": 1
+  },
+  {
+    "package": "jinja2",
+    "advisory": "PYSEC-2026-1471",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "9fe79ab3854c805cee5caeb0d5940c3088ae4e581a6992ba61f055716d5229ed",
+    "candidates": 1
+  },
+  {
+    "package": "jinja2",
+    "advisory": "PYSEC-2026-1471",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "19b3b2608007b6d4f58c0b341694241ddfa5a3378a3fbca50c7d50c52d94428e",
+    "candidates": 0
+  },
+  {
+    "package": "jinja2",
+    "advisory": "PYSEC-2026-1471",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "17cefab0e8c1384e0bb5e437541597e92b178eebc9d1e3a80e630db797e40b90",
+    "candidates": 0
+  },
+  {
+    "package": "pillow",
+    "advisory": "PYSEC-2022-168",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "6286bb677840524d3a975207487ba45b9c0c3b9910e0e776234bd3ed53faec3e",
+    "candidates": 1
+  },
+  {
+    "package": "pillow",
+    "advisory": "PYSEC-2022-168",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "c5434c47dc58e8f459dfe2c87bf950dda2bb4cc5994cdf28c2fbdfffb7fdc0a8",
+    "candidates": 1
+  },
+  {
+    "package": "pillow",
+    "advisory": "PYSEC-2022-168",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "689a519d41d075399c0f1f6f4745f4156126c047171f8af8629054b92c57640d",
+    "candidates": 1
+  },
+  {
+    "package": "pillow",
+    "advisory": "PYSEC-2022-168",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "81c98ce847c7b074ce0626b3011849f453348c5d3b3ef120ae2dbdc6cf3f983c",
+    "candidates": 0
+  },
+  {
+    "package": "pillow",
+    "advisory": "PYSEC-2022-168",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "fcc431e7b7d12ea2b5bf1398eee79b0b041a1504691d10d526a894e3a5eb596c",
+    "candidates": 0
+  },
+  {
+    "package": "biopython",
+    "advisory": "PYSEC-2026-1221",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "dd59c81e81bfad72d87c8f46f3ea16cda4a991d7be563ce811bd50ceab713ca5",
+    "candidates": 1
+  },
+  {
+    "package": "biopython",
+    "advisory": "PYSEC-2026-1221",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "cca2bbc6e4a7295a87309aaf6a98ac6206865baeb2689c65ff0f527c0144304e",
+    "candidates": 1
+  },
+  {
+    "package": "biopython",
+    "advisory": "PYSEC-2026-1221",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "3c024c71d942a370e7b073e8e0da43eb2df9d8cbaf7e7f2949fe67cf7a75ba6e",
+    "candidates": 1
+  },
+  {
+    "package": "biopython",
+    "advisory": "PYSEC-2026-1221",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "ece48bb3e58d208bb458a981b1f908ec6e29d7616b440245dcd402d64028c479",
+    "candidates": 0
+  },
+  {
+    "package": "biopython",
+    "advisory": "PYSEC-2026-1221",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "a54827387c1799b965efe834cede037f88ac7175e426c2a8f38f282ec5f9df2f",
+    "candidates": 0
+  },
+  {
+    "package": "pyyaml",
+    "advisory": "PYSEC-2020-96",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "228cb6a9f9715284f6a2e21a92ad4d8c7ffc040c586457ee59e64ebbdc40ebfa",
+    "candidates": 1
+  },
+  {
+    "package": "pyyaml",
+    "advisory": "PYSEC-2020-96",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "ab4ebc42d1c71c1d19e3280da77110493ac06c60e6cb1d492ee86264bb1b3e8e",
+    "candidates": 1
+  },
+  {
+    "package": "pyyaml",
+    "advisory": "PYSEC-2020-96",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "2e4d6c84bd825b4fcd30115c122eab0ab0884a255b16f4e753b5c6137c515540",
+    "candidates": 1
+  },
+  {
+    "package": "pyyaml",
+    "advisory": "PYSEC-2020-96",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "af75a7080c6f4fb2c2d3a013f89130e7fd52b532ad5f10f6b593f516d9382834",
+    "candidates": 0
+  },
+  {
+    "package": "pyyaml",
+    "advisory": "PYSEC-2020-96",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "ef5e17a9ffba108f5efb2a7dcb692bc51dc1af89b27daf46e9651d605638ce71",
+    "candidates": 0
+  },
+  {
+    "package": "numpy",
+    "advisory": "PYSEC-2019-108",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "5d37d5eb93886171c3e07fc64bbae317291f47fe8e4da0106d08bcb08dcd0b61",
+    "candidates": 1
+  },
+  {
+    "package": "numpy",
+    "advisory": "PYSEC-2019-108",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "857eb2f522e5ffc975319a9ec4e92a9fd3f9a77e3cf50243245473460767329a",
+    "candidates": 1
+  },
+  {
+    "package": "numpy",
+    "advisory": "PYSEC-2019-108",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "921f7416c1131847ed555fc75d84cb994790ebaff612788aca6045b9a1c91e68",
+    "candidates": 1
+  },
+  {
+    "package": "numpy",
+    "advisory": "PYSEC-2019-108",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "6df05dac0fb47f2a58599df6ceb5ae663157c85a0f369d3c333f5c10ed36aa75",
+    "candidates": 0
+  },
+  {
+    "package": "numpy",
+    "advisory": "PYSEC-2019-108",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "e7b52c84b8890954a4aa8ea2d8681067cbaa1c84267c157e9fabb4f61ec81ce4",
+    "candidates": 0
+  },
+  {
+    "package": "django",
+    "advisory": "PYSEC-2021-109",
+    "variant": "affected_enumerated",
+    "expected": "exact_version",
+    "observed": "exact_version",
+    "passed": true,
+    "case_sha256": "5295815dee2f3e0fb3968031a19c7278c55af561ab877de89907be73049ac6b3",
+    "candidates": 1
+  },
+  {
+    "package": "django",
+    "advisory": "PYSEC-2021-109",
+    "variant": "fixed_boundary",
+    "expected": "ambiguous",
+    "observed": "ambiguous",
+    "passed": true,
+    "case_sha256": "489b576936f0a9ed5e568d5692adeb94d4762c17304d4e4a3725c2ebcc697245",
+    "candidates": 1
+  },
+  {
+    "package": "django",
+    "advisory": "PYSEC-2021-109",
+    "variant": "missing_version",
+    "expected": "version_missing",
+    "observed": "version_missing",
+    "passed": true,
+    "case_sha256": "76d9a779489b56dfe821ec65df2e1fe987a5b3492a29ad12c5ba8aed73958d37",
+    "candidates": 1
+  },
+  {
+    "package": "django",
+    "advisory": "PYSEC-2021-109",
+    "variant": "other_ecosystem",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "d98b31e3c3256ad1fa31b74b422c657d8f734f7d30b63b16f6f367b3bb56e6b7",
+    "candidates": 0
+  },
+  {
+    "package": "django",
+    "advisory": "PYSEC-2021-109",
+    "variant": "withdrawn",
+    "expected": "no_candidate",
+    "observed": "no_candidate",
+    "passed": true,
+    "case_sha256": "ed8c80edf582ca80656c28af5b585a056ed3e4075f568bd4860374657e6cd31f",
+    "candidates": 0
+  }
+]

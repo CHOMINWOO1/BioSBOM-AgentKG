@@ -6,12 +6,18 @@
 
 SBOM 구성요소와 공개 취약점, 실행 환경의 데이터 민감도·노출도·중요도를 연결해 조치 우선순위를 제안하는 연구 프로토타입이다. 에이전트의 판단은 독립 검증을 통과해야 보고서에 반영되며, 오류는 제한된 횟수 안에서 재검토한다. 최종 결과는 사람 검토 상태로 남긴다.
 
-이 공개 준비본은 기존 BioSBOM-AgentKG의 정규화·스키마 코드를 바탕으로 실행 구조를 추가한 0.2 개발본이다. 핵심은 DNA 분석 자체가 아니라 **바이오 분석에 사용하는 소프트웨어의 보안 평가**다.
+이 공개 준비본은 기존 BioSBOM-AgentKG의 정규화·스키마 코드를 바탕으로 브라우저 작업 공간과 지속 실행 관리를 추가한 0.3 개발본이다. 핵심은 DNA 분석 자체가 아니라 **바이오 분석에 사용하는 소프트웨어의 보안 평가**다.
+
+![BioSBOM 웹 작업 공간](docs/screenshots/workbench-desktop.png)
+
+**0.3 업데이트:** 로컬 웹앱, SQLite 실행 큐, 중복 요청 방지, 재시작 복구, 취소·재실행, 근거 원문 조회, 최종 검토 및 ZIP 내보내기. [웹앱 사용 안내](docs/WORKBENCH.md)와 [검증 범위](docs/STATUS.md)를 함께 확인할 수 있다.
 
 ## 1. 구현한 기능
 
 | 영역 | 구현 |
 |---|---|
+| 웹 작업 공간 | 반응형 한국어 UI, 예제·Case JSON 업로드, 실행 이력, 근거·의존 관계·검증 탭 |
+| 지속 실행 | SQLite FIFO 큐, 요청 멱등성, 단일 worker 소유권, 중단 표시와 명시적 재시도 |
 | 입력 | CycloneDX / SPDX JSON, OSV 형식 advisory snapshot, 자산 맥락, 선택적 CVSS·EPSS·KEV sidecar |
 | 근거 연결 | PURL 우선 matching, 명시된 affected version 확인, snapshot SHA-256 |
 | 에이전트 | 수집, 맥락 분석, 위험도 판단, 독립 검증, 보고서 생성, 사람 검토 |
@@ -47,11 +53,14 @@ python -m venv .venv
 Windows PowerShell: `.\.venv\Scripts\Activate.ps1` / macOS·Linux: `source .venv/bin/activate`
 
 ```bash
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[web,dev]"
+biosbom-agentkg serve --port 8876
 biosbom-agentkg run --case examples/rnaseq-case.json --output runs/demo
 biosbom-agentkg verify runs/demo
 python -m pytest -q
 ```
+
+**웹앱:** 서버 실행 후 브라우저에서 `http://127.0.0.1:8876`을 연다. 서버 종료는 Ctrl+C. 기본 데이터 폴더는 `runs/workbench/`이며 다른 서버와 같은 폴더를 공유할 수 없다. 위 CLI 분석 명령은 별도 터미널에서 실행한다.
 
 `runs/demo/report.html`을 브라우저로 열면 근거와 에이전트 처리 과정을 확인할 수 있다. 예제는 **합성 취약점과 합성 자산**이며 실제 제품의 취약성을 주장하지 않는다. 기존 출력 폴더를 덮어쓰지 않으므로 재실행할 때 새 경로를 사용한다.
 
@@ -77,7 +86,18 @@ biosbom-agentkg run --case examples/rnaseq-case.json --output runs/llm-demo --mo
 
 ## 4. 실험 결과와 재현
 
-![오류 복구와 호출 수 비교](docs/portfolio-results/results.png)
+![공개 사례·성능·복구 검증](docs/experiments/validation-v03.png)
+
+| 측정 | 기록 |
+|---|---|
+| 자동 테스트 | 93개 통과: 기존 분석 계약 + 웹 API·실행 관리·연구 예산 경계 |
+| 공개 OSV corpus | 8개 advisory × 5개 통제 변형 = 40개, 예상 처리와 40개 일치 |
+| 크기별 반복 측정 | 10 / 100 / 1,000 컴포넌트 × 30회 = 90회 |
+| 핵심 분석 중앙값 | 각각 0.668 / 1.967 / 14.806 ms (한 Windows 환경) |
+| 1,000 컴포넌트 p95 | 18.330 ms; HTTP·저장·LLM 제외 |
+| 실제 LLM 비교 | 같은 모델·같은 호출 예산의 실행 도구 구현. 실제 모델 결과는 아직 없음 |
+
+[0.3 실험 방법·한계·재현 명령](docs/RESEARCH_EVALUATION.md)에 원자료와 연결된 해석을 기록했다. **40/40은 출처에서 만든 fixture 계약 일치이며 일반화 정확도가 아니다.** 수정 버전 8개가 여전히 불확실 후보로 남는 것도 함께 보고한다.
 
 [HTML 데모 보고서](docs/experiments/demo-report.html)도 저장되어 있다. GitHub에서는 파일을 내려받아 브라우저로 열 수 있다.
 
@@ -109,6 +129,8 @@ biosbom-agentkg run --case examples/public-snapshot-case.json --output runs/publ
 | [multiagent/](src/biosbom_agentkg/multiagent/) | 근거 수집, 역할별 계약, verifier, orchestration, provider, 저장·보고서·실험 |
 | [sbom.py](src/biosbom_agentkg/sbom.py) | 기존 CycloneDX/SPDX 정규화 |
 | [schemas.py](src/biosbom_agentkg/schemas.py) | 기존 구성요소·취약점·자산 모델 |
+| [web/](src/biosbom_agentkg/web/) | 로컬 브라우저 경계, HTTP API, 지속 큐, 정적 UI |
+| [benchmarks/](benchmarks/) | 공개 고정 corpus, 반복 시간 측정, opt-in 실제 모델 비교 |
 | [tests/](tests/) | 오류 복구, 근거 조작, 입력 검증, HTTP 계약, CLI, 사람 승인 테스트 |
 | [examples/](examples/) | 작은 합성 사례와 공개 advisory의 사실 정보 |
 | [설계 문서](docs/ARCHITECTURE.md) | 정책 기준, 메시지와 상태 전이, 저장·실행 한계 |
