@@ -1,0 +1,678 @@
+[
+  {
+    "name": "triage-missing-cvss-low",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [
+              "1.2.0"
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": null,
+        "epss": 0.01,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-missing-cvss-critical",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 10,
+      "criticality": 10,
+      "exposure": 10,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": null,
+        "epss": 0.01,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-missing-cvss-kev",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [
+              "1.2.0"
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": null,
+        "epss": 0.01,
+        "kev": true,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-missing-cvss-epss",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": null,
+        "epss": 0.99,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-missing-version",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "purl": "pkg:pypi/policy-demo",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 10,
+      "criticality": 10,
+      "exposure": 10,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 10,
+        "epss": 0.99,
+        "kev": true,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-unsupported-range",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "GIT",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 10,
+      "criticality": 10,
+      "exposure": 10,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 10,
+        "epss": 0.99,
+        "kev": true,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-zero-is-present",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [
+              "1.2.0"
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 0,
+        "epss": 0,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-below-high-boundary",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 6.9,
+        "epss": 0.49,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-high-boundary",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [
+              "1.2.0"
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 7,
+        "epss": 0,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-urgent-exposure-below",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 6,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 9,
+        "epss": 0,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-urgent-exposure-boundary",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [
+              "1.2.0"
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 2,
+      "criticality": 2,
+      "exposure": 7,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 9,
+        "epss": 0,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  },
+  {
+    "name": "triage-sensitive-critical",
+    "synthetic": true,
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "components": [
+        {
+          "bom-ref": "controlled-component",
+          "name": "policy-demo",
+          "version": "1.2.0",
+          "purl": "pkg:pypi/policy-demo@1.2.0",
+          "type": "library"
+        }
+      ]
+    },
+    "advisories": [
+      {
+        "id": "SYNTHETIC-TRIAGE-001",
+        "affected": [
+          {
+            "package": {
+              "name": "policy-demo",
+              "ecosystem": "PyPI",
+              "purl": "pkg:pypi/policy-demo"
+            },
+            "versions": [],
+            "ranges": [
+              {
+                "type": "ECOSYSTEM",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "2.0.0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "context": {
+      "asset_id": "synthetic-policy-study",
+      "data_sensitivity": 7,
+      "criticality": 7,
+      "exposure": 2,
+      "security_control_score": 8
+    },
+    "intelligence": [
+      {
+        "advisory_id": "SYNTHETIC-TRIAGE-001",
+        "cvss": 1,
+        "epss": 0,
+        "kev": false,
+        "source": "synthetic-controlled-policy-fixture"
+      }
+    ]
+  }
+]

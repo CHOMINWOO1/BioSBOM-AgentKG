@@ -1,0 +1,93 @@
+[
+  {
+    "case": "triage-missing-cvss-low",
+    "status": "affected",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-missing-cvss-critical",
+    "status": "affected",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-missing-cvss-kev",
+    "status": "affected",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-missing-cvss-epss",
+    "status": "affected",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-missing-version",
+    "status": "under_investigation",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-unsupported-range",
+    "status": "under_investigation",
+    "allowed_priorities": [
+      "review"
+    ]
+  },
+  {
+    "case": "triage-zero-is-present",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent",
+      "high",
+      "normal"
+    ]
+  },
+  {
+    "case": "triage-below-high-boundary",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent",
+      "high",
+      "normal"
+    ]
+  },
+  {
+    "case": "triage-high-boundary",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent",
+      "high"
+    ]
+  },
+  {
+    "case": "triage-urgent-exposure-below",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent",
+      "high"
+    ]
+  },
+  {
+    "case": "triage-urgent-exposure-boundary",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent"
+    ]
+  },
+  {
+    "case": "triage-sensitive-critical",
+    "status": "affected",
+    "allowed_priorities": [
+      "urgent",
+      "high"
+    ]
+  }
+]

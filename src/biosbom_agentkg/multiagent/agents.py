@@ -158,6 +158,28 @@ def specialist_payload(role, case, collection, context=None, feedback=None):
     else:
         payload["findings"] = [f.model_dump() for f in collection.findings]
         payload["context_analysis"] = context.model_dump() if context else None
+        payload["triage_contract"] = {
+            "review_rule": (
+                "review is a separate required state, not a lower severity rank. "
+                "If CVSS is missing or version evidence is uncertain, priority must be "
+                "review even with KEV, high EPSS or sensitive/exposed/critical context. "
+                "Never infer a missing CVSS from advisory ID, package or context. "
+                "CVSS zero is present, not missing. Status and priority are separate."
+            ),
+            "constraints": [
+                {
+                    "finding_id": f.finding_id,
+                    "required_status": "affected"
+                    if f.match in {"exact_version", "range_version"} else "under_investigation",
+                    "allowed_priorities": ["review"]
+                    if minimum_priority(f, case.context) == "review"
+                    else ["urgent", "high", "normal"][
+                        :["urgent", "high", "normal"].index(minimum_priority(f, case.context)) + 1
+                    ],
+                }
+                for f in collection.findings
+            ],
+        }
         payload["policy"] = {
             "minimum_priorities": {
                 f.finding_id: minimum_priority(f, case.context) for f in collection.findings
