@@ -5,6 +5,7 @@
 - Real public OSV lookup succeeded through CLI and browser. Browser-to-real-LLM smoke: **2 calls, 3,772 reported tokens, 8.547202 seconds**, verified result awaiting human review. Candidate 0.109.1 for the supplied FastAPI snapshot requires compatibility and release verification; no package change or human approval performed. Four existing records were retained and a fifth synthetic deployment record added.
 - [Methods, visualizations, raw results and reproducibility](docs/DISCOVERY_AND_REMEDIATION.md). The one live run is a connectivity/integration check, not an architecture comparison or accuracy estimate.
 - Built the 0.5.0 wheel, including the new browser asset. Mobile check at requested 390px viewport: 375px content width, 341px plan dialog, no horizontal page overflow. An initial old-server/new-static-file mismatch was resolved by restarting the existing server; the successful live workflow used the new API and preserved all prior records.
+- Implementation `333859ad33b792006a0a840c17c0549082573d0d` passed all four Ubuntu/Windows x Python 3.11/3.12 jobs, including 183 Python tests, 7 Node tests, lint, complex panels, reused-reference replay and CLI workflows: [0.5 CI](https://github.com/CHOMINWOO1/BioSBOM-AgentKG/actions/runs/36648539676). All 196 selected publication files passed Gitleaks and private-path/internal-address checks. Subsequent documentation-only changes do not change the tested implementation.
 
 ## Historical validation — 0.4.2
 

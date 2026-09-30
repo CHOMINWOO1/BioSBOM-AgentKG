@@ -71,7 +71,7 @@ Candidate exclusions are recorded in provenance; all 10 packages yielded an elig
 
 ## Frozen evidence and reproduction
 
-The protocol was committed at `ba8207f` before acquisition. Cases, reference labels, acquisition provenance and protocol were committed at `40ff2f3` before the first prediction. The application source digest manifest was also recorded locally before predictions. All application Python files remain identical to the frozen 0.4.2 baseline; no matcher adjustment was made after seeing this panel.
+The protocol was committed at `ba8207f` before acquisition. Cases, reference labels, acquisition provenance and protocol were committed at `40ff2f3` before the first prediction. The application source digest manifest was also recorded locally before predictions. At that evaluation, application Python files were identical to the frozen 0.4.2 baseline; no matcher adjustment was made for that result. The later 0.5 implementation has separate [regression results](DISCOVERY_AND_REMEDIATION.md) and does not overwrite this historical panel.
 
 - [Frozen inputs and per-file SHA-256](../benchmarks/reviewed-reference-v1/frozen-inputs.json)
 - [Acquisition sources, timestamps and exclusions](../benchmarks/reviewed-reference-v1/provenance.json)
@@ -79,7 +79,7 @@ The protocol was committed at `ba8207f` before acquisition. Cases, reference lab
 - [Predictions saved before joining reference labels](experiments/reviewed-reference-v1/predictions.json)
 - [All 40 rows as CSV](experiments/reviewed-reference-v1/case-results.csv), [summary JSON](experiments/reviewed-reference-v1/summary.json), [errors/abstentions](experiments/reviewed-reference-v1/errors.json)
 
-From the repository root, after installing `.[web,dev]`:
+To reproduce this historical result, use a separate checkout at `da5c2a0` (application still 0.4.2), then install `.[web,dev]`. From that repository root:
 
 ```bash
 python benchmarks/run_reviewed_reference.py --output runs/reviewed-reference-reproduction
