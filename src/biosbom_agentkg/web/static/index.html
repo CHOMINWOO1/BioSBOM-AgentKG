@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BioSBOM · Evidence Workbench</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/app.css"><script src="/static/app.js" defer></script></head>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BioSBOM · Evidence Workbench</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/app.css"><script src="/static/app.js" defer></script><script src="/static/discovery.js" defer></script></head>
 <body>
 <aside class="sidebar">
   <a class="brand" href="/"><span class="brand-icon">B</span><span>BioSBOM<small>EVIDENCE WORKBENCH</small></span></a>
   <button class="primary new-run" id="new-run">＋ 새 분석 시작</button>
+  <button class="secondary" id="open-discovery">공개 취약점 조회 · 개선안</button>
   <div class="side-heading">분석 기록 <span id="run-count">0</span></div>
   <label class="sr-only" for="search">분석 기록 검색</label><input id="search" placeholder="이름으로 검색…" type="search">
   <nav id="run-list" aria-label="분석 기록"></nav><button class="ghost" id="more" hidden>기록 더 보기</button>
-  <div class="side-footer"><span class="live-dot"></span> LOCAL WORKSPACE<br><small>개인 검토 공간 · v0.4.2<br>입력과 실행 기록은 이 컴퓨터에 저장됩니다.</small></div>
+  <div class="side-footer"><span class="live-dot"></span> LOCAL WORKSPACE<br><small>개인 검토 공간 · v0.5.0<br>입력과 실행 기록은 이 컴퓨터에 저장됩니다.</small></div>
 </aside>
 <main>
   <header class="topbar"><span>Workspace <span class="slash">/</span> Supply chain review</span><span class="pill neutral" id="connection">연결 중</span></header>
@@ -54,4 +55,11 @@
 <dialog id="evidence-dialog" class="wide-dialog"><div class="dialog-heading"><div><p class="eyebrow">SOURCE EVIDENCE</p><h2>근거 원문</h2></div><button class="icon-button close" aria-label="근거 닫기">×</button></div><div id="evidence-content"></div></dialog>
 <dialog id="review-dialog"><form id="review-form"><div class="dialog-heading"><div><p class="eyebrow">HUMAN REVIEW</p><h2>최종 검토 기록</h2></div><button type="button" class="icon-button close" aria-label="검토 닫기">×</button></div><p class="help">기록 후 수정할 수 없습니다. 승인해도 패치나 배포가 자동 실행되지 않습니다. 검토자 이름은 로컬 기록이며 인증된 신원이 아닙니다.</p><p id="review-target" role="status" class="help"></p><label for="decision">결정</label><select id="decision"><option value="approve">승인</option><option value="hold">보류</option><option value="reject">반려</option></select><label for="reviewer">검토자</label><input id="reviewer" required maxlength="100" autocomplete="off"><label for="reason">판단 근거</label><textarea id="reason" required maxlength="2000" rows="4" placeholder="확인한 근거와 후속 조치를 기록하세요."></textarea><p class="form-error" id="review-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary">검토 기록 확정</button></div></form></dialog>
 <dialog id="retry-dialog"><form id="retry-form"><div class="dialog-heading"><h2>새 실행으로 재시도</h2><button type="button" class="icon-button close" aria-label="재시도 닫기">×</button></div><p>기존 기록을 보존하고 같은 입력·설정으로 새 분석을 시작합니다.</p><label class="checkbox" id="retry-consent-label"><input type="checkbox" id="retry-consent">새 모델 호출·데이터 전송과 비용 발생을 확인했습니다.</label><p class="form-error" id="retry-error" role="alert"></p><div class="dialog-footer"><button type="button" class="secondary close">취소</button><button type="submit" class="primary">재시도 시작</button></div></form></dialog>
+<dialog id="discovery-dialog" class="wide-dialog"><form id="discovery-form"><div class="dialog-heading"><h2>공개 취약점 조회 · 개선안</h2><button type="button" class="icon-button close" aria-label="조회 닫기">×</button></div>
+<p class="help">SBOM 또는 Case JSON을 올리세요. 공개 PyPI·npm 패키지 최대 50개를 OSV에서 조회합니다. 자산 맥락은 전송하지 않습니다. 버전 누락·미지원 패키지는 미조회로 남습니다.</p>
+<label for="discovery-file">입력 JSON · 최대 2 MB</label><input type="file" id="discovery-file" accept=".json,application/json" required>
+<label class="checkbox"><input type="checkbox" id="discovery-consent" required>공개 패키지 이름·버전을 OSV에 전송하는 데 동의합니다. 내부 패키지 이름은 먼저 제거했습니다.</label>
+<button type="submit" class="primary" id="discovery-submit">조회 실행</button><p id="discovery-error" class="form-error" role="alert"></p></form>
+<div id="discovery-results" role="status"></div></dialog>
+<dialog id="plan-dialog" class="wide-dialog"><div class="dialog-heading"><h2>개선안 검토</h2><button type="button" class="icon-button close" aria-label="개선안 닫기">×</button></div><div id="plan-content"></div></dialog>
 </body></html>

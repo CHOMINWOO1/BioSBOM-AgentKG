@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from packaging.utils import canonicalize_name
 from urllib.parse import unquote
 
 from biosbom_agentkg.sbom import normalize_sbom_document
@@ -51,17 +52,27 @@ ECOSYSTEM = {
 }
 
 
-def package_matches(component, package: dict) -> bool:
+def package_matches(component, package: dict, *, canonical_names=True) -> bool:
     source = purl_parts(package.get("purl"))
     target = purl_parts(component.purl)
     if source and target:
+        if canonical_names:
+            def canonical(identity):
+                body, marker, qualifiers = identity.partition("?")
+                if body.startswith("pkg:pypi/"):
+                    body = "pkg:pypi/" + canonicalize_name(body[len("pkg:pypi/"):])
+                return body + marker + qualifiers
+            return canonical(source[0]) == canonical(target[0])
         return source[0] == target[0]
     ecosystem = package.get("ecosystem")
+    same_name = package.get("name") == component.name
+    if canonical_names and component.ecosystem == "pypi" and isinstance(package.get("name"), str):
+        same_name = canonicalize_name(package["name"]) == canonicalize_name(component.name)
     return bool(
         component.ecosystem
         and ecosystem
         and ECOSYSTEM.get(ecosystem, ecosystem) == component.ecosystem
-        and package.get("name") == component.name
+        and same_name
     )
 
 
@@ -123,8 +134,9 @@ def _raw_validation(case: Case):
 class CollectorAgent:
     role = "collector"
 
-    def __init__(self, *, legacy=False):
+    def __init__(self, *, legacy=False, canonical_names=True):
         self.legacy = legacy
+        self.canonical_names = canonical_names
 
     def run(self, case: Case) -> Collection:
         _raw_validation(case)
@@ -172,7 +184,7 @@ class CollectorAgent:
                 affected = [
                     a
                     for a in record.get("affected", [])
-                    if package_matches(component, a["package"])
+                    if package_matches(component, a["package"], canonical_names=self.canonical_names)
                 ]
                 if not affected:
                     continue

@@ -1,0 +1,17 @@
+{
+  "panels": 28,
+  "passed": 28,
+  "model_calls": 0,
+  "human_reviewers": 0,
+  "interpretation": "Development regression contracts and reused public references, not new independent accuracy",
+  "groups": {
+    "public_composition": {
+      "n": 4,
+      "passed": 4
+    },
+    "synthetic_contract": {
+      "n": 24,
+      "passed": 24
+    }
+  }
+}

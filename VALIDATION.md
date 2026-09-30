@@ -1,4 +1,12 @@
-# Validation record — 0.4.2
+# Validation record — 0.5.0
+
+- Local Python: **183 tests**, Node UI state: **7 tests**. Covers acquisition consent/CSRF, pagination, budgets, failed/ambiguous queries, duplicate lookup deduplication, conflicting source snapshots, data minimization, upgrade candidates across multiple advisories, PyPI/npm version logic, partial-lookup suppression, schema 2.1 compatibility, and stale UI response ordering.
+- **28/28 complex/edge contracts** and **40/40 reused external-reference cases** agree. These are development regressions, not new independent expert accuracy. Frozen 0.4.2 datasets/results remain unchanged; current implementation replay is explicitly labeled.
+- Real public OSV lookup succeeded through CLI and browser. Browser-to-real-LLM smoke: **2 calls, 3,772 reported tokens, 8.547202 seconds**, verified result awaiting human review. Candidate 0.109.1 for the supplied FastAPI snapshot requires compatibility and release verification; no package change or human approval performed. Four existing records were retained and a fifth synthetic deployment record added.
+- [Methods, visualizations, raw results and reproducibility](docs/DISCOVERY_AND_REMEDIATION.md). The one live run is a connectivity/integration check, not an architecture comparison or accuracy estimate.
+- Built the 0.5.0 wheel, including the new browser asset. Mobile check at requested 390px viewport: 375px content width, 341px plan dialog, no horizontal page overflow. An initial old-server/new-static-file mismatch was resolved by restarting the existing server; the successful live workflow used the new API and preserved all prior records.
+
+## Historical validation — 0.4.2
 
 ## External reviewed-reference and human-review tooling
 

@@ -136,7 +136,7 @@ class RunConfig(Record):
 
 
 class RunResult(Record):
-    schema_version: Literal["2.0", "2.1"] = "2.1"
+    schema_version: Literal["2.0", "2.1", "2.2"] = "2.2"
     case_name: str
     input_sha256: str
     synthetic: bool

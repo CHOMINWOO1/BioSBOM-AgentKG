@@ -4,6 +4,7 @@ import io
 import json
 import secrets
 import zipfile
+from threading import Lock
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
@@ -18,6 +19,8 @@ from ..multiagent.evidence import CollectorAgent
 from ..multiagent.models import Case, Record, RunConfig
 from ..multiagent.provider import ChatProvider
 from ..multiagent.storage import verify_run
+from ..multiagent.discovery import discover
+from ..multiagent.remediation import discovery_plan, remediation_plan
 from .jobs import Conflict, JobService
 from .security import BrowserBoundary
 
@@ -34,6 +37,11 @@ class Submission(Record):
 class Retry(Record):
     request_key: str = Field(min_length=8, max_length=80, pattern=r"^[a-zA-Z0-9_-]+$")
     llm_acknowledged: bool = False
+
+
+class Discovery(Record):
+    case: Case
+    public_lookup_acknowledged: bool = False
 
 
 class Review(Record):
@@ -58,9 +66,11 @@ def validate_workload(case):
 
 
 def create_app(
-    data_dir=Path("runs/workbench"), *, port=8876, provider_factory=ChatProvider.from_env
+    data_dir=Path("runs/workbench"), *, port=8876, provider_factory=ChatProvider.from_env,
+    discoverer=discover,
 ):
     service = JobService(Path(data_dir), provider_factory)
+    discovery_lock = Lock()
 
     @asynccontextmanager
     async def lifespan(app):
@@ -72,7 +82,7 @@ def create_app(
 
     app = FastAPI(
         title="BioSBOM Workbench",
-        version="0.4.2",
+        version="0.5.0",
         lifespan=lifespan,
         docs_url=None,
         redoc_url=None,
@@ -135,7 +145,7 @@ def create_app(
         return {
             "csrf": request.scope["biosbom_csrf"],
             "llm_configured": ready,
-            "version": "0.4.2",
+            "version": "0.5.0",
             "local_only": True,
             "limits": {
                 "request_bytes": 2000000,
@@ -182,6 +192,25 @@ def create_app(
             "source_format": collection.sbom.source_format,
             "synthetic": case.synthetic,
         }
+
+    @app.post("/api/discover")
+    def public_discovery(body: Discovery):
+        if not body.public_lookup_acknowledged:
+            raise Conflict("public_lookup_consent_required")
+        validate_workload(body.case)
+        if not discovery_lock.acquire(blocking=False):
+            raise Conflict("discovery_busy")
+        try:
+            acquisition = discoverer(body.case)
+            return {"acquisition": acquisition, "plan": discovery_plan(acquisition)}
+        finally:
+            discovery_lock.release()
+
+    @app.get("/api/jobs/{job_id}/plan")
+    def plan(job_id: str):
+        service.get(job_id)
+        case, _ = verify_run(service.artifacts(job_id))
+        return remediation_plan(case)
 
     @app.get("/api/jobs/{job_id}")
     def job(job_id: str):

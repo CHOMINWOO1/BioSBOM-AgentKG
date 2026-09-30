@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "case_sha256": "c33fd82ad6d9424deba295fb765fe48b8313f9bcac963330f99fefe0a5dc2dfb",
+  "status": "requires_human_review",
+  "items": [
+    {
+      "component_ref": "evaluated-component",
+      "package": "fastapi",
+      "installed_version": "0.65.1",
+      "status": "candidate_requires_review",
+      "candidate_version": "0.109.1",
+      "advisories": [
+        "GHSA-8h2j-cgx8-6xv7",
+        "PYSEC-2021-100",
+        "PYSEC-2024-38"
+      ],
+      "evidence_ids": [
+        "advisory:418b8748e07522b40cdc33530c2149b115bde0c5f8def32f214cdd88b77e9917",
+        "advisory:b5cee58efbff1383de6d7506b937b6dca35873dbf033b8e84fd5b1e5070520e2",
+        "advisory:d15a0f5895abc858cfcf6d5497d38e4e7d857d20998da1d68e4c88571a57b8bd",
+        "context:6244936f601cd5b0e3aac8c5523d4bc1906efff5fefe0355aa3816d5fb0098fb",
+        "sbom:b8d7686053a48c4098074ab189c7d825a3100e14345a68a2423ec536ee82c808"
+      ],
+      "parent_components": [],
+      "checks": [
+        "Confirm release availability and provenance",
+        "Resolve all dependency and lockfile constraints",
+        "Run pipeline and scientific-result regression checks",
+        "Review fresh advisories; capture rollback before any change"
+      ]
+    }
+  ],
+  "notice": "Candidates are outside supplied advisory ranges only. Availability, compatibility and safety are unverified. No changes executed.",
+  "plan_sha256": "35c328d02aaab0207d3ec31ba68e755734e890106775ab0bdf38b885ab29c557"
+}

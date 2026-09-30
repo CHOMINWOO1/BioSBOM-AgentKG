@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "complete",
+  "input_sha256": "6bcf5fe2c04d3aad37960860cc274229cfbba6b3cabfa3744de8e1ccba88abb0",
+  "case_sha256": "c33fd82ad6d9424deba295fb765fe48b8313f9bcac963330f99fefe0a5dc2dfb",
+  "queries": [
+    {
+      "component_ref": "evaluated-component",
+      "status": "queried",
+      "advisory_ids": [
+        "GHSA-8h2j-cgx8-6xv7",
+        "PYSEC-2021-100",
+        "PYSEC-2024-38"
+      ]
+    }
+  ],
+  "calls": 1,
+  "queried_components": 1,
+  "total_components": 1,
+  "conflicting_advisories": [],
+  "notice": "No matches is not a safety verdict. OSV lookup is not exploitability analysis.",
+  "pages": [
+    {
+      "query": {
+        "package": {
+          "purl": "pkg:pypi/fastapi"
+        },
+        "version": "0.65.1"
+      },
+      "source": "https://api.osv.dev/v1/query",
+      "retrieved_at": "2026-09-29T23:57:22.355163+00:00",
+      "response_sha256": "79073604bc6b81ccdcc79f37d1de576a2aad594b5eda7c0de74ef027cba71b41"
+    }
+  ]
+}

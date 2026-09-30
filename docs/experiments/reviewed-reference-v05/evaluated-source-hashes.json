@@ -1,0 +1,23 @@
+{
+  "src/biosbom_agentkg/__init__.py": "af73cf5aa3aabfda948e9477b9e8a40597d6a9bef658798b55f851ee0068b9f2",
+  "src/biosbom_agentkg/cli.py": "8598121b8949136cb98477364497c0058db65473556b17cd26522cc5d8d81541",
+  "src/biosbom_agentkg/multiagent/__init__.py": "9d1bce61ccd0baf680da2632b24377faf0ec7d301ba9fae3e4d7071d1aaa1ea6",
+  "src/biosbom_agentkg/multiagent/agents.py": "6499fc5c8c13747d424563ca872cccde48e3fb18cdc337ceaa8808cbd34ae882",
+  "src/biosbom_agentkg/multiagent/discovery.py": "be3554972806248d8c71e9bae7f3bda6caf108b019c55ef8527523779aa6e145",
+  "src/biosbom_agentkg/multiagent/engine.py": "eebcfd0efa0ade6c2dd166a815b28ba70781cb70d2a93c352e2a5df4f4421d68",
+  "src/biosbom_agentkg/multiagent/evaluation.py": "926e53912f7636de7667f66108539fdcb568acdf76cb732eabe1b4f5b5c66e5f",
+  "src/biosbom_agentkg/multiagent/evidence.py": "e2f53a0de69afe51b6c52368c3c4e1d32848c877538b65b3b66be43021111ab0",
+  "src/biosbom_agentkg/multiagent/models.py": "75b0737406d8e0239ebc5a914f069c393b226ea5bec2a52d56f91c5ecbe61d53",
+  "src/biosbom_agentkg/multiagent/provider.py": "cafe880bf89c406b3fa56cb16fc33b900d85f04ce157f0da1c58787d466468b6",
+  "src/biosbom_agentkg/multiagent/remediation.py": "ff4b778bfa422be7d2727a18a12e8012a308ebc45580eba9ef9b5b4900ce0110",
+  "src/biosbom_agentkg/multiagent/reporting.py": "884dd2b01c4d0dff90ee336ad215154044d1c60d8c7239db102da1258a3ba426",
+  "src/biosbom_agentkg/multiagent/storage.py": "1b1c72a26fbdd87a96c148b375de708b6f5659cd5ef6c3caf2fd7dd2638b9159",
+  "src/biosbom_agentkg/multiagent/versions.py": "41f433617a392b930d5b5300b4826e51f79665a1d9b100a72a298c7e64018015",
+  "src/biosbom_agentkg/risk.py": "8a41015453aa1cc341cb1ce1da5cec457dff0468f5643f8fb5ab599fc0230ea7",
+  "src/biosbom_agentkg/sbom.py": "8d45f84cd5718737418bedbe36f4f201146601fbcd3040f66294f841fc00444c",
+  "src/biosbom_agentkg/schemas.py": "fe39436eaec6a7753835ee82c31963dd1e6a703782cd4f319cffaca19f8c317b",
+  "src/biosbom_agentkg/web/__init__.py": "cc52effa0652cdb2c39df92857fece8a8382e630b31aa530e3975599a2f055d1",
+  "src/biosbom_agentkg/web/app.py": "3e25aa7f6e16ee74e87cab4a6716262968a1c55885fed21fcd2202d0c43fbce0",
+  "src/biosbom_agentkg/web/jobs.py": "24edb39e1a6d6f0a432ed07c66f1c6c0c472c9854bf05b458bc3b870c90cb6fb",
+  "src/biosbom_agentkg/web/security.py": "c2a66a77c2d65a15a193be5e1928391ac4ae7af7f77a8429a4337396da511b27"
+}

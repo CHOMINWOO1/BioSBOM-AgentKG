@@ -47,6 +47,8 @@ const errors = {
   review_already_recorded: '이미 최종 검토가 기록된 분석입니다.',
   run_already_finished: '분석이 이미 종료되었습니다.',
   llm_consent_required: '모델 전송과 호출 비용 확인이 필요합니다.',
+  public_lookup_consent_required: '공개 패키지 이름·버전의 OSV 전송 확인이 필요합니다.',
+  discovery_busy: '다른 공개 조회가 진행 중입니다. 완료 후 다시 시도하세요.',
   idempotency_key_reused: '요청 키가 다른 입력에 사용되었습니다. 창을 다시 열어주세요.'
 };
 const auditHelp = {
@@ -149,6 +151,10 @@ async function readFileJSON(id, label) {
 async function readInput() {
   const kind = $('example').value;
   if (kind === 'upload') return readFileJSON('upload', 'Case JSON');
+  if (kind === 'prepared') {
+    if (!state.discoveryCase) throw new Error('공개 조회를 먼저 실행하세요.');
+    return state.discoveryCase;
+  }
   if (kind !== 'sbom') return api('examples/' + kind);
   const sbom = await readFileJSON('sbom-file', 'SBOM');
   const source = await readFileJSON('advisory-file', 'OSV');
@@ -260,6 +266,7 @@ function renderJob() {
     $('retry-dialog').showModal();
   }));
   if (r) {
+    a.append(button('개선안 검토', () => showRemediation(j.id)));
     for (const [kind, text] of [
         ['html', '보고서 ↓'],
         ['bundle', '전체 근거 ZIP ↓']

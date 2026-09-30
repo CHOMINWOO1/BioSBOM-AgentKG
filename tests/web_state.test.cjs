@@ -18,9 +18,34 @@ function setup() {
     fetch: () => { throw Error('unexpected network'); }, setTimeout, clearTimeout});
   const source = fs.readFileSync(path.join(__dirname, '../src/biosbom_agentkg/web/static/app.js'), 'utf8');
   vm.runInContext(source.replace(/\ninit\(\);\s*$/, ''), ctx);
+  vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/biosbom_agentkg/web/static/discovery.js'), 'utf8'), ctx);
   vm.runInContext('renderList=()=>{}; renderJob=()=>{}; renderPipeline=()=>{};', ctx);
   return {ctx, get, run: text => vm.runInContext(text, ctx)};
 }
+
+test('prepared discovery input cannot silently fall back to a different example', async () => {
+  const {get,run} = setup();
+  get('example').value = 'prepared';
+  await assert.rejects(run('readInput()'), /공개 조회/);
+  run('state.discoveryCase={name:"prepared-public-case"}');
+  assert.equal((await run('readInput()')).name, 'prepared-public-case');
+});
+
+test('late remediation response cannot replace another record plan', async () => {
+  const {ctx,get,run} = setup();
+  const pending={}, displayed=[];
+  get('plan-dialog').showModal = () => {get('plan-dialog').open=true;};
+  get('plan-content').replaceChildren = () => {};
+  ctx.fakeNode = () => ({});
+  ctx.stubAPI = path => new Promise(resolve => {pending[path]=resolve;});
+  ctx.display = (target,plan) => displayed.push(plan.name);
+  run('node=fakeNode; api=stubAPI; renderPlan=display');
+  const first = run('showRemediation("old")');
+  const second = run('showRemediation("new")');
+  pending['jobs/new/plan']({name:'new'}); await second;
+  pending['jobs/old/plan']({name:'old'}); await first;
+  assert.deepEqual(displayed, ['new']);
+});
 test('late record response cannot replace a newer selection', async () => {
   const {ctx, get, run} = setup();
   const pending = {};

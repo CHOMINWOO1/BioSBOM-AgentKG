@@ -6,9 +6,11 @@
 
 SBOM 구성요소와 공개 취약점, 실행 환경의 데이터 민감도·노출도·중요도를 연결해 조치 우선순위를 제안하는 연구 프로토타입이다. 에이전트의 판단은 독립 검증을 통과해야 보고서에 반영되며, 오류는 제한된 횟수 안에서 재검토한다. 최종 결과는 사람 검토 상태로 남긴다.
 
-이 공개 준비본은 기존 BioSBOM-AgentKG의 정규화·스키마 코드를 바탕으로 브라우저 작업 공간과 지속 실행 관리를 추가한 0.4.2 공개본이다. 핵심은 DNA 분석 자체가 아니라 **바이오 분석에 사용하는 소프트웨어의 보안 평가**다.
+이 공개 준비본은 기존 BioSBOM-AgentKG의 정규화·스키마 코드를 바탕으로 브라우저 작업 공간과 지속 실행 관리를 추가한 0.5.0 공개본이다. 핵심은 DNA 분석 자체가 아니라 **바이오 분석에 사용하는 소프트웨어의 보안 평가**다.
 
 ![BioSBOM 웹 작업 공간](docs/screenshots/workbench-v04.png)
+
+**0.5 업데이트:** 공개 OSV 자동 조회, 조회 누락 표시, 여러 advisory를 교차 확인한 업그레이드 후보, 개선안 다운로드를 추가했다. 복합·예외 입력 28개 계약과 기존 외부 기준 40개 재실행을 통과했고, 실제 웹앱→LLM 2호출 연결도 확인했다. [사용 방법·그림·원자료·한계](docs/DISCOVERY_AND_REMEDIATION.md).
 
 **외부 검토 자료 평가:** 개발 패널과 겹치지 않는 10개 패키지·40개 버전 사례에서 GitHub reviewed advisory 기준과 40/40 일치했다. 오탐·미탐·보류는 각각 0개다. 신규 인간 평가자는 0명이며 GitHub/OSV의 원천 정보가 공유되므로 독립 전문가 정확도로 해석하지 않는다. [그림·원자료·재현 방법·전문가 평가 준비](docs/EXTERNAL_REVIEW_EVALUATION.md).
 
@@ -31,6 +33,7 @@ SBOM 구성요소와 공개 취약점, 실행 환경의 데이터 민감도·노
 | LLM 연결 | 선택적 OpenAI-compatible endpoint; 역할별 model 설정 |
 | 비교 조건 | 규칙 기반, 단일 에이전트, 단일 에이전트+재검토, 멀티에이전트+재검토 |
 | 산출물 | HTML/Markdown 보고서, JSON 그래프·근거·판정, 이벤트 로그, package disposition CSV |
+| 공개 자료·개선안 | OSV PyPI·npm 조회, 페이지네이션·실패 커버리지, 패치 후보 교차 검사, 출처·해시·의존 부모 연결 |
 | 사람 검토 | 파일 무결성·판정 재검증 후 승인·보류·거절 기록 |
 
 ```mermaid
@@ -92,9 +95,11 @@ biosbom-agentkg run --case examples/rnaseq-case.json --output runs/llm-demo --mo
 
 ## 4. 실험 결과와 재현
 
-최신 검증은 [외부 검토 자료와의 40개 버전 판정 비교](docs/EXTERNAL_REVIEW_EVALUATION.md)다. 실제 모델 실험인 [0.4.2 판정 계약 비교](docs/TRIAGE_ABLATION.md)와 이전 [0.4.1 인용 계약 비교](docs/CITATION_ABLATION.md)는 별도 보존한다. 아래의 공개 corpus와 24회 모델 패널은 별도 0.4 기준 결과이며 합산하지 않는다.
+최신 검증은 [0.5 공개 조회·복합 SBOM·개선안 평가](docs/DISCOVERY_AND_REMEDIATION.md)다. [외부 검토 자료와의 40개 버전 판정 비교](docs/EXTERNAL_REVIEW_EVALUATION.md)는 당시 결과로 보존한다. 실제 모델 실험인 [0.4.2 판정 계약 비교](docs/TRIAGE_ABLATION.md)와 이전 [0.4.1 인용 계약 비교](docs/CITATION_ABLATION.md)는 별도 보존한다. 아래의 공개 corpus와 24회 모델 패널은 별도 0.4 기준 결과이며 합산하지 않는다.
 
 ![외부 검토 자료와의 일치도](docs/experiments/reviewed-reference-v1.png)
+
+![0.5 복합 입력 검증](docs/experiments/validation-v05.png)
 
 ![판정 계약 수정 전후](docs/experiments/triage-ablation-v042.png)
 
@@ -102,7 +107,7 @@ biosbom-agentkg run --case examples/rnaseq-case.json --output runs/llm-demo --mo
 
 | 측정 | 기록 |
 |---|---|
-| 자동 테스트 | Python 161개·UI 상태 5개 통과: 버전 경계·과거 산출물 호환성·미리보기·웹 API·실행 관리·연구 예산·외부 평가·블라인드 채점 검증 |
+| 자동 테스트 | Python 183개·UI 상태 7개 통과: 버전 경계·과거 산출물 호환성·미리보기·웹 API·실행 관리·연구 예산·외부 평가·블라인드 채점 검증 |
 | 공개 OSV corpus | 8개 advisory × 9개 통제 변형 = 72개, 예상 처리와 72개 일치 |
 | 크기별 반복 측정 | 10 / 100 / 1,000 컴포넌트 × 30회 = 90회 |
 | 핵심 분석 중앙값 | 각각 0.688 / 2.030 / 15.197 ms (한 Windows 환경) |

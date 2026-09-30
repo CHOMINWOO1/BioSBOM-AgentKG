@@ -55,16 +55,22 @@ def join_labels(predictions, labels):
             for row in predictions]
 
 
-def evaluate(inputs, output):
+def evaluate(inputs, output, implementation="frozen"):
     for name, expected in read(inputs / "frozen-inputs.json").items():
         actual = hashlib.sha256((inputs / name).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
         if actual != expected:
             raise ValueError("Frozen input hash mismatch: " + name)
+    differences = []
     for name, expected in read(inputs / "application-source-hashes.json").items():
         actual = hashlib.sha256((ROOT / name).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
         if actual != expected:
-            raise ValueError("Application differs from the fixed baseline: " + name)
+            differences.append(name)
+    if differences and implementation == "frozen":
+        raise ValueError("Application differs from the fixed baseline; check out 29f15ec or explicitly use --implementation current")
     output.mkdir(parents=True, exist_ok=False)
+    write(output / "evaluated-source-hashes.json", {
+        path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+        for path in sorted((ROOT / "src").rglob("*.py"))})
     predictions = []
     for raw in read(inputs / "cases.json"):
         case = Case.model_validate(raw)
@@ -86,6 +92,8 @@ def evaluate(inputs, output):
     rows = join_labels(predictions, read(inputs / "reference-labels.json"))
     summary = metrics(rows)
     summary.update({"human_reviewers": 0, "model_calls": sum(r["calls"] for r in rows),
+                    "application_matches_frozen_baseline": not differences,
+                    "implementation": implementation, "changed_baseline_files": differences,
                     "reference_type": "github_reviewed_query_shared_curation_with_osv",
                     "by_package": {p: metrics([r for r in rows if r["package"] == p])
                                    for p in sorted({r["package"] for r in rows})}})
@@ -104,4 +112,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs", type=Path, default=ROOT / "benchmarks/reviewed-reference-v1")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--implementation", choices=["frozen", "current"], default="frozen")
     print(json.dumps(evaluate(**vars(parser.parse_args())), indent=2))
